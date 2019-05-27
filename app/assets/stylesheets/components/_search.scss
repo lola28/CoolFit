@@ -1,4 +1,4 @@
-.banner-container {
+.banner-search-container {
   text-align: center;
   margin-top: 20px;
 }
@@ -16,8 +16,17 @@
   color: $gray;
   border: none;
   border-radius: 25px;
+  font-size: 18px;
+}
 
-  p {
-    font-size: 20px;
-  }
+.navbar-search {
+  width: 40vh;
+  height: 5vh;
+  text-align: start;
+  padding-left: 15px;
+  background-color: $background-gray;
+  color: $gray;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
 }
