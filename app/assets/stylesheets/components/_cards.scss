@@ -1,4 +1,4 @@
-.card-activity {
+.card-index {
   overflow: hidden;
   height: 120px;
   background: white;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.card-activity-infos {
+.card-index-infos {
   padding: 16px;
 
   h3 {
@@ -15,8 +15,28 @@
   }
 }
 
-.card-activity-img {
+.card-index-img {
   height: 100%;
   width: 120px;
+  object-fit: cover;
+}
+
+.card-landing {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-landing-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-landing-img {
+  height: 200px;
+  width: 100%;
   object-fit: cover;
 }
