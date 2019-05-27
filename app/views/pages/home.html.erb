@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @categories.each do |category| %>
+
+  <h3> <span class="icon" style="background: url('<%= category.logo %>')"></span> <%= category.name %></h3>
+
+  <div class="cards">
+      <div class="card-landing">
+        <% if activity.photo_db.nil? %>
+          <%= cl_image_tag activity.photo_user, crop: :fill, gravity: :face, class: 'card-landing-img' %>
+        <% else %>
+          <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-landing-img' %>
+        <% end %>
+        <div class="card-landing-infos">
+          <h3><%= activity.name %></h3>
+        </div>
+      </div>
+  </div>
+
+<% end %>
+
