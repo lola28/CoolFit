@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:alert] = "Thanks for your feedback!"
-      redirect_to @activity
+      redirect_to activity_booking_path(@activity)
     else
       flash[:alert] = "Oops something went wrong!"
       render :new
