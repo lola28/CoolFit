@@ -13,8 +13,6 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true
   validates :age, presence: true
 
-end
-
 
 
   validates :first_name, presence: true
