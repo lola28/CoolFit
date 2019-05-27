@@ -1,0 +1,21 @@
+<!-- new.html.erb -->
+
+<!-- Will use that page until activity page is completed -->
+<!-- app/views/reviews/new -->
+<!-- ... -->
+<!-- ... -->
+<%= simple_form_for(@booking, html: { class: "booking_form" }) do |f| %>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+        <%= f.submit, class: "hidden"%>
+
+      <% end %>
+    </div>
+  </div>
+</div>

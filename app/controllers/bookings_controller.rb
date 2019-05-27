@@ -9,8 +9,10 @@ class BookingsController < ApplicationController
     @booking.activity = @activity
 
     if @booking.save
+      flash[:alert] = "Thanks for your feedback!"
       redirect_to @activity
     else
+      flash[:alert] = "Oops something went wrong!"
       render :new
     end
   end
@@ -18,6 +20,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:ratings)
+    params.require(:booking).permit(:rating)
   end
 end
