@@ -1,0 +1,22 @@
+.card-activity {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-activity-infos {
+  padding: 16px;
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.card-activity-img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
