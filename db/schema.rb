@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_144612) do
+ActiveRecord::Schema.define(version: 2019_05_27_160821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 2019_05_27_144612) do
     t.float "long"
     t.float "lat"
     t.string "name"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_activities_on_category_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_05_27_144612) do
   end
 
   add_foreign_key "activities", "categories"
+  add_foreign_key "activities", "users"
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
   add_foreign_key "interests", "activities"
