@@ -1,0 +1,23 @@
+.banner-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.banner-search-bar {
+  display: inline-block;
+}
+
+.banner-search {
+  width: 40vh;
+  height: 6vh;
+  text-align: start;
+  padding-left: 15px;
+  background-color: $background-gray;
+  color: $gray;
+  border: none;
+  border-radius: 25px;
+
+  p {
+    font-size: 20px;
+  }
+}

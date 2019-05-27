@@ -1,7 +1,20 @@
 <div class="banner">
   <div class="container">
-    <h1>Make friends. Boost your health. Join Coolfit</h1>
-    <p>Browse cool activities going on around you and join in!</p>
-    <a class="btn btn-flat" href="#">[PLaceHolder BTN]</a>
+
+    <div>
+      <h1>Make friends. Boost your health.<br />Join <span class="banner-logo"> Coolfit</span> </h1>
+      <h3>Browse cool activities going on around you and join in!</h3>
+    </div>
+
+    <div class="banner-container">
+      <div class="banner-search-bar">
+        <%= form_tag '#', method: :get, style:"width:100%" do %>
+        <%= text_field_tag :query,
+          params[:query], class: "form-control",
+          placeholder: "Type in your address...", class: "banner-search" %>
+          <%= submit_tag 'Search!', class: "btn btn-search" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,12 @@
+.btn-search {
+  font-size: 20px;
+  font-family: 'Exo 2', sans-serif;
+  background-color: $orange;
+  color: $background-gray;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.btn-search:hover {
+  transition-delay: s150ms;
+}
