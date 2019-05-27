@@ -1,8 +1,10 @@
 <% @categories.each do |category| %>
 
-  <h3> <span class="icon" style="background: url('<%= category.logo %>')"></span> <%= category.name %></h3>
+  <h3> <%= category.description %></h3>
 
   <div class="cards">
+    <% @activities.each do |activity| %>
+
       <div class="card-landing">
         <% if activity.photo_db.nil? %>
           <%= cl_image_tag activity.photo_user, crop: :fill, gravity: :face, class: 'card-landing-img' %>
@@ -13,7 +15,8 @@
           <h3><%= activity.name %></h3>
         </div>
       </div>
-  </div>
+
+    <% end %>
 
 <% end %>
 
