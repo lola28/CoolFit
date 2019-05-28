@@ -15,6 +15,15 @@
         <% end %>
         <div class="card-landing-infos">
           <p><%= activity.name %></p>
+          <p><%= image_tag activity.user.avatar, class: 'avatar' %></p>
+          <p>
+            <% activity.fitness_level.times.each do |level|%>
+              <i class="fas fa-running"></i>
+            <% end %>
+          </p>
+          <p>owner Ratings: <%= activity.owner.average_owner_rating %></p>
+          <br>
+
         </div>
       </div>
   <% end %>
@@ -35,6 +44,14 @@
         <% end %>
         <div class="card-landing-infos">
           <p><%= activity.name %></p>
+          <p><%= image_tag activity.user.avatar, class: 'avatar' %></p>
+          <p>
+            <% activity.fitness_level.times.each do |level|%>
+              <i class="fas fa-running"></i>
+            <% end %>
+          </p>
+          <p>owner Ratings: <%= activity.owner.average_owner_rating %></p>
+          <br>
         </div>
       </div>
   <% end %>
@@ -55,6 +72,16 @@
         <% end %>
         <div class="card-landing-infos">
           <p><%= activity.name %></p>
+
+          <p><%= image_tag activity.user.avatar, class: 'avatar' %></p>
+          <p>
+            <% activity.fitness_level.times.each do |level|%>
+              <i class="fas fa-running"></i>
+            <% end %>
+          </p>
+
+          <p>Owner Ratings: <%= activity.owner.average_owner_rating %></p>
+
         </div>
       </div>
   <% end %>

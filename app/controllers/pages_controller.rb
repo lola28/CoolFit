@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @top_category1 = top_categories[0][0]
     @top_category2 = top_categories[1][0]
     @top_category3 = top_categories[2][0]
+
   end
 
   def dashboard
@@ -29,3 +30,7 @@ class PagesController < ApplicationController
     end
   end
 end
+
+# To add avatar of organiser
+# >>  @top_category1.activities.first.photo_user
+
