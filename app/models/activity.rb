@@ -1,8 +1,8 @@
 class Activity < ApplicationRecord
   belongs_to :category
-  belongs_to :user
+  belongs_to :owner, class_name: "User", foreign_key: "user_id"
   has_many :interests, through: :users
-  has_many :bookings, through: :users
+  has_many :bookings
 
   validates :name, presence: true
   validates :location, presence: true
