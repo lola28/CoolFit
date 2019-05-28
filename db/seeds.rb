@@ -118,7 +118,30 @@ aphrodisiac = Health.create!(
 
 puts 'Creating activities...'
 
-activity = Activity.new(
+surf = Activity.new(
+  name: "Surf class at Carcavelos",
+  location: "Av. Marginal 6, 2775-604 Carcavelos",
+  latitude: 38.6266783,
+  longitude: -9.2183177,
+  time: ('2019-5-15-9-0-0'),
+  duration: 120,
+  fitness_level: 3,
+  description: "Wanna try surfing? Come to this session and enjoy the beach! Surf planks to be rent prior to the session. Meeting point at the surf stop",
+  photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg"
+  )
+  health_relation = HealthRelation.new
+  health_relation.activity = surf
+  health_relation.health = cardiovascular
+  health_relation.health = stress_relief
+  surf.category = endurance
+  surf.owner = vlad
+  surf.save!
+  booking = Booking.new
+  booking.activity = surf
+  booking.user = kaka
+  booking.user = alice
+
+  activity = Activity.new(
   name: "Yoga Bikram @Ministry of Yoga",
   location: "R. das Portas de Santo Antão 27 Floor 1, 1150-264 Lisboa",
   latitude: 38.7277216,
