@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
 
   resources :activities do
-    resources :bookings
+    # resources :bookings
     resources :interests
+    post 'booking', to: 'bookings#create'
+    delete 'booking', to: 'bookings#destroy'
   end
 
 end
