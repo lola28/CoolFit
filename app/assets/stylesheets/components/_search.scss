@@ -21,12 +21,14 @@
 
 .navbar-search {
   width: 40vh;
-  height: 5vh;
+  height: 4vh;
   text-align: start;
   padding-left: 15px;
-  background-color: $background-gray;
-  color: $gray;
+  background-color: $dark-gray;
+  color: $light-gray;
   border: none;
   border-radius: 25px;
   font-size: 16px;
+  margin-top: 20px;
+  outline: none;
 }

@@ -12,4 +12,18 @@ class Activity < ApplicationRecord
   validates :description, presence: true
   validates :photo_db, presence: true, unless: :photo_user?
   validates :photo_user, presence: true, unless: :photo_db?
+
+  include PgSearch
+  pg_search_scope :search_by_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_by_location,
+    against: [ :location ],
+    using: {
+      tsearch: { prefix: true }
+  }
+
 end
