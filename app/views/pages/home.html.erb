@@ -1,9 +1,11 @@
-<% @categories.each do |category| %>
+<h1>Top categories</h1>
 
-  <h3> <%= category.description %></h3>
+<br>
 
-  <div class="cards">
-    <% @activities.each do |activity| %>
+<h3> <%= @top_category1.description %></h3>
+
+<div class="cards">
+  <% @top_category1.activities.each do |activity| %>
 
       <div class="card-landing">
         <% if activity.photo_db.nil? %>
@@ -12,11 +14,57 @@
           <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-landing-img' %>
         <% end %>
         <div class="card-landing-infos">
-          <h3><%= activity.name %></h3>
+          <p><%= activity.name %></p>
         </div>
       </div>
+  <% end %>
+</div>
 
-    <% end %>
+<br>
 
-<% end %>
+<h3> <%= @top_category2.description %></h3>
+
+<div class="cards">
+  <% @top_category2.activities.each do |activity| %>
+
+      <div class="card-landing">
+        <% if activity.photo_db.nil? %>
+          <%= cl_image_tag activity.photo_user, crop: :fill, gravity: :face, class: 'card-landing-img' %>
+        <% else %>
+          <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-landing-img' %>
+        <% end %>
+        <div class="card-landing-infos">
+          <p><%= activity.name %></p>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<br>
+
+<h3> <%= @top_category3.description %></h3>
+
+<div class="cards">
+  <% @top_category3.activities.each do |activity| %>
+
+      <div class="card-landing">
+        <% if activity.photo_db.nil? %>
+          <%= cl_image_tag activity.photo_user, crop: :fill, gravity: :face, class: 'card-landing-img' %>
+        <% else %>
+          <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-landing-img' %>
+        <% end %>
+        <div class="card-landing-infos">
+          <p><%= activity.name %></p>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<br>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Browse more activities", activities_path, class:"btn btn-search"%>
+</div>
+
+
 
