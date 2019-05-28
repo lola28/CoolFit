@@ -13,6 +13,9 @@ class Activity < ApplicationRecord
   validates :photo_db, presence: true, unless: :photo_user?
   validates :photo_user, presence: true, unless: :photo_db?
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   include PgSearch
   pg_search_scope :search_by_name,
     against: [ :name ],
@@ -25,5 +28,4 @@ class Activity < ApplicationRecord
     using: {
       tsearch: { prefix: true }
   }
-
 end

@@ -5,6 +5,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .card-index-infos {
@@ -12,7 +14,12 @@
 
   h3 {
     font-size: 20px;
+    color: $gray;
   }
+}
+
+.cards-index a {
+  text-decoration: none;
 }
 
 .card-index-img {

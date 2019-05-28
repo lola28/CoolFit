@@ -1,3 +1,7 @@
+.index-container {
+  display: flex;
+}
+
 .page-wrapper{
   min-height: calc(100vh - 120px);
   overflow: auto;
@@ -17,13 +21,20 @@ h3 {
   display: block;
 }
 
-// CARDS INDEX
+// CARDS HOME
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
 }
+
+// CARDS INDEX
+
+.cards-index {
+  flex-grow: 1;
+}
+
 
 // MEDIA RESPONSIVENESS
 
