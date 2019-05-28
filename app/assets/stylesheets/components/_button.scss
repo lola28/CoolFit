@@ -10,3 +10,16 @@
 .btn-search:hover {
   transition-delay: s150ms;
 }
+
+.btn-search-navbar {
+  font-size: 16px;
+  font-family: 'Exo 2', sans-serif;
+  background-color: $orange;
+  color: $background-gray;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+.btn-search-navbar:hover {
+  transition-delay: s150ms;
+}

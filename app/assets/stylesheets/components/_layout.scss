@@ -1,5 +1,5 @@
 .page-wrapper{
-  min-height: calc(100vh - 190px);
+  min-height: calc(100vh - 120px);
   overflow: auto;
 }
 
@@ -9,4 +9,50 @@ h1 {
 
 h3 {
   font-size: 34px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  display: block;
+}
+
+// CARDS INDEX
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+
+// MEDIA RESPONSIVENESS
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards#landing {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .cards#landing {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .cards#landing {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .cards#landing {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards#landing {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

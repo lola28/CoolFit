@@ -1,25 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Activities</h1>
+<div class="cards">
+  <% @activities.each do |activity| %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="card-index">
+      <% if activity.photo_db.nil? %>
+        <%= cl_image_tag activity.photo_user, crop: :fill, gravity: :face, class: 'card-index-img' %>
+      <% else %>
+        <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-index-img' %>
+      <% end %>
+      <div class="card-index-infos">
+        <h3><%= activity.name %></h3>
+      </div>
+    </div>
 
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% end %>
+</div>
 
-<br>
-
-<%= link_to 'New Activity', new_activity_path %>
