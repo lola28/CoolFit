@@ -236,4 +236,10 @@ activity = Activity.new(
   activity.category = team_sport
   activity.user = vlad
   activity.save!
+  ### fake booking
+puts 'fake booking'
+  booking = Booking.new
+  booking.user = kaka
+  booking.activity = activity
+  booking.save
 puts 'Finished!'
