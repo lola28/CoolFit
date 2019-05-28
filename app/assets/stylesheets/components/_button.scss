@@ -25,3 +25,19 @@
 .btn-search-navbar:hover {
   transition-delay: s150ms;
 }
+
+.admin-btn {
+  font-size: 14px;
+  font-family: 'Exo 2', sans-serif;
+  background-color: $dark-gray;
+  color: $background-gray;
+  width: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  filter: brightness(95%);
+}
+
+.admin-btn:hover {
+  color: $orange;
+  transition-delay: s150ms;
+}

@@ -17,6 +17,23 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+
+  def average_owner_rating
+    # ratings of this specific user
+    # self.bookings.map(&:rating)
+
+    ratings = activities.map(&:bookings).flatten.map(&:rating)
+    ratings.sum / ratings.size
+
+    # ....
+  end
+
+  def my_ratings
+    ratings = bookings.map(&:rating)
+    ratings.sum / ratings.size
+  end
+
 end
 
 

@@ -1,0 +1,39 @@
+.form-title{
+  font-family:$headers-font;
+  color: $light-gray;
+  text-align: center;
+  padding-top: 5vh;
+}
+
+.devise-background {
+  background-image: linear-gradient( rgba(0,0,0,0.1),rgba(0,0,0,0.1) ),asset-url('sports_mosaic.jpg')
+}
+
+.form-inputs {
+  color: $light-gray;
+  font-family: $body-font;
+
+}
+
+.container-sign{
+  width: 80vh;
+}
+
+.or-text{
+  text-align: center;
+  color: $light-gray;
+  font-family: $body-font;
+}
+
+.hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.text-central{
+  text-align: center;
+}
