@@ -34,7 +34,6 @@ class BookingsController < ApplicationController
     @activity = Activity.find(params[:activity_id])
     @booking = Booking.find(params[:id])
     authorize @booking
-
   end
 
   private

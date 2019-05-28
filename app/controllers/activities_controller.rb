@@ -76,6 +76,10 @@ class ActivitiesController < ApplicationController
       redirect_to activities_path notice: "You have just deleted an Activity"
     end
 
+    def adding_rating
+      @activity.bookings
+    end
+
   private
     def activity_params
       params.require(:activity).permit(:name, :location, :fitness_level, :price, :time, :duration, :descirption, :photo_user, :photo_db)
