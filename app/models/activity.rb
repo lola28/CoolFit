@@ -3,6 +3,8 @@ class Activity < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
   has_many :interests, through: :users
   has_many :bookings
+  has_many :health_relations
+  has_many :healths, through: :health_relations
 
   validates :name, presence: true
   validates :location, presence: true
