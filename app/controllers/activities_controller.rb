@@ -14,8 +14,19 @@ class ActivitiesController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity })
       }
     end
-  end
 
+    if params[:activity_query].present?
+      @activities = @activities.search_by_name(params[:activity_query])
+    end
+
+    if params[:location_query].present?
+      @activities = @activities.search_by_location(params[:location_query])
+    end
+
+    if @activities.empty?
+      flash[:notice] = "😥 There is nothing corresponding to your search, please try again!"
+    end
+  end
   # GET /activities/1
   # GET /activities/1.json
   def show
@@ -31,7 +42,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1/edit
   def edit
      @activity = Activity.find(params[:id])
-    authorize @activity
+     authorize @activity
   end
 
   # POST /activities

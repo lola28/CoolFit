@@ -5,3 +5,11 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
+
+
+import "jquery-bar-rating/dist/themes/css-stars.css"
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
+
