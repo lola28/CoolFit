@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get 'bookings/update'
 
   resources :activities do
     resources :bookings
