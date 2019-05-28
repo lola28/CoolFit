@@ -1,3 +1,3 @@
 class Health < ApplicationRecord
-  validates :description
+  validates :description, presence: true
 end
