@@ -23,7 +23,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1/edit
   def edit
      @activity = Activity.find(params[:id])
-    authorize @activity
+     authorize @activity
   end
 
   # POST /activities
