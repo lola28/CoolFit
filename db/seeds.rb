@@ -290,7 +290,7 @@ activity = Activity.new(
   activity.user = vlad
   activity.save!
 
-  activity = Activity.new(
+activity = Activity.new(
   name: "Hip Hop in Principe Real",
   location: "R. da Escola Politécnica 56/58, 1250-102 Lisboa",
   # lat: 38.7521753,
@@ -310,7 +310,7 @@ activity = Activity.new(
   activity.user = frankie
   activity.save!
 
-  activity = Activity.new(
+activity = Activity.new(
   name: "Himalaya dynamo cycling",
   location: "R. de Campolide 237, 1070-030 Lisboa",
   # lat: 38.73674,
@@ -328,5 +328,12 @@ activity = Activity.new(
   activity.category = endurance
   activity.user = frankie
   activity.save!
+
+  ### fake booking
+puts 'fake booking'
+  booking = Booking.new
+  booking.user = kaka
+  booking.activity = activity
+  booking.save!
 
 puts 'Finished!'

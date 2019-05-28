@@ -1,6 +1,7 @@
 .navbar-coolfit {
   justify-content: space-between;
   background: $gray;
+  height: 70px;
 }
 
 .navbar-coolfit .navbar-collapse {
@@ -13,3 +14,14 @@ a.navbar-logo:hover {
 }
 
 
+.navbar ul {
+  display: inline-block;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li + li {
+  margin-left: 20px;
+}
