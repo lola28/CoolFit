@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @user_activities = policy_scope(Activity).where(user: current_user)
+    @user_activities = policy_scope(Activity).where(owner: current_user)
     # @user_interests = policy_scope(Interest).where(user: current_user)
     user_bookings = policy_scope(Booking).where(user: current_user)
 
