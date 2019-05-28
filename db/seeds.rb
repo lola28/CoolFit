@@ -134,7 +134,7 @@ activity = Activity.new(
   health_relation.health = aphrodisiac
   health_relation.health = stress_relief
   activity.category = flexibility
-  activity.user = frankie
+  activity.owner = frankie
   activity.save!
 
 activity = Activity.new(
@@ -153,7 +153,7 @@ activity = Activity.new(
   health_relation.health = cognitive
   health_relation.health = stress_relief
   activity.category = endurance
-  activity.user = alice
+  activity.owner = alice
   activity.save!
 
 activity = Activity.new(
@@ -172,7 +172,7 @@ activity = Activity.new(
   health_relation.health = aphrodisiac
   health_relation.health = cardiovascular
   activity.category = booty_shake
-  activity.user = frankie
+  activity.owner = frankie
   activity.save!
 
 activity = Activity.new(
@@ -191,7 +191,7 @@ activity = Activity.new(
   health_relation.health = cardiovascular
   health_relation.health = stress_relief
   activity.category = endurance
-  activity.user = vlad
+  activity.owner = vlad
   activity.save!
 
 activity = Activity.new(
@@ -211,7 +211,7 @@ activity = Activity.new(
   health_relation.health = energy_boost
   health_relation.health = aphrodisiac
   activity.category = booty_shake
-  activity.user = frankie
+  activity.owner = frankie
   activity.save!
 
 activity = Activity.new(
@@ -230,7 +230,7 @@ activity = Activity.new(
   health_relation.health = cardiovascular
   health_relation.health = energy_boost
   activity.category = strength
-  activity.user = vlad
+  activity.owner = vlad
   activity.save!
 
 activity = Activity.new(
@@ -249,7 +249,7 @@ activity = Activity.new(
   health_relation.health = cardiovascular
   health_relation.health = energy_boost
   activity.category = team_sport
-  activity.user = vlad
+  activity.owner = vlad
   activity.save!
 
 activity = Activity.new(
@@ -268,7 +268,7 @@ activity = Activity.new(
   health_relation.health = cardiovascular
   health_relation.health = energy_boost
   activity.category = team_sport
-  activity.user = vlad
+  activity.owner = vlad
   activity.save!
 
 activity = Activity.new(
@@ -287,7 +287,7 @@ activity = Activity.new(
   health_relation.health = cardiovascular
   health_relation.health = energy_boost
   activity.category = team_sport
-  activity.user = vlad
+  activity.owner = vlad
   activity.save!
 
 activity = Activity.new(
@@ -307,7 +307,7 @@ activity = Activity.new(
   health_relation.health = energy_boost
   health_relation.health = aphrodisiac
   activity.category = booty_shake
-  activity.user = frankie
+  activity.owner = frankie
   activity.save!
 
 activity = Activity.new(
@@ -326,14 +326,23 @@ activity = Activity.new(
   health_relation.health = cardiovascular
   health_relation.health = energy_boost
   activity.category = endurance
-  activity.user = frankie
+  activity.owner = frankie
   activity.save!
+  # booking = Booking.new
+  # booking.user = kaka
+  # booking.activity = activity
+  # booking.rating = rand(5)
+  # booking.save!
 
-  ### fake booking
-puts 'fake booking'
-  booking = Booking.new
-  booking.user = kaka
-  booking.activity = activity
-  booking.save!
+  Activity.all.each do |a|
+    15.times do
+      booking = Booking.new
+      booking.user = User.all.sample
+      booking.activity = a
+      booking.rating = rand(1..5)
+      booking.save!
+    end
+  end
+
 
 puts 'Finished!'
