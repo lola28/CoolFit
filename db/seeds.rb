@@ -26,7 +26,7 @@ kaka = User.create!(
   physical_activity: :low,
   description: "Very happy to start to workout again! I especially love ping-pong and beach volley",
   professional: false,
-  avatar: "http://i.huffpost.com/gen/1853815/images/n-COLLEGEHUMOR-large570.jpg"
+  avatar: "http://i.huffpost.com/gen/1853815/images/n-COLLEGEHUMOR-large570.jpg",
   )
 alice = User.create!(
   first_name: "Alice",
@@ -38,7 +38,7 @@ alice = User.create!(
   physical_activity: :moderate,
   description: "Hi everybody, I am looking for new yoga classes and I would be very happy to discover them with you!",
   professional: false,
-  avatar: "https://gal.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgal.2F2019.2F05.2F18.2F0bd86994-eeea-485f-98fc-7c304a273585.2Ejpeg/480x480/quality/80/photos-cannes-2019-monica-bellucci-fait-crepiter-les-flashs-avec-un-decollete-hypnotisant.jpg"
+  avatar: "https://gal.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgal.2F2019.2F05.2F18.2F0bd86994-eeea-485f-98fc-7c304a273585.2Ejpeg/480x480/quality/80/photos-cannes-2019-monica-bellucci-fait-crepiter-les-flashs-avec-un-decollete-hypnotisant.jpg",
   )
 vlad = User.create!(
   first_name: "Vladimir",
@@ -50,8 +50,9 @@ vlad = User.create!(
   physical_activity: :vigorous,
   description: "Looking for good-looking ladies to go surfing with me 😎 ",
   professional: false,
-  avatar: "https://c8.alamy.com/compes/pne7k7/prod-db-e-araquel-egoli-tossell-film-erfttal-film-pantalla-siren-fotos-dr-hector-et-la-recherche-du-bonheur-hector-y-la-busqueda-de-la-felicidad-de-peter-chelsom-2014-todoscangbafr-du-sud-avec-christopher-plummer-retrato-vieux-surfeur-planche-de-surf-daprs-le-roman-de-franois-lelord-le-voyage-dhector-ou-la-recherche-de-bonheur-pne7k7.jpg"
+  avatar: "https://c8.alamy.com/compes/pne7k7/prod-db-e-araquel-egoli-tossell-film-erfttal-film-pantalla-siren-fotos-dr-hector-et-la-recherche-du-bonheur-hector-y-la-busqueda-de-la-felicidad-de-peter-chelsom-2014-todoscangbafr-du-sud-avec-christopher-plummer-retrato-vieux-surfeur-planche-de-surf-daprs-le-roman-de-franois-lelord-le-voyage-dhector-ou-la-recherche-de-bonheur-pne7k7.jpg",
   )
+
 frankie = User.create!(
   first_name: "Francesca",
   last_name: "Ingleson",
@@ -62,9 +63,11 @@ frankie = User.create!(
   physical_activity: :vigorous,
   description: "Let's shake our booties together ladies! ",
   professional: true,
-  avatar: "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555434014/shape/mentalfloss/fonda.png?itok=tYLCDXlS"
+  avatar: "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555434014/shape/mentalfloss/fonda.png?itok=tYLCDXlS",
   )
+
 puts 'Creating categories...'
+
 endurance = Category.create!(
   description: "Endurance",
   logo: "https://static.thenounproject.com/png/987633-200.png"
@@ -89,6 +92,7 @@ booty_shake = Category.create!(
   description: "Booty shake",
   logo: "https://static.thenounproject.com/png/12712-200.png"
   )
+
 puts 'Creating health benefits...'
 
 cognitive = Health.create!(
@@ -118,7 +122,7 @@ aphrodisiac = Health.create!(
 
 puts 'Creating activities...'
 
-surf = Activity.new(
+surf = Activity.create(
   name: "Surf class at Carcavelos",
   location: "Av. Marginal 6, 2775-604 Carcavelos",
   latitude: 38.6266783,
@@ -127,21 +131,18 @@ surf = Activity.new(
   duration: 120,
   fitness_level: 3,
   description: "Wanna try surfing? Come to this session and enjoy the beach! Surf planks to be rent prior to the session. Meeting point at the surf stop",
-  photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg"
+  photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg",
+  category: endurance,
+  owner: vlad
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = surf
-  health_relation.health = cardiovascular
-  health_relation.health = stress_relief
-  surf.category = endurance
-  surf.owner = vlad
-  surf.save!
+  surf.health_relations.create(health: cardiovascular)
+  surf.health_relations.create(health: stress_relief)
   booking = Booking.new
   booking.activity = surf
   booking.user = kaka
   booking.user = alice
 
-  activity = Activity.new(
+  activity = Activity.create(
   name: "Yoga Bikram @Ministry of Yoga",
   location: "R. das Portas de Santo Antão 27 Floor 1, 1150-264 Lisboa",
   latitude: 38.7277216,
@@ -150,17 +151,14 @@ surf = Activity.new(
   duration: 90,
   fitness_level: 3,
   description: "Yoga Bikram is made for you if you want to sweat in a relaxing environment. Meeting at Ministry of yoga",
-  photo_db: "https://img.grouponcdn.com/deal/KnjLRN3aByLDyNaZRYmzXucTo2r/Kn-1500x900/v1/c700x420.jpg"
+  photo_db: "https://img.grouponcdn.com/deal/KnjLRN3aByLDyNaZRYmzXucTo2r/Kn-1500x900/v1/c700x420.jpg",
+  category: flexibility,
+  owner: frankie
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = aphrodisiac
-  health_relation.health = stress_relief
-  activity.category = flexibility
-  activity.owner = frankie
-  activity.save!
+  activity.health_relations.create(health: aphrodisiac)
+  activity.health_relations.create(health: stress_relief)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Meditation walk in Gulbenkian Park",
   location: "Avenida de Berna 45, 1050-078 Lisboa",
   latitude: 38.73674,
@@ -169,17 +167,14 @@ activity = Activity.new(
   duration: 60,
   fitness_level: 1,
   description: "Let's meet all together for a meditative walk in the park! The session will be divided into 2 parts: 40 minutes of active walk followed by a meditation session.",
-  photo_db: "https://www.redbridge.gov.uk/media/5188/walk-to-health-summer-1140x500.jpg"
+  photo_db: "https://www.redbridge.gov.uk/media/5188/walk-to-health-summer-1140x500.jpg",
+  category: endurance,
+  owner: alice
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cognitive
-  health_relation.health = stress_relief
-  activity.category = endurance
-  activity.owner = alice
-  activity.save!
+  activity.health_relations.create(health: cognitive)
+activity.health_relations.create(health: stress_relief)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Zumba class @Le Wagon",
   location: "Rua do Conde de Redondo 91B, 1150-103 Lisboa",
   latitude: 38.7521753,
@@ -188,17 +183,14 @@ activity = Activity.new(
   duration: 60,
   fitness_level: 2,
   description: "This is a perfect activity to pratice with fun music!",
-  photo_db: "https://previews.123rf.com/images/kzenon/kzenon1410/kzenon141000291/32939198-groupe-d-hommes-et-de-femmes-qui-dansent-zumba-fitness-chor%C3%A9graphie-%C3%A0-l-%C3%A9cole-de-danse.jpg"
+  photo_db: "https://previews.123rf.com/images/kzenon/kzenon1410/kzenon141000291/32939198-groupe-d-hommes-et-de-femmes-qui-dansent-zumba-fitness-chor%C3%A9graphie-%C3%A0-l-%C3%A9cole-de-danse.jpg",
+  category: booty_shake,
+  owner: frankie
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = aphrodisiac
-  health_relation.health = cardiovascular
-  activity.category = booty_shake
-  activity.owner = frankie
-  activity.save!
+  activity.health_relations.create(health: cardiovascular)
+  activity.health_relations.create(health: aphrodisiac)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Surf class at Carcavelos",
   location: "Av. Marginal 6, 2775-604 Carcavelos",
   latitude: 38.6266783,
@@ -207,17 +199,15 @@ activity = Activity.new(
   duration: 120,
   fitness_level: 3,
   description: "Wanna try surfing? Come to this session and enjoy the beach! Surf planks to be rent prior to the session. Meeting point at the surf stop",
-  photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg"
-  )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = stress_relief
-  activity.category = endurance
-  activity.owner = vlad
-  activity.save!
+  photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg",
+  category: endurance,
+  owner: vlad
+)
+activity.health_relations.create(health: cardiovascular)
+activity.health_relations.create(health: stress_relief)
 
-activity = Activity.new(
+
+activity = Activity.create(
   name: "Afro Dance at Fit Place Benfica",
   location: "Avenida do Uruguai 20A, 1500-613 Lisboa",
   latitude: 38.7521753,
@@ -226,18 +216,15 @@ activity = Activity.new(
   duration: 60,
   fitness_level: 2,
   description: "Initiation to African dance. Next theme: Mozambic dance!",
-  photo_db: "http://nebula.wsimg.com/c85183f1044cd015bc48718585dc823a?AccessKeyId=88507A2F19ED52F3C364&disposition=0&alloworigin=1"
+  photo_db: "http://nebula.wsimg.com/c85183f1044cd015bc48718585dc823a?AccessKeyId=88507A2F19ED52F3C364&disposition=0&alloworigin=1",
+  category: booty_shake,
+  owner: frankie
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = energy_boost
-  health_relation.health = aphrodisiac
-  activity.category = booty_shake
-  activity.owner = frankie
-  activity.save!
+  activity.health_relations.create(health: cardiovascular)
+  activity.health_relations.create(health: energy_boost)
+  activity.health_relations.create(health: aphrodisiac)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Bodybuilding at Praia da Rainha",
   location: "Largo da Praia da Rainha 121, 2750-642 Cascais",
   latitude: 38.6968919,
@@ -246,17 +233,13 @@ activity = Activity.new(
   duration: 45,
   fitness_level: 2,
   description: "Do you want to get your summer body ready? Let's try this easy bodysculpting session!",
-  photo_db: "http://northrustico.com/wp-content/uploads/2018/05/healthy-lifestyle-lounge-beach-workout-port-melbou21.jpg"
-  )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = energy_boost
-  activity.category = strength
-  activity.owner = vlad
-  activity.save!
+  photo_db: "http://northrustico.com/wp-content/uploads/2018/05/healthy-lifestyle-lounge-beach-workout-port-melbou21.jpg",
+  category: strength,
+  owner: vlad)
+  activity.health_relations.create(health: energy_boost)
+  activity.health_relations.create(health: cardiovascular)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Beach volley initiation",
   location: "Largo da Estação, 2750-340 Cascais",
   latitude: 38.6968919,
@@ -265,17 +248,15 @@ activity = Activity.new(
   duration: 60,
   fitness_level: 1,
   description: "Want to impress your friends during your next vacations? Let's learn beach volley all together! Meeting point at Cascais train station ",
-  photo_db: "https://www.pgvb.fr/media/uploaded/sites/8841/actualite/59042ff349574_untournoitresreussidebeachvolleyaportandro3037090.jpg"
+  photo_db: "https://www.pgvb.fr/media/uploaded/sites/8841/actualite/59042ff349574_untournoitresreussidebeachvolleyaportandro3037090.jpg",
+  category: team_sport,
+  owner: vlad
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = energy_boost
-  activity.category = team_sport
-  activity.owner = vlad
-  activity.save!
+  health_relation = HealthRelation.create
+  activity.health_relations.create(health: energy_boost)
+  activity.health_relations.create(health: cardiovascular)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Football in Eduardo VII park",
   location: "Alameda Edgar Cardoso, 1070-051 Lisboa",
   latitude: 38.6968919,
@@ -284,17 +265,14 @@ activity = Activity.new(
   duration: 60,
   fitness_level: 1,
   description: "A fun initiation to football. Bring your sports shoes!",
-  photo_db: "https://cdn-s3.si.com/s3fs-public/styles/marquee_large_2x/public/2018/07/15/france-wins-world-cup-straus.jpg?itok=pANlO3iM"
+  photo_db: "https://cdn-s3.si.com/s3fs-public/styles/marquee_large_2x/public/2018/07/15/france-wins-world-cup-straus.jpg?itok=pANlO3iM",
+  category: team_sport,
+  owner: vlad
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = energy_boost
-  activity.category = team_sport
-  activity.owner = vlad
-  activity.save!
+  activity.health_relations.create(health: energy_boost)
+  activity.health_relations.create(health: cardiovascular)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Initiation to synchronized swimming",
   location: "Portugal, Campo de Santa Clara 33, Lisboa",
   latitude: 38.6968919,
@@ -303,17 +281,14 @@ activity = Activity.new(
   duration: 60,
   fitness_level: 1,
   description: "Let's build a team and participate to the synchronized swimming world cup!",
-  photo_db: "https://images.radio-canada.ca/q_auto,w_1600/v1/ici-regions/16x9/le_grand_bain_homme_slip.jpg"
+  photo_db: "https://images.radio-canada.ca/q_auto,w_1600/v1/ici-regions/16x9/le_grand_bain_homme_slip.jpg",
+  category: team_sport,
+  owner: vlad
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = energy_boost
-  activity.category = team_sport
-  activity.owner = vlad
-  activity.save!
+  activity.health_relations.create(health: energy_boost)
+  activity.health_relations.create(health: cardiovascular)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Hip Hop in Principe Real",
   location: "R. da Escola Politécnica 56/58, 1250-102 Lisboa",
   latitude: 38.7521753,
@@ -322,18 +297,15 @@ activity = Activity.new(
   duration: 60,
   fitness_level: 2,
   description: "Want to improve your street cred? Let's dance! Meeting at botanical garden entrance.",
-  photo_db: "https://i.ytimg.com/vi/bOMRQFtqDK4/maxresdefault.jpg"
+  photo_db: "https://i.ytimg.com/vi/bOMRQFtqDK4/maxresdefault.jpg",
+  category: booty_shake,
+  owner: frankie
   )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = energy_boost
-  health_relation.health = aphrodisiac
-  activity.category = booty_shake
-  activity.owner = frankie
-  activity.save!
+  activity.health_relations.create(health: energy_boost)
+  activity.health_relations.create(health: cardiovascular)
+  activity.health_relations.create(health: aphrodisiac)
 
-activity = Activity.new(
+activity = Activity.create(
   name: "Himalaya dynamo cycling",
   location: "R. de Campolide 237, 1070-030 Lisboa",
   latitude: 38.73674,
@@ -342,20 +314,11 @@ activity = Activity.new(
   duration: 40,
   fitness_level: 3,
   description: "Let's climb the world's highest mountain together! Meeting at UVP - Federação Portuguesa Ciclismo and don't bring sport shoes!",
-  photo_db: "http://www.allaroundthegirl.com/wp-content/uploads/2017/01/dynamo-cycling-paris-avis.jpg"
-  )
-  health_relation = HealthRelation.new
-  health_relation.activity = activity
-  health_relation.health = cardiovascular
-  health_relation.health = energy_boost
-  activity.category = endurance
-  activity.owner = frankie
-  activity.save!
-  # booking = Booking.new
-  # booking.user = kaka
-  # booking.activity = activity
-  # booking.rating = rand(5)
-  # booking.save!
+  photo_db: "http://www.allaroundthegirl.com/wp-content/uploads/2017/01/dynamo-cycling-paris-avis.jpg",
+  category: endurance,
+  owner: frankie)
+  activity.health_relations.create(health: energy_boost)
+  activity.health_relations.create(health: cardiovascular)
 
   Activity.all.each do |a|
     15.times do
@@ -366,6 +329,5 @@ activity = Activity.new(
       booking.save!
     end
   end
-
 
 puts 'Finished!'
