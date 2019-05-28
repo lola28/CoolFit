@@ -5,12 +5,12 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = policy_scope(Activity).where.not(lat: nil, long: nil)
+    @activities = policy_scope(Activity).where.not(latitude: nil, longitude: nil)
 
     @markers = @activities.map do |activity|
       {
-        lat: activity.lat,
-        lng: activity.long,
+        lat: activity.latitude,
+        lng: activity.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity })
       }
     end
