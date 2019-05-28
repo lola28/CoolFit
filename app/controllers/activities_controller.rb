@@ -7,6 +7,12 @@ class ActivitiesController < ApplicationController
   def index
     @activities = policy_scope(Activity).where.not(latitude: nil, longitude: nil)
 
+    @user_interests = []
+    @activities.each do |activity|
+      interests = policy_scope(Interest).where({ activity: activity, user: current_user })
+      @user_interests << interests.first if !interests.first.nil?
+    end
+
     @markers = @activities.map do |activity|
       {
         lat: activity.latitude,
@@ -36,7 +42,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
-    authorze @activity
+    authorize @activity
   end
 
   # GET /activities/1/edit
