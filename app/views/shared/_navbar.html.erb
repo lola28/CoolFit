@@ -1,12 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-coolfit">
   <%= link_to "CoolFit", "#", class: "navbar-logo" %>
 
-    <div>
+    <div class="navbar flex flex-horizontal-center">
       <%= form_tag '#', method: :get, style:"width:100%" do %>
-      <%= text_field_tag :query,
-        params[:query], class: "form-control",
-        placeholder: "Type in your address...", class: "navbar-search" %>
-        <%= submit_tag 'Search!', class: "btn btn-search-navbar" %>
+        <ul>
+          <li class="navitem">
+            <%= text_field_tag :location_query,
+              params[:location_query], class: "form-control",
+              placeholder: "Type in your address...", class: "navbar-search" %>
+          </li>
+          <li class="navitem">
+            <%= text_field_tag :activity_query,
+              params[:activity_query], class: "form-control",
+              placeholder: "Type in the type of activity...", class: "navbar-search" %>
+            <%= submit_tag 'Search!', class: "btn btn-search-navbar" %>
+          </li>
+        </ul>
       <% end %>
     </div>
 

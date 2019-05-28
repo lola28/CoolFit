@@ -6,8 +6,19 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = policy_scope(Activity).all
-  end
 
+    if params[:activity_query].present?
+      @activities = @activities.search_by_name(params[:activity_query])
+    end
+
+    if params[:location_query].present?
+      @activities = @activities.search_by_location(params[:location_query])
+    end
+
+    if @activities.empty?
+      flash[:notice] = "😥 There is nothing corresponding to your search, please try again!"
+    end
+  end
   # GET /activities/1
   # GET /activities/1.json
   def show
