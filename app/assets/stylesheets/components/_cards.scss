@@ -1,3 +1,5 @@
+// INDEX
+
 .card-index {
   overflow: hidden;
   height: 120px;
@@ -27,6 +29,22 @@
   width: 120px;
   object-fit: cover;
 }
+
+// DASHBOARD
+
+.card-dashboard {
+  display: flex;
+}
+
+.card-btns {
+  display: flex;
+  margin-left: 30px;
+  margin-right: 30px;
+  flex-direction: column;
+  align-self: center;
+}
+
+// LANDING
 
 .card-landing {
   overflow: hidden;
