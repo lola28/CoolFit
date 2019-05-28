@@ -5,7 +5,15 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = policy_scope(Activity).all
+    @activities = policy_scope(Activity).where.not(lat: nil, long: nil)
+
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.lat,
+        lng: activity.long,
+        infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity })
+      }
+    end
   end
 
   # GET /activities/1
