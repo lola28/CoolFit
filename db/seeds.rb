@@ -1,5 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# The data can then be loaded with the rails db:seed command (or created alongitudeside the database with db:setup).
 #
 # Examples:
 #
@@ -121,8 +121,8 @@ puts 'Creating activities...'
 activity = Activity.new(
   name: "Yoga Bikram @Ministry of Yoga",
   location: "R. das Portas de Santo Antão 27 Floor 1, 1150-264 Lisboa",
-  # lat: 38.7277216,
-  # long: -9.1431199,
+  latitude: 38.7277216,
+  longitude: -9.1431199,
   time: ('2019-6-8-18-0-0'),
   duration: 90,
   fitness_level: 3,
@@ -140,8 +140,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Meditation walk in Gulbenkian Park",
   location: "Avenida de Berna 45, 1050-078 Lisboa",
-  # lat: 38.73674,
-  # long: -9.1540528212584,
+  latitude: 38.73674,
+  longitude: -9.1540528212584,
   time: ('2019-6-10-17-0-0'),
   duration: 60,
   fitness_level: 1,
@@ -159,8 +159,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Zumba class @Le Wagon",
   location: "Rua do Conde de Redondo 91B, 1150-103 Lisboa",
-  # lat: 38.7521753,
-  # long: -9.1971941,
+  latitude: 38.7521753,
+  longitude: -9.1971941,
   time: ('2019-6-11-11-11-0'),
   duration: 60,
   fitness_level: 2,
@@ -178,8 +178,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Surf class at Carcavelos",
   location: "Av. Marginal 6, 2775-604 Carcavelos",
-  # lat: 38.6266783,
-  # long: -9.2183177,
+  latitude: 38.6266783,
+  longitude: -9.2183177,
   time: ('2019-6-12-9-0-0'),
   duration: 120,
   fitness_level: 3,
@@ -197,8 +197,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Afro Dance at Fit Place Benfica",
   location: "Avenida do Uruguai 20A, 1500-613 Lisboa",
-  # lat: 38.7521753,
-  # long: -9.1971941,
+  latitude: 38.7521753,
+  longitude: -9.1971941,
   time: ('2019-6-12-11-0-0'),
   duration: 60,
   fitness_level: 2,
@@ -217,8 +217,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Bodybuilding at Praia da Rainha",
   location: "Largo da Praia da Rainha 121, 2750-642 Cascais",
-  # lat: 38.6968919,
-  # long: -9.4204495,
+  latitude: 38.6968919,
+  longitude: -9.4204495,
   time: ('2019-6-13-9-0-0'),
   duration: 45,
   fitness_level: 2,
@@ -236,8 +236,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Beach volley initiation",
   location: "Largo da Estação, 2750-340 Cascais",
-  # lat: 38.6968919,
-  # long: -9.4204495,
+  latitude: 38.6968919,
+  longitude: -9.4204495,
   time: ('2019-6-15-10-0-0'),
   duration: 60,
   fitness_level: 1,
@@ -255,8 +255,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Football in Eduardo VII park",
   location: "Alameda Edgar Cardoso, 1070-051 Lisboa",
-  # lat: 38.6968919,
-  # long: -9.4204495,
+  latitude: 38.6968919,
+  longitude: -9.4204495,
   time: ('2019-6-17-11-0-0'),
   duration: 60,
   fitness_level: 1,
@@ -274,8 +274,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Initiation to synchronized swimming",
   location: "Portugal, Campo de Santa Clara 33, Lisboa",
-  # lat: 38.6968919,
-  # long: -9.4204495,
+  latitude: 38.6968919,
+  longitude: -9.4204495,
   time: ('2019-6-17-11-0-0'),
   duration: 60,
   fitness_level: 1,
@@ -293,8 +293,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Hip Hop in Principe Real",
   location: "R. da Escola Politécnica 56/58, 1250-102 Lisboa",
-  # lat: 38.7521753,
-  # long: -9.1971941,
+  latitude: 38.7521753,
+  longitude: -9.1971941,
   time: ('2019-6-13-18-0-0'),
   duration: 60,
   fitness_level: 2,
@@ -313,8 +313,8 @@ activity = Activity.new(
 activity = Activity.new(
   name: "Himalaya dynamo cycling",
   location: "R. de Campolide 237, 1070-030 Lisboa",
-  # lat: 38.73674,
-  # long: -9.1540528212584,
+  latitude: 38.73674,
+  longitude: -9.1540528212584,
   time: ('2019-6-20-11-0-0'),
   duration: 40,
   fitness_level: 3,
