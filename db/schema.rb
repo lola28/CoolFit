@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_160821) do
+ActiveRecord::Schema.define(version: 2019_05_28_093420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,21 @@ ActiveRecord::Schema.define(version: 2019_05_27_160821) do
     t.string "logo"
   end
 
+  create_table "health_relations", force: :cascade do |t|
+    t.bigint "activity_id"
+    t.bigint "health_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_health_relations_on_activity_id"
+    t.index ["health_id"], name: "index_health_relations_on_health_id"
+  end
+
+  create_table "healths", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "interests", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "activity_id"
@@ -59,6 +74,14 @@ ActiveRecord::Schema.define(version: 2019_05_27_160821) do
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_interests_on_activity_id"
     t.index ["user_id"], name: "index_interests_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_messages_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,6 +108,9 @@ ActiveRecord::Schema.define(version: 2019_05_27_160821) do
   add_foreign_key "activities", "users"
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
+  add_foreign_key "health_relations", "activities"
+  add_foreign_key "health_relations", "healths"
   add_foreign_key "interests", "activities"
   add_foreign_key "interests", "users"
+  add_foreign_key "messages", "bookings"
 end
