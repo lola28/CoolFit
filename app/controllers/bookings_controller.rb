@@ -6,9 +6,9 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.save
 
-    # @interests = current_user.interests
-    # @interest = @interests.select { |interest| interest.activity == @activity }
-    # @interest.first.destroy
+    interests = current_user.interests
+    @interest = interests.select { |interest| interest.activity == @activity }
+    @interest.first.destroy
 
     redirect_to request.referrer
   end

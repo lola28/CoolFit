@@ -41,3 +41,13 @@
   color: $orange;
   transition-delay: s150ms;
 }
+
+.sign-in-btn {
+  font-size: 18px;
+  font-family: 'Exo 2', sans-serif;
+  color: $background-gray;
+}
+
+.sign-in-btn:hover {
+  color: $orange;
+}
