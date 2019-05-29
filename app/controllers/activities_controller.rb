@@ -21,6 +21,7 @@ class ActivitiesController < ApplicationController
       }
     end
 
+
     if params[:activity_query].present?
       @activities = @activities.search_by_name(params[:activity_query])
     end
@@ -37,6 +38,15 @@ class ActivitiesController < ApplicationController
   # GET /activities/1.json
   def show
     @activity = Activity.find(params[:id])
+    authorize @activity
+
+    @markers =
+      [{
+        lat: @activity.latitude,
+        lng: @activity.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { activity: @activity })
+      }]
+
   end
 
   # GET /activities/new
