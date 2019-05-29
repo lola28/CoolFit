@@ -7,17 +7,18 @@
 }
 
 #map {
+
   width: 70vh;
   object-fit: cover;
   position: sticky;
   top: 0;
 }
 
-@media (min-width: 576px) {
-  #map {
-    display: none;
-  }
-}
+// @media (min-width: 576px) {
+//   #map {
+//     display: none;
+//   }
+// }
 
 @media (min-width: 1200px) {
   #map {

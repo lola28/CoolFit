@@ -1,0 +1,36 @@
+.show-container{
+  width: 100vh;
+}
+
+.show-container h3{
+    opacity: 0.7;
+    font-family: $headers-font;
+    margin-top: 5vh;
+  }
+
+.darker-span{
+  filter: brightness(70%);
+  font-weight: bold;
+}
+
+.container-infos{
+  width: 50vh;
+}
+
+.flex-container{
+  display:flex;
+  align-items: center;
+}
+
+.container-location{
+  // margin-left: 80vh;
+  // width: 20vh;
+  display: flex;
+  justify-content:flex-end;
+  width: 40vh;
+}
+
+.container-map {
+  display:flex;
+  justify-content: flex-start;
+}
