@@ -67,27 +67,21 @@ class ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
     authorize @activity
-    # if @activity.update(activity_params)
-    #   redirect_to dashboard_path, notice: "you have just updated an activity"
-    # else
-    #   render :edit
-    # end
   end
 
-    def destroy
-     @activity = Activity.find(params[:id])
-      authorize @activity
-      @activity.destroy
+  def destroy
+    @activity = Activity.find(params[:id])
+    authorize @activity
+    raise
+    @activity.destroy
+  end
 
-      redirect_to activities_path notice: "You have just deleted an Activity"
-    end
-
-    def adding_rating
-      @activity.bookings
-    end
+  def adding_rating
+    @activity.bookings
+  end
 
   private
-    def activity_params
-      params.require(:activity).permit(:name, :location, :fitness_level, :price, :time, :duration, :descirption, :photo_user, :photo_db)
-    end
+  def activity_params
+    params.require(:activity).permit(:name, :location, :fitness_level, :price, :time, :duration, :descirption, :photo_user, :photo_db)
+  end
 end
