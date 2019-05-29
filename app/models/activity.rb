@@ -2,8 +2,8 @@ class Activity < ApplicationRecord
   belongs_to :category
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
   has_many :interests, through: :users
-  has_many :bookings
-  has_many :health_relations
+  has_many :bookings, dependent: :destroy
+  has_many :health_relations, dependent: :destroy
   has_many :healths, through: :health_relations
 
   validates :name, presence: true
@@ -12,8 +12,8 @@ class Activity < ApplicationRecord
   validates :duration, presence: true
   validates :price, default: nil
   validates :description, presence: true
-  validates :photo_db, presence: true, unless: :photo_user?
-  validates :photo_user, presence: true, unless: :photo_db?
+  # validates :photo_db, presence: true, unless: :photo_user?
+  # validates :photo_user, presence: true, unless: :photo_db?
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

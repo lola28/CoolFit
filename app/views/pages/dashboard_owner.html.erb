@@ -1,62 +1,63 @@
-<!-- dashboard_owner.html.erb -->
 <div class="d-flex justify-content-between">
   <h1>See below the events you are organizing <span class="banner-logo"><%= current_user.username %></span>!</h1>
-  <%= link_to "Edit details", users_edit_path %>
   <img class="avatar-large mr-4 mt-2" alt="avatar-large" src="<%= current_user.avatar %>" />
 </div>
 
+<br>
+
 <% @user_activities.each do |activity|%>
- <h5><% activity.owner.physical_activity %></h5>
+  <h5><% activity.owner.physical_activity %></h5>
 <% end %>
 
-<!--   <h5>My fitness level: <%= current_user.physical_activity %></h5> -->
-  <h5>My description: <%= current_user.description %></h5>
-  <h5>Known for offering: <%= @specialty.group_by(&:to_s).values.max_by(&:size).try(:first).capitalize %> exercises</h5>
+<h5>Description: <%= current_user.description %></h5>
 
-<%# @user_activities.each do |activity| %>
-  <%#= activity.owner.average_owner_rating %>
-  <%# end %>
-<h5>Your average rating is:
+<h5>Specialty:
+  <% if @specialty.empty? %>
+    <em style="filter: brightness(150%);">no specialty yet</em>
+  <% else %>
+    <%= @specialty.group_by(&:to_s).values.max_by(&:size).try(:first).capitalize %> exercises
+  <% end %>
+</h5>
+
+<h5>Average rating:
+  <% if current_user.average_owner_rating.zero? %>
+    <em style="filter: brightness(150%);">no rating yet</em>
+  <% else %>
   <% current_user.average_owner_rating.times do %>
     <i class="fas fa-star"></i>
+  <% end %>
   <% end %>
 </h5>
 
 <br>
 
-<div>
+<h5>Create your own events and bring people together around your favorite activities! <%= link_to "Create", new_activity_path, class:"btn admin-btn", style:"font-size: 20px"%></h5>
 
-  <h3>My upcoming events</h3>
+<br>
 
-  <div class="future-activities">
-    <% @future_activities.each do |activity| %>
-      <%= render 'activities/future_activities', activity: activity %>
-    <% end %>
-  </div>
-</div>
+<% if !@future_activities.empty? %>
+  <div>
+    <h3>My upcoming events</h3>
 
-<div>
-
-  <h3>My past events</h3>
-
-  <% @past_activities.each do |activity| %>
-    <div class="card-dashboard">
-      <div class="card-index cards-index">
-        <% if activity.photo_db.nil? %>
-          <%= cl_image_tag activity.photo_user, crop: :fill, gravity: :face, class: 'card-index-img' %>
-        <% else %>
-          <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-index-img' %>
-        <% end %>
-
-        <div class="card-index-infos">
-            <h3><%= activity.name %></h3>
-        </div>
-      </div>
-
-      <div class="card-btns">
-        <%= link_to "Edit", edit_activity_path(activity), class: 'btn admin-btn' %>
-        <%= link_to "Delete", activities_path(activity), method: :delete, class: 'btn admin-btn' %>
-      </div>
+    <div class="future-activities">
+      <% @future_activities.each do |activity| %>
+        <%= render 'activities/future_activities', activity: activity %>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
+<br>
+
+<% if !@past_activities.empty? %>
+  <div>
+    <h3>My past events</h3>
+
+    <div class="future-activities">
+      <% @past_activities.each do |activity| %>
+        <%= render 'activities/past_activities', activity: activity %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+

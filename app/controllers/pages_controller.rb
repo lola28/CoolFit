@@ -38,21 +38,25 @@ class PagesController < ApplicationController
   def dashboard_owner
     @user_activities = policy_scope(Activity).where(owner: current_user)
 
-      @future_activities = []
-      @past_activities = []
-      @user_activities.each do |activity|
-        if activity.time > Time.now
-          @future_activities << activity
-        else
-          @past_activities << activity
-        end
-      end
-
-      @specialty = []
-      @user_activities.each do |activity|
-        @specialty << activity.owner.physical_activity
+    @future_activities = []
+    @past_activities = []
+    @user_activities.each do |activity|
+      if activity.time > Time.now
+        @future_activities << activity
+      else
+        @past_activities << activity
       end
     end
+
+    @specialty = []
+    @user_activities.each do |activity|
+      @specialty << activity.owner.physical_activity
+    end
+  end
+
+  def show_profile
+
+  end
 end
 
 # To add avatar of organiser

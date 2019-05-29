@@ -57,21 +57,22 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
-     @activity = Activity.find(params[:id])
-     authorize @activity
+    @activity = Activity.find(params[:id])
+    authorize @activity
   end
 
   # POST /activities
   # POST /activities.json
   def create
     @activity = Activity.new(activity_params)
-    @activity.user = current_user
+    @activity.category = Category.find(params[:activity][:category])
+    @activity.owner = current_user
     authorize @activity
-    # if @activity.save
-    #   redirect_to dashboard_path
-    # else
-    #   render :new
-    # end
+    if @activity.save
+      redirect_to dashboard_owner_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -82,7 +83,6 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
     authorize @activity
-    raise
     @activity.destroy
   end
 
@@ -91,7 +91,8 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
   def activity_params
-    params.require(:activity).permit(:name, :location, :fitness_level, :price, :time, :duration, :descirption, :photo_user, :photo_db)
+    params.require(:activity).permit(:name, :location, :fitness_level, :time, :duration, :description, :photo_user, :photo_db)
   end
 end

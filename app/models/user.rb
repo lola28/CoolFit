@@ -13,21 +13,16 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true
   validates :age, presence: true
 
-
-
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-
   def average_owner_rating
-    # ratings of this specific user
-    # self.bookings.map(&:rating)
-
     ratings = activities.map(&:bookings).flatten.map(&:rating)
-    ratings.sum / ratings.size
-
+    if ratings.empty?
+      0
+    else
+      ratings.sum / ratings.size
+    end
     # ....
   end
 end
-
-
