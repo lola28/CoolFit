@@ -2,23 +2,20 @@ class BookingsController < ApplicationController
   def create
     @activity = Activity.find(params[:activity_id])
     @booking = Booking.new
+    authorize @booking
     @booking.activity = @activity
     @booking.user = current_user
     @booking.save
 
-    interests = current_user.interests
-    @interest = interests.select { |interest| interest.activity == @activity }
-    @interest.first.destroy
-
-    redirect_to request.referrer
+    interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
+    authorize interest
+    interest.destroy
   end
 
   def destroy
     @activity = Activity.find(params[:activity_id])
     @booking = Booking.where({ activity: @activity, user: current_user }).first
     authorize @booking
-    Booking.destroy(@booking.id)
-
-    redirect_to request.referrer
+    @booking.destroy
   end
 end

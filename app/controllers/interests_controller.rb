@@ -14,8 +14,6 @@ class InterestsController < ApplicationController
     @activity = policy_scope(Activity).find(params[:activity_id])
     @interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
     authorize @interest
-    Interest.destroy(@interest.id)
-
-    redirect_to request.referrer
+    @interest.destroy
   end
 end

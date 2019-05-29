@@ -1,0 +1,8 @@
+<div class="card-dashboard" data-future-bookings-id="<%= activity.id %>">
+
+  <%= render 'shared/card_index', activity: activity %>
+
+  <div class="card-btns">
+    <%= link_to "Unregister", activity_booking_path(activity), method: :delete, remote: true, class: 'btn admin-btn' %>
+  </div>
+</div>
