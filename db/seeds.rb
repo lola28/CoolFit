@@ -96,7 +96,7 @@ booty_shake = Category.create!(
 puts 'Creating health benefits...'
 
 cognitive = Health.create!(
-  description: "Cognitive improvement",
+  description: "Cognitive improvement ",
   logo: "https://static.thenounproject.com/png/339591-200.png"
 )
 
