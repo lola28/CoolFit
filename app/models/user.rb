@@ -28,12 +28,6 @@ class User < ApplicationRecord
 
     # ....
   end
-
-  def my_ratings
-    ratings = bookings.map(&:rating)
-    ratings.sum / ratings.size
-  end
-
 end
 
 
