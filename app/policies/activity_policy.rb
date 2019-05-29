@@ -14,10 +14,10 @@ class ActivityPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.owner == user
   end
 
   def destroy?
-    record.user == user
+    true
   end
 end

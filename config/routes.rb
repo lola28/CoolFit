@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-
-  get 'users/edit'
-  get 'users/update'
   devise_for :users
 
   root to: 'pages#home'
+
   get 'dashboard', to: 'pages#dashboard'
   get 'dashboard/owner', to: 'pages#dashboard_owner'
+
+  get 'profile', to: 'pages#show_profile'
+  post 'profile', to: 'pages#edit_profile'
+
   get 'messages/new'
   get 'messages/create'
 
