@@ -1,9 +1,21 @@
 <div class="banner">
   <div class="banner-link-items ">
     <%= link_to "CoolFit", "#", class: "navbar-logo", style: "padding-left: 3vh;" %>
-    <%= link_to "How it works", "#", class: "banner-item", style: "text-decoration: none;" %>
-    <%= link_to "Locations", "#", class: "banner-item", style: "text-decoration: none;" %>
-    <%= link_to "Sign In", new_user_registration_path, class: "banner-item", style: "text-decoration: none;" %>
+
+    <div class="d-flex banner-item">
+      <%= link_to "How it works", "#", class: "banner-item", style: "text-decoration: none;" %>
+      <%= link_to "Locations", "#", class: "banner-item", style: "text-decoration: none;" %>
+      <% if current_user.nil? %>
+            <%= link_to "Sign in", new_user_registration_path, class: "banner-item" %>
+      <% else %>
+        <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
+          <%= link_to "My profile", "#", class: "dropdown-item" %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      <% end %>
+    </div>
   </div>
     <div class="container banner-container">
 
