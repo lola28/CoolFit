@@ -1,0 +1,8 @@
+document.querySelector("[data-interests-id='<%= @activity.id %>']").remove();
+
+function addBooking(bookingHTML) {
+  const future_bookings = document.querySelector('.future-bookings');
+  future_bookings.insertAdjacentHTML('beforeend', bookingHTML);
+}
+
+addBooking('<%= j render "bookings/future_bookings", activity: @activity %>');
