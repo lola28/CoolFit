@@ -35,11 +35,14 @@
 <div>
   <h3>Past events</h3>
 
-  <div class="past-bookings">
+   <div class="past-bookings">
     <% @past_bookings.each do |activity| %>
-      <%= render 'bookings/past_bookings', activity: activity %>
+      <%= render 'bookings/past_bookings', activity: activity%>
+      <%= simple_form_for (activity do |f|, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
+     <% end %>
     <% end %>
+      <%#= simple_form_for (@activity, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
+      <%#= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
   </div>
 </div>
-
-

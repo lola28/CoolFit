@@ -1,0 +1,16 @@
+<!-- test.html.erb -->
+
+<div>
+      <%= simple_form_for(@booking, html: { class: "booking_form" },:url => activity_booking_path, method: :patch) do  |f| %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
+      <% end %>
+    </div>
+
+
+<div class="past-bookings">
+  <% @past_bookings.each do |activity| %>
+    <%= render 'bookings/past_bookings', activity: activity %>
+    <%= simple_form_for (@activity, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
+  <% end %>
+</div>

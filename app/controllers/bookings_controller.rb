@@ -18,4 +18,27 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
   end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.user = current_user
+    @booking.rating = rating
+    authorize @booking
+
+    @booking.update(booking_params)
+    if @booking.save
+      flash[:alert] = "Thanks for your feedback!"
+      redirect_to activity_booking_path(@booking)
+    else
+      flash[:alert] = "Oops something went wrong!"
+      render :show
+    end
+  end
+
+private
+
+  def booking_params
+    params.require(:booking).permit(:rating)
+  end
+
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     # resources :bookings
     # resources :interests
     post 'booking', to: 'bookings#create'
+    patch 'booking', to: 'bookings#update'
     delete 'booking', to: 'bookings#destroy'
     post 'interest', to: 'interests#create'
     delete 'interest', to: 'interests#destroy'
