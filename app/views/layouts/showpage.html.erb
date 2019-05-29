@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CoolFit</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -11,21 +10,15 @@
   </head>
 
   <body>
-    <%= render 'shared/flashes' %>
-    <% if params[:controller] == "devise/registrations" || params[:controller] == "devise/sessions" %>
-      <div class= "devise-background">
-    <% else %>
-      <%= render 'shared/navbar' %>
-      <div class="container mt-4 page-wrapper">
-    <% end %>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= @activity.photo_db %>)" >
+  <%= render 'shared/navbar' %>
 
+</div>
+    <div class="container mt-4 page-wrapper">
       <%= yield %>
     </div>
-
     <%= render 'shared/footer' %>
-
     <p class="alert"><%= alert %></p>
-
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

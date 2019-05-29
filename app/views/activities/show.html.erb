@@ -1,32 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container mt-4 show-container">
-
-  <%= image_tag @activity.photo_db, crop: :fill, gravity: :face, class: 'show-pic' %>
   <h3><strong><%= @activity.name %></strong></h3>
-    <p style="float:right;"><%= @activity.duration %> Minutes</p>
+    <p style="float:right;"><i class="far fa-clock" style="margin-right: 1vh;"></i><%= @activity.duration %> Minutes</p>
       <div class="container-infos">
         <p class="darker-span"><strong>General Description</strong></p>
         <p><%= @activity.description %></p>
         <p class="darker-span"><strong>Expected Health Benefits</strong></p>
         <p><% @activity.healths.each do |health| %>
+          <li>
           <%= health.description %>
+          </li>
           <% end %>
        </p>
+        <p class="darker-span" ><strong>Where is it Happening?</strong></p>
       <div class="flex-container">
-        <!-- <div class="container-location"> -->
-          <p class="darker-span" ><strong>How To Get Here</strong></p>
+
           <p><%= @activity.location %></p>
+        </div>
             <div  class="container-map" id="map"
-            style="height: 160px; width: 220px;"
+            style="height: 160px; width: 250px;"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
             ></div>
-        </div>
-      <!-- </div> -->
+
+      </div>
     </div>
+    <br>
+    <%= link_to 'Edit', edit_activity_path(@activity), style: "margin-left: 30vh; color: #636363; text-decoration: none;" %> |
+    <%= link_to 'Back', activities_path, style: "color: #636363; text-decoration: none;" %>
 </div>
 
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>

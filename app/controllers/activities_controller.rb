@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   #before_action :set_activity, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  layout "showpage", only: [:show]
 
   # GET /activities
   # GET /activities.json
