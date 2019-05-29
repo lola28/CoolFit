@@ -3,7 +3,6 @@
     <%= link_to "CoolFit", "#", class: "navbar-logo", style: "padding-left: 3vh;" %>
 
     <div class="d-flex banner-item">
-      <%= link_to "How it works", "#", class: "banner-item", style: "text-decoration: none;" %>
       <%= link_to "Locations", "#", class: "banner-item", style: "text-decoration: none;" %>
       <% if current_user.nil? %>
             <%= link_to "Sign in", new_user_registration_path, class: "banner-item" %>
