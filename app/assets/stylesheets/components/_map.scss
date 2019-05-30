@@ -8,7 +8,11 @@
 
 #map {
   width: 70vh;
+  height: 100vh;
   object-fit: cover;
+  z-index: 0;
+  position: sticky;
+  top: 0;
 }
 
 @media (min-width: 576px) {
@@ -21,11 +25,4 @@
   #map {
     display: block;
   }
-}
-
-.map {
-  height: 680px;
-  position: sticky;
-  top: 0;
-  z-index:-1;
 }

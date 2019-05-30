@@ -11,7 +11,6 @@
   width: 700px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: center;
   margin-bottom: 10px;
   margin-top: 10px;
   margin-right: 10px;
@@ -50,15 +49,8 @@
   object-fit: cover;
 }
 
-.card-index-tags {
-  align-items: right;
-}
-
-.card-btns-index {
-  display: flex;
-  margin-left: 30px;
-  margin-right: 30px;
-  align-self: center;
+.interest-index {
+  text-align: right;
 }
 
 // DASHBOARD
