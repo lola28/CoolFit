@@ -29,7 +29,7 @@ class PagesController < ApplicationController
       if booking.activity.time > Time.now
         @future_bookings << booking.activity
       else
-        @past_bookings << booking.activity
+        @past_bookings << booking
       end
     end
   end

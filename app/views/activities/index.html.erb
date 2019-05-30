@@ -29,7 +29,7 @@
           </div>
           <p><%= image_tag activity.owner.avatar, class: 'avatar' %></p>
           <div class="card-btns-index">
-        <%= link_to "Register", activity_booking_path(activity), method: :post, class: 'btn admin-btn' %>
+        <%= link_to "Register", activity_bookings_path(activity), method: :post, class: 'btn admin-btn' %>
       </div>
       </div>
           <div>

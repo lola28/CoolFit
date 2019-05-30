@@ -3,6 +3,6 @@
   <%= render 'shared/card_index', activity: activity %>
 
   <div class="card-btns">
-    <%= link_to "Unregister", activity_booking_path(activity), method: :delete, remote: true, class: 'btn admin-btn' %>
+    <%= link_to "Unregister", activity_bookings_path(activity), method: :delete, remote: true, class: 'btn admin-btn' %>
   </div>
 </div>
