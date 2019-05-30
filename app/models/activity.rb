@@ -5,6 +5,7 @@ class Activity < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :health_relations, dependent: :destroy
   has_many :healths, through: :health_relations
+  has_many :messages
 
   validates :name, presence: true
   validates :location, presence: true
