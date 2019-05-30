@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
   <h1>Welcome <span class="banner-logo"><%= current_user.username %></span>!</h1>
-  <%= cl_image_tag current_user.avatar, class:"avatar-large mr-4 mt-2" %>
+  <%= cl_image_tag(current_user.avatar, class:"avatar-large mr-4 mt-2") %>
 </div>
 
 <h5>My fitness level: <%= current_user.physical_activity %></h5>
