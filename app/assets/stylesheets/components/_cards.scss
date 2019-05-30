@@ -1,5 +1,10 @@
 // INDEX
 
+.index-container {
+  display: flex;
+  z-index:-1;
+}
+
 .card-index {
   overflow: hidden;
   height: 100px;
@@ -10,6 +15,7 @@
   margin-bottom: 10px;
   margin-top: 10px;
   margin-right: 10px;
+  flex-grow: 1;
 }
 
 .card-index-infos {
@@ -91,6 +97,7 @@
 
 .zoom:hover {
   transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transition: transform .5s ease;
 }
 
 .card-landing-infos {
