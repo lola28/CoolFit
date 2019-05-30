@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  margin-top: 10px;
   margin-right: 10px;
 }
 
@@ -60,10 +61,21 @@
 
 // LANDING
 
+.category-logo {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px
+}
+
+
 .card-landing {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.zoom:hover {
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .card-landing-infos {
@@ -73,6 +85,18 @@
   align-items: flex-end;
   position: relative;
   font-size: 16px;
+}
+
+.card-landing-infos :hover {
+  text-decoration: none;
+}
+
+.card-landing-infos p {
+  color: $gray;
+}
+
+.card-landing-infos i {
+  color: $gray;
 }
 
 .card-landing-img {

@@ -1,4 +1,3 @@
-# user_policy.rb
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
@@ -6,8 +5,11 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def update?
+  def edit_profile?
     true
-    # record.user == user
+  end
+
+  def update_profile?
+    true
   end
 end

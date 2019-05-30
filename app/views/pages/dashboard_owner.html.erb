@@ -1,13 +1,9 @@
 <div class="d-flex justify-content-between">
   <h1>See below the events you are organizing <span class="banner-logo"><%= current_user.username %></span>!</h1>
-  <img class="avatar-large mr-4 mt-2" alt="avatar-large" src="<%= current_user.avatar %>" />
+  <%= render 'shared/avatar_large' %>
 </div>
 
 <br>
-
-<% @user_activities.each do |activity|%>
-  <h5><% activity.owner.physical_activity %></h5>
-<% end %>
 
 <h5>Description: <%= current_user.description %></h5>
 

@@ -6,7 +6,7 @@
     <% @activities.each do |activity| %>
 
       <%= link_to activity do %>
-        <div class="card-index">
+        <div class="card-index zoom">
           <% if activity.photo_db.nil? %>
             <%= cl_image_tag activity.photo_user, class: 'card-index-img' %>
           <% else %>
@@ -14,10 +14,9 @@
           <% end %>
           <div class="card-index-infos">
             <h3><%= activity.name %></h3>
-             <p><% activity.healths.each do |health| %>
-            <%= health.description %>
-            <% end %>
-          </p>
+            <p>
+              <%=activity.healths.map(&:description).join(' / ') %>
+            </p>
           <% end %>
             <% if activity.owner != current_user %>
               <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
@@ -27,9 +26,9 @@
               <% end %>
             <% end %>
           </div>
-          <p><%= image_tag activity.owner.avatar, class: 'avatar' %></p>
+          <p><%= render 'shared/avatar_small' %></p>
           <div class="card-btns-index">
-        <%= link_to "Register", activity_booking_path(activity), method: :post, class: 'btn admin-btn' %>
+        <%= link_to "Register", activity_bookings_path(activity), method: :post, class: 'btn admin-btn' %>
       </div>
       </div>
           <div>

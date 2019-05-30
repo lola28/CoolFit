@@ -7,10 +7,11 @@
       <% if current_user.nil? %>
             <%= link_to "Sign in", new_user_registration_path, class: "banner-item" %>
       <% else %>
-        <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= render 'shared/avatar_dropdown' %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
-          <%= link_to "My profile", "#", class: "dropdown-item" %>
+          <%= link_to "My organized events", dashboard_owner_path, class: "dropdown-item" %>
+          <%= link_to "My profile", profile_path, class: "dropdown-item" %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       <% end %>

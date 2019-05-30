@@ -92,6 +92,10 @@ class ActivitiesController < ApplicationController
     @activity.bookings
   end
 
+  #def upcoming_activities
+   # @upcoming_activities = policy_scope(Activity).where.not(latitude: nil, longitude: nil)
+  #end
+
   private
 
   def activity_params

@@ -29,11 +29,10 @@ class PagesController < ApplicationController
       if booking.activity.time > Time.now
         @future_bookings << booking.activity
       else
-        @past_bookings << booking.activity
+        @past_bookings << booking
       end
     end
   end
-
 
   def dashboard_owner
     @user_activities = policy_scope(Activity).where(owner: current_user)
@@ -55,7 +54,27 @@ class PagesController < ApplicationController
   end
 
   def show_profile
+  end
 
+  def edit_profile
+    @user = current_user
+    authorize @user
+  end
+
+  def update_profile
+    @user = current_user
+    authorize @user
+    if @user.update(user_params)
+      redirect_to profile_path, notice: "You just updated your information"
+    else
+      render :edit_profile
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :avatar, :age, :physical_activity, :description)
   end
 end
 

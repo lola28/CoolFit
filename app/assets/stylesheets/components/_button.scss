@@ -53,3 +53,20 @@
 .sign-in-btn:hover {
   color: $orange;
 }
+
+.edit-btns {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .password-btn {
+    color: $gray;
+    font-style: italic;
+    margin: 0 auto;
+  }
+
+  .password-btn:hover {
+    text-decoration: none;
+    color: $orange;
+  }
+}
