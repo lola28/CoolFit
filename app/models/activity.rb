@@ -14,6 +14,7 @@ class Activity < ApplicationRecord
   validates :description, presence: true
   # validates :photo_db, presence: true, unless: :photo_user?
   # validates :photo_user, presence: true, unless: :photo_db?
+  # mount_uploader :photo_user, PhotoUploader
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

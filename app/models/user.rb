@@ -16,6 +16,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  mount_uploader :avatar, PhotoUploader
+
   def average_owner_rating
     ratings = activities.map(&:bookings).flatten.map(&:rating)
     if ratings.empty?

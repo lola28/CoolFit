@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'dashboard/owner', to: 'pages#dashboard_owner'
 
   get 'profile', to: 'pages#show_profile'
-  post 'profile', to: 'pages#edit_profile'
+  get 'profile/edit', to: 'pages#edit_profile'
+  patch 'profile', to: 'pages#update_profile', as: 'profile_update'
 
   get 'messages/new'
   get 'messages/create'
