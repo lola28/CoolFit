@@ -30,10 +30,14 @@
   font: $body-font;
   float: right;
   padding-right: 4vh;
-  padding-top: 2vh;
+  padding-top: 1.5vh;
   justify-content: space-between;
 }
 
 .banner-item:hover{
   color:$orange;
+}
+
+.banner-item .avatar{
+  margin-top: 8px
 }
