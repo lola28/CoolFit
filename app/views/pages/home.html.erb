@@ -18,15 +18,20 @@
             <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-landing-img' %>
           <% end %>
           <div class="card-landing-infos">
-            <p><%= activity.name %></p>
-            <div>
-              <p><% activity.owner.average_owner_rating.times.each do |rate| %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              </p>
-              <% activity.fitness_level.times.each do |level|%>
-                <i class="fas fa-running"></i>
-              <% end %>
+            <div class="card-landing-name">
+              <p><%= activity.name %></p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-start">
+                <% activity.owner.average_owner_rating.times.each do |rate| %>
+                  <i class="fas fa-star" style="color:#FA9800;"></i>
+                <% end %>
+              </div>
+              <div class="d-flex justify-content-end">
+                <% activity.fitness_level.times.each do |level|%>
+                  <i class="fas fa-running"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -55,18 +60,23 @@
             <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-landing-img' %>
           <% end %>
         <div class="card-landing-infos">
-          <p><%= activity.name %></p>
-          <div>
-            <p><% activity.owner.average_owner_rating.times.each do |rate| %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            </p>
-            <% activity.fitness_level.times.each do |level|%>
-              <i class="fas fa-running"></i>
-            <% end %>
+            <div class="card-landing-name">
+              <p><%= activity.name %></p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-start">
+                <% activity.owner.average_owner_rating.times.each do |rate| %>
+                  <i class="fas fa-star" style="color:#FA9800;"></i>
+                <% end %>
+              </div>
+              <div class="d-flex justify-content-end">
+                <% activity.fitness_level.times.each do |level|%>
+                  <i class="fas fa-running"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
     <% end %>
   <% end %>
@@ -92,18 +102,23 @@
             <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-landing-img' %>
           <% end %>
           <div class="card-landing-infos">
-            <p><%= activity.name %></p>
-            <div>
-              <p><% activity.owner.average_owner_rating.times.each do |rate| %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              </p>
-            <% activity.fitness_level.times.each do |level|%>
-              <i class="fas fa-running"></i>
-            <% end %>
+            <div class="card-landing-name">
+              <p><%= activity.name %></p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-start">
+                <% activity.owner.average_owner_rating.times.each do |rate| %>
+                  <i class="fas fa-star" style="color:#FA9800;"></i>
+                <% end %>
+              </div>
+              <div class="d-flex justify-content-end">
+                <% activity.fitness_level.times.each do |level|%>
+                  <i class="fas fa-running"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
     <% end %>
   <% end %>
