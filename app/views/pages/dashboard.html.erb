@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
   <h1>Welcome <span class="banner-logo"><%= current_user.username %></span>!</h1>
-  <%= cl_image_tag(current_user.avatar, class:"avatar-large mr-4 mt-2") %>
+  <%= render 'shared/avatar_large' %>
 </div>
 
 <h5>My fitness level: <%= current_user.physical_activity %></h5>
@@ -36,12 +36,11 @@
   <h3>Past events</h3>
 
    <div class="past-bookings">
-    <% @past_bookings.each do |activity| %>
-      <%= render 'bookings/past_bookings', activity: activity%>
-      <%= simple_form_for (activity do |f|, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
-      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
-     <% end %>
+    <% @past_bookings.each do |booking| %>
+      <%= render 'bookings/past_bookings', booking: booking %>
+      <%#= render 'bookings/rating', activity: activity %>
     <% end %>
+
       <%#= simple_form_for (@activity, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
       <%#= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
   </div>

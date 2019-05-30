@@ -1,0 +1,5 @@
+
+<%= form_for [booking.activity, booking], remote: true, method: :patch, html: {class: "booking_form" } do |f| %>
+  <%= f.select :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
+  <%= f.submit %>
+<% end %>

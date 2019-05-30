@@ -18,8 +18,7 @@
           <div class="card-index-infos d-flex justify-content-between">
             <div>
               <h3><%= activity.name %></h3>
-              <p class="avatar-name"><%= cl_image_tag activity.owner.avatar, class: 'avatar' %>
-                <%= activity.owner.username %>
+              <p class="avatar-name"><%= render 'shared/avatar_small' %></p>
               </p>
               <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
               <% end %>
@@ -29,7 +28,7 @@
               <div>
                 <% if activity.owner != current_user %>
                   <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                    <%= link_to "♡", activity_interest_path(activity), method: :post,  class: "admin-btn" %>
+                    <%= link_to "♡", activity_interests_path(activity), method: :post,  class: "admin-btn" %>
                   <% else %>
                     <%= link_to "♥", activity_interest_path(activity), method: :delete,  class: "admin-btn" %>
                   <% end %>

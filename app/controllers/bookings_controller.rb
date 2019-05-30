@@ -19,16 +19,20 @@ class BookingsController < ApplicationController
     @booking.destroy
   end
 
+  def edit
+    redirect_to dashboard_path
+  end
+
   def update
     @booking = Booking.find(params[:id])
     @booking.user = current_user
-    @booking.rating = rating
+    # @booking.rating = rating
     authorize @booking
 
     @booking.update(booking_params)
     if @booking.save
       flash[:alert] = "Thanks for your feedback!"
-      redirect_to activity_booking_path(@booking)
+      redirect_to dashboard_path
     else
       flash[:alert] = "Oops something went wrong!"
       render :show

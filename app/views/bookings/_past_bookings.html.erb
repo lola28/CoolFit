@@ -1,10 +1,10 @@
 <div class="card-dashboard">
 
-  <%= render 'shared/card_index', activity: activity %>
+  <%= render 'shared/card_index', activity: booking.activity %>
 
   <div class="card-btns">
-    <p>Rate your experience!</p>
     <!-- ADD LINK TO INPUT RATING HERE -->
+    <%= render 'bookings/rating', booking: booking %>
   </div>
 
 </div>

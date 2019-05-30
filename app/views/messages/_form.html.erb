@@ -1,0 +1,13 @@
+
+<%= simple_form_for([activity, Message.new], remote: true) do |f| %>
+
+  <div class="form-inputs" style="color: #4C4C4C;">
+    <%= f.input :content, as: :text, label: "Write a Message", label_html: {style:"margin-left:3vh; color: #636363;"}, class: "form-control", input_html: {class: "content-chat", style: "background: rgba(39, 39, 39, 0.5); border: none; outline: none; color: #C8C8C8; filter: brightness(120%); border-radius: 25px;" } %>
+  </div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit, "Send a Message" %>
+  </div>
+<% end %>
+
