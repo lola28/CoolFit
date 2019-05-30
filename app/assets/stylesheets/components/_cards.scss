@@ -66,6 +66,10 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.zoom:hover {
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
 .card-landing-infos {
   padding: 16px;
   display: flex;
@@ -73,6 +77,15 @@
   align-items: flex-end;
   position: relative;
   font-size: 16px;
+  text-decoration: none;
+}
+
+.card-landing-infos p {
+  color: $gray;
+}
+
+.card-landing-infos i {
+  color: $gray;
 }
 
 .card-landing-img {

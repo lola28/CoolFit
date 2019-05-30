@@ -26,7 +26,7 @@ kaka = User.create!(
   physical_activity: :low,
   description: "Very happy to start to workout again! I especially love ping-pong and beach volley",
   professional: false,
-  avatar: "http://i.huffpost.com/gen/1853815/images/n-COLLEGEHUMOR-large570.jpg",
+  avatar: "n-COLLEGEHUMOR-large570_aiiqx7",
   )
 alice = User.create!(
   first_name: "Alice",
@@ -38,7 +38,7 @@ alice = User.create!(
   physical_activity: :moderate,
   description: "Hi everybody, I am looking for new yoga classes and I would be very happy to discover them with you!",
   professional: false,
-  avatar: "https://gal.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgal.2F2019.2F05.2F18.2F0bd86994-eeea-485f-98fc-7c304a273585.2Ejpeg/480x480/quality/80/photos-cannes-2019-monica-bellucci-fait-crepiter-les-flashs-avec-un-decollete-hypnotisant.jpg",
+  avatar: "photos-cannes-2019-monica-bellucci-fait-crepiter-les-flashs-avec-un-decollete-hypnotisant_j1nke2",
   )
 vlad = User.create!(
   first_name: "Vladimir",
@@ -50,7 +50,7 @@ vlad = User.create!(
   physical_activity: :vigorous,
   description: "Looking for good-looking ladies to go surfing with me 😎 ",
   professional: false,
-  avatar: "https://c8.alamy.com/compes/pne7k7/prod-db-e-araquel-egoli-tossell-film-erfttal-film-pantalla-siren-fotos-dr-hector-et-la-recherche-du-bonheur-hector-y-la-busqueda-de-la-felicidad-de-peter-chelsom-2014-todoscangbafr-du-sud-avec-christopher-plummer-retrato-vieux-surfeur-planche-de-surf-daprs-le-roman-de-franois-lelord-le-voyage-dhector-ou-la-recherche-de-bonheur-pne7k7.jpg",
+  avatar: "brad-pitt-in-wrangler-long-sleeve-with-belted-jeans-all-people-photo-u1_ujszop",
   )
 
 frankie = User.create!(
@@ -63,7 +63,7 @@ frankie = User.create!(
   physical_activity: :vigorous,
   description: "Let's shake our booties together ladies! ",
   professional: true,
-  avatar: "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555434014/shape/mentalfloss/fonda.png?itok=tYLCDXlS",
+  avatar: "fonda_jd59nt",
   )
 
 puts 'Creating categories...'
@@ -273,7 +273,7 @@ activity = Activity.create(
   activity.health_relations.create(health: cardiovascular)
 
 activity = Activity.create(
-  name: "Initiation to synchronized swimming",
+  name: "Synchronized swimming",
   location: "Portugal, Campo de Santa Clara 33, Lisboa",
   latitude: 38.6968919,
   longitude: -9.4204495,
