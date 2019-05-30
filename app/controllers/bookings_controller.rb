@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     if @booking.save
       flash[:alert] = "Thanks for your feedback!"
-      redirect_to activity_booking_path(@booking)
+      redirect_to dashboard_path
     else
       flash[:alert] = "Oops something went wrong!"
       render :show

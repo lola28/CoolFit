@@ -23,25 +23,23 @@
 <div>
   <h3>My <i class="fa fa-heart"></i> events</h3>
 
-  <div class="interests">
-    <% @interests.each do |activity| %>
-      <%= render 'interests/interests', activity: activity %>
-    <% end %>
+<!--   <div class="interests">
+    <%# @interests.each do |activity| %>
+      <%#= render 'interests/interests', activity: activity %>
+    <%# end %>
   </div>
 </div>
-
+ -->
 <br>
 
 <div>
   <h3>Past events</h3>
 
    <div class="past-bookings">
-    <% @past_bookings.each do |activity| %>
-      <%= render 'bookings/past_bookings', activity: activity%>
-      <%= simple_form_for (activity do |f|, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
-      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
+    <% @past_bookings.each do |booking| %>
+      <%= render 'bookings/past_bookings', activity: booking.activity %>
+      <%= render 'bookings/rating', booking: booking %>
      <% end %>
-    <% end %>
       <%#= simple_form_for (@activity, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
       <%#= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
   </div>

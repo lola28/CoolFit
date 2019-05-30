@@ -15,23 +15,10 @@ class PagesController < ApplicationController
 
   def dashboard
     @user_activities = policy_scope(Activity).where(owner: current_user)
-
-    user_interests = policy_scope(Interest).where(user: current_user)
-    @interests = []
-    user_interests.each do |interest|
-      @interests << interest.activity
-    end
-
-    user_bookings = policy_scope(Booking).where(user: current_user)
-    @future_bookings = []
-    @past_bookings = []
-    user_bookings.each do |booking|
-      if booking.activity.time > Time.now
-        @future_bookings << booking.activity
-      else
-        @past_bookings << booking.activity
-      end
-    end
+    @user_interests = policy_scope(Interest).where(user: current_user)
+    @user_bookings = policy_scope(Booking).where(user: current_user)
+    @future_bookings = @user_bookings.where("bookings.created_at > ?", Time.now)
+    @past_bookings = @user_bookings.where("bookings.created_at < ?", Time.now)
   end
 
 
