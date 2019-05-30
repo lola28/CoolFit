@@ -26,7 +26,7 @@ kaka = User.create!(
   physical_activity: :low,
   description: "Very happy to start to workout again! I especially love ping-pong and beach volley",
   professional: false,
-  avatar: "n-COLLEGEHUMOR-large570_aiiqx7",
+  avatarseed: "Coolfit/n-COLLEGEHUMOR-large570_aiiqx7.jpg"
   )
 alice = User.create!(
   first_name: "Alice",
@@ -38,7 +38,7 @@ alice = User.create!(
   physical_activity: :moderate,
   description: "Hi everybody, I am looking for new yoga classes and I would be very happy to discover them with you!",
   professional: false,
-  avatar: "photos-cannes-2019-monica-bellucci-fait-crepiter-les-flashs-avec-un-decollete-hypnotisant_j1nke2",
+  avatarseed: "Coolfit/photos-cannes-2019-monica-bellucci-fait-crepiter-les-flashs-avec-un-decollete-hypnotisant_j1nke2.jpg"
   )
 vlad = User.create!(
   first_name: "Vladimir",
@@ -50,7 +50,7 @@ vlad = User.create!(
   physical_activity: :vigorous,
   description: "Looking for good-looking ladies to go surfing with me 😎 ",
   professional: false,
-  avatar: "brad-pitt-in-wrangler-long-sleeve-with-belted-jeans-all-people-photo-u1_ujszop",
+  avatarseed: "Coolfit/brad-pitt-in-wrangler-long-sleeve-with-belted-jeans-all-people-photo-u1_ujszop.jpg"
   )
 
 frankie = User.create!(
@@ -63,7 +63,7 @@ frankie = User.create!(
   physical_activity: :vigorous,
   description: "Let's shake our booties together ladies! ",
   professional: true,
-  avatar: "fonda_jd59nt",
+  avatarseed: "Coolfit/fonda_jd59nt.png"
   )
 
 puts 'Creating categories...'

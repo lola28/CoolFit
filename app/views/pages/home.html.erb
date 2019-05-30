@@ -1,8 +1,9 @@
 <h1>Top categories</h1>
 <br>
+<br>
 
-<div class="d-flex justify-content-start">
- <p><%= image_tag @top_category1.logo%></p>
+<div class="d-flex justify-content-start" style= "margin-bottom:10px">
+ <%= image_tag @top_category1.logo, class: 'category-logo'%>
  <h3><%= @top_category1.description %></h3>
 </div>
 
@@ -35,9 +36,11 @@
 </div>
 
 <br>
+<br>
+<br>
 
-<div class="d-flex justify-content-start">
-<p><%= image_tag @top_category2.logo%></p>
+<div class="d-flex justify-content-start" style= "margin-bottom:10px">
+<%= image_tag @top_category2.logo, class: 'category-logo'%>
 <h3> <%= @top_category2.description %></h3>
 </div>
 
@@ -70,9 +73,11 @@
 </div>
 
 <br>
+<br>
+<br>
 
-<div class="d-flex justify-content-start">
-<p><%= image_tag @top_category3.logo%></p>
+<div class="d-flex justify-content-start" style= "margin-bottom:10px">
+<%= image_tag @top_category3.logo, class: 'category-logo'%>
 <h3> <%= @top_category3.description %></h3>
 </div>
 
