@@ -1,0 +1,4 @@
+<% @activity.messages.each do |message| %>
+<p><%= message.owner.username %>: <%= message.content %></p>
+<% end %>
+

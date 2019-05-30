@@ -25,6 +25,22 @@
             ></div>
 
       </div>
+      <br>
+
+      <div id="messages">
+        <% if @activity.messages.blank? %>
+          Write a Message to <%= @activity.name %>
+        <% else %>
+
+        <%= render 'messages/show'%>
+
+        <% end %>
+      </div>
+
+      <% if user_signed_in? %>
+        <%= render 'messages/form', activity: @activity, message: @message %>
+      <% end %>
+
     </div>
     <br>
     <%= link_to 'Edit', edit_activity_path(@activity), style: "margin-left: 30vh; color: #636363; text-decoration: none;" %> |

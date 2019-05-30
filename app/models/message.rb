@@ -1,3 +1,4 @@
 class Message < ApplicationRecord
-  belongs_to :booking
+  belongs_to :activity
+  belongs_to :owner, class_name: "User", foreign_key: "user_id"
 end
