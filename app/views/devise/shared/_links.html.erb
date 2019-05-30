@@ -1,12 +1,12 @@
 <%- if controller_name != 'sessions'%>
 <div class="text-central">
-  <%= link_to "Log in", new_session_path(resource_name), style: "color: #C8C8C8; font-family: 'Lato', 'sans-serif'; text-decoration: none; text-align: center;" %><br />
+  <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-edit-user" %><br />
 <% end %>
 </div>
 
 <div class="text-central">
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name), style: "color: #C8C8C8; font-family: 'Lato', 'sans-serif'; text-decoration: none; text-align: center;"%><br />
+  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-edit-user"%><br />
 <% end %>
 </div>
 

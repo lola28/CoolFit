@@ -19,7 +19,7 @@
             <div>
               <h3><%= activity.name %></h3>
               <% if !current_user.nil? %>
-                <p class="avatar-name"><%= render 'shared/avatar_small' %></p>
+                <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %></p>
               <% end %>
               <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
               <% end %>

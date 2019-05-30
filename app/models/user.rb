@@ -11,10 +11,6 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   validates :email, presence: true
   validates :encrypted_password, presence: true
-  validates :age, presence: true
-
-  validates :first_name, presence: true
-  validates :last_name, presence: true
 
   mount_uploader :avatar, PhotoUploader
 
@@ -25,6 +21,15 @@ class User < ApplicationRecord
     else
       ratings.sum / ratings.size
     end
-    # ....
+  end
+
+  def name
+    if first_name.nil?
+      return last_name
+    elsif last_name.nil?
+      return first_name
+    else
+      return first_name + last_name
+    end
   end
 end
