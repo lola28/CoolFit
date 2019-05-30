@@ -20,7 +20,7 @@
           <% end %>
             <% if activity.owner != current_user %>
               <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                <%= link_to "♡", activity_interest_path(activity), method: :post,  class: "admin-btn" %>
+                <%= link_to "♡", activity_interests_path(activity), method: :post,  class: "admin-btn" %>
               <% else %>
                 <%= link_to "♥", activity_interest_path(activity), method: :delete,  class: "admin-btn" %>
               <% end %>

@@ -18,8 +18,9 @@
     <%= f.input :email, class: "form-control" %>
   </div>
 
-  <div class="form-inputs ">
-      <%= f.input :avatar, label: "Profile picture", input_html: {style: "display:none;"}, label_html: {class: "btn", style: "width: 130px;"} %>
+  <div class="form-inputs">
+      <p style="margin: 0">Upload a new profile picture: </p>
+      <%= f.input :avatar, label: "Upload", input_html: {style: "display:none;"}, label_html: {class: "btn btn-edit-user", style: "width: 100px;"} %>
       <%= f.input :avatar_cache, as: :hidden %>
   </div>
 
@@ -38,6 +39,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-edit-user", style: "width: 130px; float: right;" %>
   </div>
 <% end %>
+

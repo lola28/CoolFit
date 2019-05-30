@@ -1,5 +1,11 @@
-<h1>Editing User</h1>
+<div class="container mt-4 container-edit-form">
+  <h3>Edit your information</h3>
 
-<%= render 'form', user: @user %>
+  <br>
 
-<%= link_to 'Back', dashboard_owner_path %>
+  <%= render 'form', user: @user %>
+
+  <div style="margin-top: 10px; text-align:right;">
+    <%= link_to 'Cancel', dashboard_owner_path, class: "password-btn" %>
+  </div>
+</div>
