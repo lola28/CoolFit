@@ -6,7 +6,6 @@
   width: 700px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -17,14 +16,22 @@
   padding: 16px;
 
   h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: $gray;
   }
 
    p {
     font-size: 12px;
-    color: $orange;
   }
+
+}
+
+.card-index-benef {
+  color: $orange;
+}
+
+.avatar-name {
+  color: $gray;
 }
 
 .cards-index a {
@@ -37,11 +44,14 @@
   object-fit: cover;
 }
 
+.card-index-tags {
+  align-items: right;
+}
+
 .card-btns-index {
   display: flex;
   margin-left: 30px;
   margin-right: 30px;
-  flex-direction: column;
   align-self: center;
 }
 
@@ -61,6 +71,10 @@
 
 // LANDING
 
+#landing a {
+  text-decoration: none;
+}
+
 .category-logo {
   height: 50px;
   width: 50px;
@@ -74,29 +88,16 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
 .zoom:hover {
   transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .card-landing-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
   font-size: 16px;
-}
-
-.card-landing-infos :hover {
+  color: $gray;
   text-decoration: none;
-}
-
-.card-landing-infos p {
-  color: $gray;
-}
-
-.card-landing-infos i {
-  color: $gray;
 }
 
 .card-landing-img {
