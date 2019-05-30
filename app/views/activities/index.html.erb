@@ -26,7 +26,7 @@
               <% end %>
             <% end %>
           </div>
-          <p><%= image_tag activity.owner.avatar, class: 'avatar' %></p>
+          <p><%= render 'shared/avatar_small' %></p>
           <div class="card-btns-index">
         <%= link_to "Register", activity_booking_path(activity), method: :post, class: 'btn admin-btn' %>
       </div>
