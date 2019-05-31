@@ -37,3 +37,22 @@
 .text-central{
   text-align: center;
 }
+
+.content-chat-input {
+  background: rgba(80, 80, 80, 0.5);
+  border: none;
+  outline: none;
+  color: white;
+  filter: brightness(120%);
+  border-radius: 25px;
+
+  &:focus {
+    background: rgba(80, 80, 80, 0.5);
+    color: white;
+  }
+
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+}

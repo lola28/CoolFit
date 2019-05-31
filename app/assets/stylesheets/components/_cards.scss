@@ -15,6 +15,12 @@
   margin-top: 10px;
   margin-right: 10px;
 
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   .card-index-tags {
     margin-left: auto;
   }
