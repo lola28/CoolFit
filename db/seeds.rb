@@ -133,7 +133,8 @@ surf = Activity.create(
   description: "Wanna try surfing? Come to this session and enjoy the beach! Surf planks to be rent prior to the session. Meeting point at the surf stop",
   photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg",
   category: endurance,
-  owner: vlad
+  owner: vlad,
+  max_capacity: 15,
   )
   surf.health_relations.create(health: cardiovascular)
   surf.health_relations.create(health: stress_relief)
@@ -153,7 +154,8 @@ surf = Activity.create(
   description: "Yoga Bikram is made for you if you want to sweat in a relaxing environment. Meeting at Ministry of yoga",
   photo_db: "https://img.grouponcdn.com/deal/KnjLRN3aByLDyNaZRYmzXucTo2r/Kn-1500x900/v1/c700x420.jpg",
   category: flexibility,
-  owner: frankie
+  owner: frankie,
+  max_capacity: 10,
   )
   activity.health_relations.create(health: aphrodisiac)
   activity.health_relations.create(health: stress_relief)
@@ -169,7 +171,8 @@ activity = Activity.create(
   description: "Let's meet all together for a meditative walk in the park! The session will be divided into 2 parts: 40 minutes of active walk followed by a meditation session.",
   photo_db: "https://www.redbridge.gov.uk/media/5188/walk-to-health-summer-1140x500.jpg",
   category: endurance,
-  owner: alice
+  owner: alice,
+  max_capacity: nil,
   )
   activity.health_relations.create(health: cognitive)
 activity.health_relations.create(health: stress_relief)
@@ -185,7 +188,8 @@ activity = Activity.create(
   description: "This is a perfect activity to pratice with fun music!",
   photo_db: "https://previews.123rf.com/images/kzenon/kzenon1410/kzenon141000291/32939198-groupe-d-hommes-et-de-femmes-qui-dansent-zumba-fitness-chor%C3%A9graphie-%C3%A0-l-%C3%A9cole-de-danse.jpg",
   category: booty_shake,
-  owner: frankie
+  owner: frankie,
+  max_capacity: 10,
   )
   activity.health_relations.create(health: cardiovascular)
   activity.health_relations.create(health: aphrodisiac)
@@ -201,7 +205,8 @@ activity = Activity.create(
   description: "Wanna try surfing? Come to this session and enjoy the beach! Surf planks to be rent prior to the session. Meeting point at the surf stop",
   photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg",
   category: endurance,
-  owner: vlad
+  owner: vlad,
+  max_capacity: 12,
 )
 activity.health_relations.create(health: cardiovascular)
 activity.health_relations.create(health: stress_relief)
@@ -218,7 +223,8 @@ activity = Activity.create(
   description: "Initiation to African dance. Next theme: Mozambic dance!",
   photo_db: "http://nebula.wsimg.com/c85183f1044cd015bc48718585dc823a?AccessKeyId=88507A2F19ED52F3C364&disposition=0&alloworigin=1",
   category: booty_shake,
-  owner: frankie
+  owner: frankie,
+  max_capacity: 20,
   )
   activity.health_relations.create(health: cardiovascular)
   activity.health_relations.create(health: energy_boost)
@@ -235,7 +241,9 @@ activity = Activity.create(
   description: "Do you want to get your summer body ready? Let's try this easy bodysculpting session!",
   photo_db: "http://northrustico.com/wp-content/uploads/2018/05/healthy-lifestyle-lounge-beach-workout-port-melbou21.jpg",
   category: strength,
-  owner: vlad)
+  owner: vlad,
+  max_capacity: 15,
+  )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
 
@@ -250,7 +258,8 @@ activity = Activity.create(
   description: "Want to impress your friends during your next vacations? Let's learn beach volley all together! Meeting point at Cascais train station ",
   photo_db: "https://www.pgvb.fr/media/uploaded/sites/8841/actualite/59042ff349574_untournoitresreussidebeachvolleyaportandro3037090.jpg",
   category: team_sport,
-  owner: vlad
+  owner: vlad,
+  max_capacity: 10,
   )
   health_relation = HealthRelation.create
   activity.health_relations.create(health: energy_boost)
@@ -267,7 +276,8 @@ activity = Activity.create(
   description: "A fun initiation to football. Bring your sports shoes!",
   photo_db: "https://cdn-s3.si.com/s3fs-public/styles/marquee_large_2x/public/2018/07/15/france-wins-world-cup-straus.jpg?itok=pANlO3iM",
   category: team_sport,
-  owner: vlad
+  owner: vlad,
+  max_capacity: 22,
   )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
@@ -283,7 +293,8 @@ activity = Activity.create(
   description: "Let's build a team and participate to the synchronized swimming world cup!",
   photo_db: "https://images.radio-canada.ca/q_auto,w_1600/v1/ici-regions/16x9/le_grand_bain_homme_slip.jpg",
   category: team_sport,
-  owner: vlad
+  owner: vlad,
+  max_capacity: 15,
   )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
@@ -299,7 +310,8 @@ activity = Activity.create(
   description: "Want to improve your street cred? Let's dance! Meeting at botanical garden entrance.",
   photo_db: "https://i.ytimg.com/vi/bOMRQFtqDK4/maxresdefault.jpg",
   category: booty_shake,
-  owner: frankie
+  owner: frankie,
+  max_capacity: 20,
   )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
@@ -316,7 +328,9 @@ activity = Activity.create(
   description: "Let's climb the world's highest mountain together! Meeting at UVP - Federação Portuguesa Ciclismo and don't bring sport shoes!",
   photo_db: "http://www.allaroundthegirl.com/wp-content/uploads/2017/01/dynamo-cycling-paris-avis.jpg",
   category: endurance,
-  owner: frankie)
+  owner: frankie,
+  max_capacity: 25,
+  )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
 
