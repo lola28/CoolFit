@@ -1,6 +1,13 @@
-<h1>Editing Activity</h1>
+<div class="container mt-4 container-edit-form">
+  <h3>Edit your activity</h3>
 
-<%= render 'form', activity: @activity %>
+  <%= render 'form', activity: @activity %>
 
-<%= link_to 'Show', @activity %> |
-<%= link_to 'Back', activities_path %>
+  <div style="margin-top: 10px; text-align:right;">
+    <%= link_to 'Show', @activity, class: "password-btn" %>
+  </div>
+
+  <div style="margin-top: 10px; text-align:right;">
+    <%= link_to 'Cancel', dashboard_owner_path, class: "password-btn" %>
+  </div>
+</div>
