@@ -41,6 +41,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
     @message = Message.new
+    # @activity.max_capacity = activity.current_capacity
 
     @markers =
       [{
@@ -103,6 +104,6 @@ class ActivitiesController < ApplicationController
 
 
   def activity_params
-    params.require(:activity).permit(:name, :location, :fitness_level, :time, :duration, :description, :photo_user, :photo_db)
+    params.require(:activity).permit(:name, :location, :fitness_level, :time, :duration, :description, :photo_user, :photo_db, :current_capacity, :max_capacity)
   end
 end

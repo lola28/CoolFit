@@ -18,6 +18,12 @@
           <div class="card-index-infos">
             <div class="card-index-text">
               <h3><%= activity.name %></h3>
+
+              <% unless activity.max_capacity.nil? %>
+              <h3><%= activity.max_capacity - activity.bookings.size %></h3>
+              <% end %>
+
+
               <p class="avatar-name">
                 <%= activity.owner.username %>
               </p>
@@ -55,3 +61,4 @@
   </div>
 
 </div>
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_094235) do
+ActiveRecord::Schema.define(version: 2019_05_31_111334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2019_05_31_094235) do
     t.float "latitude"
     t.string "name"
     t.bigint "user_id"
-    t.integer "current_capacity"
     t.integer "max_capacity"
     t.index ["category_id"], name: "index_activities_on_category_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
