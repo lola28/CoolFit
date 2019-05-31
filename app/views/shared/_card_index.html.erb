@@ -1,11 +1,21 @@
-<div class="card-index cards-index">
+
+  <div class="card-dashboard zoom d-flex">
   <% if activity.photo_db.nil? %>
     <%= cl_image_tag activity.photo_user, crop: :fill, gravity: :face, class: 'card-index-img' %>
   <% else %>
     <%= image_tag activity.photo_db, crop: :fill, gravity: :face, class: 'card-index-img' %>
   <% end %>
 
-  <div class="card-index-infos">
-      <h3><%= activity.name %></h3>
-  </div>
-</div>
+ <div class="card-index-infos">
+            <div class="card-index-text">
+              <h3><%= activity.name %></h3>
+              <p class="avatar-name">
+                <%= activity.owner.username %><%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %>
+              </p>
+              <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
+            </div>
+          </div>
+
+ </div>
+
+
