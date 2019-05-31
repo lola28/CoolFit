@@ -25,6 +25,17 @@
     margin-left: auto;
   }
 }
+}
+
+.card-index-title a {
+  text-decoration: none;
+  color: $gray;
+}
+
+.card-index-title a:hover {
+  text-decoration: none;
+  color: $orange;
+}
 
 .card-index-infos {
   padding: 16px;
@@ -91,7 +102,6 @@
 }
 
 .card-dashboard-img {
-
   width: 190px;
   object-fit: cover;
 }
@@ -115,7 +125,7 @@
 .category-logo {
   height: 50px;
   width: 50px;
-  margin-right: 10px
+  margin-right: 10px;
 }
 
 

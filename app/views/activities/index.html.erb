@@ -17,7 +17,7 @@
 
           <div class="card-index-infos">
             <div class="card-index-text">
-              <h3><%= link_to activity.name, activity_path(activity) %></h3>
+              <h3 class="card-index-title"><%= link_to activity.name, activity_path(activity) %></h3>
               <p class="avatar-name">
                 <%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %><%= activity.owner.username %>
               </p>
@@ -25,7 +25,7 @@
             </div>
           </div>
 
-          <div class="card-index-tags">
+            <div class="card-index-tags">
               <div class="interest-index" data-activity-id="<%= activity.id %>" data-interest-id="<%= @user_interests.select{ |interest| interest.activity == activity } %>">
                 <% if activity.owner != current_user %>
                   <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
@@ -36,8 +36,8 @@
                 <% end %>
               </div>
               <br>
-              <div class="card-btn-index">
-                <%= link_to "Register", activity_booking_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
+              <div class="card-btn-index" data-future-bookings-id="<%= activity.id %>">
+                <%= link_to "Register", activity_bookings_path(activity.id), method: :post, remote: true, class: 'btn register-btn' %>
               </div>
             </div>
 

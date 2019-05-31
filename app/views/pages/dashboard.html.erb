@@ -12,10 +12,8 @@
   <h3>Upcoming events</h3>
 
   <div class="future-bookings">
-
-
-    <% @future_bookings.each do |activity| %>
-      <%= render 'bookings/future_bookings', activity: activity %>
+    <% @future_bookings.each do |booking| %>
+      <%= render 'bookings/future_bookings', activity: booking.activity, booking: booking %>
     <% end %>
   </div>
 

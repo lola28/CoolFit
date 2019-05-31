@@ -18,9 +18,6 @@ Rails.application.routes.draw do
     get 'search', to: 'activities#search', as: 'search'
 
     resources :messages, only: :create
-    post 'booking', to: 'bookings#create'
-    patch 'booking', to: 'bookings#update'
-    delete 'booking', to: 'bookings#destroy'
     post 'interest', to: 'interests#create'
     delete 'interest', to: 'interests#destroy'
 

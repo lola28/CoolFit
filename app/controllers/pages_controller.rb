@@ -27,7 +27,7 @@ class PagesController < ApplicationController
     @past_bookings = []
     user_bookings.each do |booking|
       if booking.activity.time > Time.now
-        @future_bookings << booking.activity
+        @future_bookings << booking
       else
         @past_bookings << booking
       end

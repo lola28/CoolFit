@@ -1,8 +1,10 @@
-document.querySelector("[data-interests-id='<%= @activity.id %>']").remove();
-
-function addBooking(bookingHTML) {
-  const future_bookings = document.querySelector('.future-bookings');
-  future_bookings.insertAdjacentHTML('beforeend', bookingHTML);
+if (document.querySelector("[data-interests-id='<%= @activity.id %>']")) {
+  document.querySelector("[data-interests-id='<%= @activity.id %>']").remove();
+  function addBooking(bookingHTML) {
+    const future_bookings = document.querySelector('.future-bookings');
+    future_bookings.insertAdjacentHTML('beforeend', bookingHTML);
+  }
+  addBooking('<%= j render "bookings/future_bookings", activity: @activity %>');
+} else {
+  document.querySelector("[data-future-bookings-id='<%= @activity.id %>'] > a").innerHTML = "Registered"
 }
-
-addBooking('<%= j render "bookings/future_bookings", activity: @activity %>');
