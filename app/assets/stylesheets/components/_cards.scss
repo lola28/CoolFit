@@ -14,10 +14,15 @@
   margin-bottom: 10px;
   margin-top: 10px;
   margin-right: 10px;
+
+  .card-index-tags {
+    margin-left: auto;
+  }
 }
 
 .card-index-infos {
   padding: 16px;
+  margin-left: 3vh;
 
   h3 {
     font-size: 18px;
@@ -27,7 +32,6 @@
    p {
     font-size: 12px;
   }
-
 }
 
 .card-index-benef {
@@ -36,10 +40,15 @@
 
 .card-index-tags {
   margin-right: 10px;
+  p {
+    margin-bottom: 0;
+    }
 }
 
 .avatar-name {
   color: $gray;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .cards-index a {
@@ -56,15 +65,36 @@
   text-align: right;
 }
 
+.card-btn-index {
+  position: sticky;
+  bottom: 0;
+  top: 50px;
+}
+
 // DASHBOARD
 
 .card-dashboard {
   display: flex;
+  width: 120vh;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
+
+.card-dashboard-img {
+
+  width: 190px;
+  object-fit: cover;
+}
+
+
 
 .card-btns {
   display: flex;
-  margin-left: 30px;
+  margin-left: auto;
   margin-right: 30px;
   flex-direction: column;
   align-self: center;

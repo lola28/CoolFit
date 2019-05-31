@@ -5,8 +5,8 @@
   <div class="cards-index">
     <% @activities.each do |activity| %>
 
-      <%= link_to activity do %>
-        <div class="card-index zoom d-flex justify-content-between">
+
+        <div class="card-index zoom d-flex">
           <div class="card-index-img">
             <% if activity.photo_db.nil? %>
               <%= cl_image_tag activity.photo_user, class: "card-index-img" %>
@@ -17,29 +17,21 @@
 
           <div class="card-index-infos">
             <div class="card-index-text">
-              <h3><%= activity.name %></h3>
-
-              <% unless activity.max_capacity.nil? %>
-              <h3><%= activity.max_capacity - activity.bookings.size %></h3>
-              <% end %>
-
-
+              <h3><%= link_to activity.name, activity_path(activity) %></h3>
               <p class="avatar-name">
-                <%= activity.owner.username %>
+                <%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %><%= activity.owner.username %>
               </p>
-              <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %></p>
               <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
-              <% end %>
             </div>
           </div>
 
           <div class="card-index-tags">
-              <div class="interest-index">
+              <div class="interest-index" data-activity-id="<%= activity.id %>" data-interest-id="<%= @user_interests.select{ |interest| interest.activity == activity } %>">
                 <% if activity.owner != current_user %>
                   <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                    <%= link_to "♡", activity_interests_path(activity), method: :post,  class: "interest-btn" %>
+                    <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
                   <% else %>
-                    <%= link_to "♥", activity_interest_path(activity), method: :delete,  class: "interest-btn-selected" %>
+                    <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
                   <% end %>
                 <% end %>
               </div>
@@ -48,8 +40,9 @@
                 <%= link_to "Register", activity_booking_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
               </div>
             </div>
+
         </div>
-    <% end %>
+      <% end %>
   </div>
 
   <div

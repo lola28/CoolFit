@@ -33,8 +33,8 @@ class ActivitiesController < ApplicationController
     if @activities.empty?
       flash[:notice] = "😥 There is nothing corresponding to your search, please try again!"
     end
-
   end
+
   # GET /activities/1
   # GET /activities/1.json
   def show
@@ -49,11 +49,7 @@ class ActivitiesController < ApplicationController
         lng: @activity.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { activity: @activity })
       }]
-
   end
-
-
-
 
   # GET /activities/new
   def new
@@ -71,9 +67,10 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(activity_params)
-    @activity.category = Category.find(params[:activity][:category])
+    # @activity.category = Category.find(params[:activity][:category])
     @activity.owner = current_user
     authorize @activity
+
     if @activity.save
       redirect_to dashboard_owner_path
     else
@@ -84,6 +81,11 @@ class ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
     authorize @activity
+    if @activity.update(activity_params)
+      redirect_to dashboard_owner_path, notice: "You just updated your event"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -96,14 +98,9 @@ class ActivitiesController < ApplicationController
     @activity.bookings
   end
 
-  #def upcoming_activities
-   # @upcoming_activities = policy_scope(Activity).where.not(latitude: nil, longitude: nil)
-  #end
-
   private
 
-
   def activity_params
-    params.require(:activity).permit(:name, :location, :fitness_level, :time, :duration, :description, :photo_user, :photo_db, :current_capacity, :max_capacity)
+    params.require(:activity).permit(:name, :category_id, :location, :fitness_level, :time, :duration, :description, :photo_user, :photo_db, :max_capacity)
   end
 end

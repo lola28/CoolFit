@@ -7,15 +7,7 @@
   </div>
 
   <div class="form-inputs">
-    <%= f.input :category, collection: Category.all, class: "form-control" %>
-  </div>
-
-  <div class="form-inputs">
     <%= f.input :location, class: "form-control" %>
-  </div>
-
-  <div class="form-inputs">
-    <%= f.input :fitness_level, class: "form-control" %>
   </div>
 
   <div class="form-inputs">
@@ -27,10 +19,36 @@
   </div>
 
   <div class="form-inputs">
+    <%= f.input :fitness_level, class: "form-control" %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.association :category, label_method: :description, prompt: "Choose a Category"%>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.association :healths, label_method: :description, as: :check_boxes %>
+  </div>
+
+  <br>
+
+  <div class="d-flex justify-content-between">
+    <p>Upload a photo for your event:</p>
+    <div class="form-inputs">
+        <%= f.input :photo_user, label: "Upload", input_html: {style: "display:none;"}, label_html: {class: "btn btn-edit-user", style: "width: 100px;"} %>
+        <%= f.input :photo_user_cache, as: :hidden %>
+    </div>
+    <p>Or choose from our library: </p>
+    <div class="form-inputs">
+        <%= f.input :photo_db, label: "Select", input_html: {style: "display:none;"}, label_html: {class: "btn btn-edit-user", style: "width: 100px;"} %>
+    </div>
+  </div>
+
+  <div class="form-inputs">
     <%= f.input :description, class: "form-control" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-edit-user", style: "width: 145px; float: right;"  %>
   </div>
 <% end %>

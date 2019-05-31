@@ -12,6 +12,13 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :encrypted_password, presence: true
 
+  after_create :set_default_url!
+
+  def set_default_url!
+    avatar = PhotoUploader.default_avatar
+    update!(avatar: avatar)
+  end
+
   mount_uploader :avatar, PhotoUploader
 
   def average_owner_rating
