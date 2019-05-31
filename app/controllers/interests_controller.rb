@@ -6,8 +6,6 @@ class InterestsController < ApplicationController
     @interest.activity = @activity
     @interest.user = current_user
     @interest.save
-
-    redirect_to request.referrer
   end
 
   def destroy
@@ -15,7 +13,5 @@ class InterestsController < ApplicationController
     @interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
     authorize @interest
     @interest.destroy
-
-    redirect_to request.referrer
   end
 end

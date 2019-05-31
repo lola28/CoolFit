@@ -26,12 +26,12 @@
           </div>
 
           <div class="card-index-tags">
-              <div class="interest-index">
+              <div class="interest-index" data-activity-id="<%= activity.id %>" data-interest-id="<%= @user_interests.select{ |interest| interest.activity == activity } %>">
                 <% if activity.owner != current_user %>
                   <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                    <%= link_to "♡", activity_interests_path(activity), method: :post,  class: "interest-btn" %>
+                    <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
                   <% else %>
-                    <%= link_to "♥", activity_interest_path(activity), method: :delete,  class: "interest-btn-selected" %>
+                    <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
                   <% end %>
                 <% end %>
               </div>
