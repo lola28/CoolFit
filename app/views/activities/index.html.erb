@@ -15,8 +15,8 @@
             <% end %>
           </div>
 
-          <div class="card-index-infos d-flex justify-content-start">
-            <div>
+          <div class="card-index-infos">
+            <div class="card-index-text">
               <h3><%= activity.name %></h3>
               <p class="avatar-name">
                 <%= activity.owner.username %>
@@ -24,8 +24,9 @@
               <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
               <% end %>
             </div>
+          </div>
 
-            <div class="card-index-tags">
+          <div class="card-index-tags">
               <div class="interest-index">
                 <% if activity.owner != current_user %>
                   <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
@@ -35,11 +36,11 @@
                   <% end %>
                 <% end %>
               </div>
+              <br>
               <div class="card-btn-index">
                 <%= link_to "Register", activity_booking_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
               </div>
             </div>
-          </div>
         </div>
     <% end %>
   </div>
