@@ -5,6 +5,7 @@
   <div class="cards-index">
     <% @activities.each do |activity| %>
 
+
         <div class="card-index zoom d-flex">
           <div class="card-index-img">
             <% if activity.photo_db.nil? %>
@@ -16,9 +17,9 @@
 
           <div class="card-index-infos">
             <div class="card-index-text">
-              <h3><%= activity.name %></h3>
+              <h3><%= link_to activity.name, activity_path(activity) %></h3>
               <p class="avatar-name">
-                <%= activity.owner.username %><%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %>
+                <%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %><%= activity.owner.username %>
               </p>
               <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
             </div>
@@ -39,6 +40,7 @@
                 <%= link_to "Register", activity_booking_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
               </div>
             </div>
+
         </div>
       <% end %>
   </div>
