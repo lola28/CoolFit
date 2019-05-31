@@ -28,6 +28,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
+        <%= link_to "Browse", activities_path, class: "btn sign-in-btn", style: "text-decoration: none;" %>
         <% if current_user.nil? %>
           <%= link_to "Sign up", new_user_session_path, class: "btn sign-in-btn" %>
         <% else %>

@@ -25,6 +25,9 @@
               <div class="d-flex justify-content-start">
                 <% activity.owner.average_owner_rating.times.each do |rate| %>
                   <i class="fas fa-star" style="color:#FA9800;"></i>
+                  <% end %>
+                  <% activity.owner.star_to_5.times.each do |rate| %>
+                  <i class="fas fa-star" style="color:#C8C8C8;"></i>
                 <% end %>
               </div>
               <div class="d-flex justify-content-end">
@@ -68,6 +71,9 @@
                 <% activity.owner.average_owner_rating.times.each do |rate| %>
                   <i class="fas fa-star" style="color:#FA9800;"></i>
                 <% end %>
+                <% activity.owner.star_to_5.times.each do |rate| %>
+                  <i class="fas fa-star" style="color:#C8C8C8;"></i>
+                <% end %>
               </div>
               <div class="d-flex justify-content-end">
                 <% activity.fitness_level.times.each do |level|%>
@@ -109,6 +115,9 @@
               <div class="d-flex justify-content-start">
                 <% activity.owner.average_owner_rating.times.each do |rate| %>
                   <i class="fas fa-star" style="color:#FA9800;"></i>
+                <% end %>
+                <% activity.owner.star_to_5.times.each do |rate| %>
+                  <i class="fas fa-star" style="color:#C8C8C8;"></i>
                 <% end %>
               </div>
               <div class="d-flex justify-content-end">

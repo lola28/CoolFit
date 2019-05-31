@@ -23,6 +23,10 @@ class User < ApplicationRecord
     end
   end
 
+  def star_to_5
+    star = 5 - average_owner_rating
+  end
+
   def name
     if first_name.nil?
       return last_name
