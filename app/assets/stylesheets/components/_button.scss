@@ -84,3 +84,57 @@
 .btn-edit-user:hover {
   color: $orange;
 }
+
+.register-btn {
+  font-size: 14px;
+  font-family: 'Exo 2', sans-serif;
+  background-color: white;
+  color: $dark-gray;
+  width: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  filter: brightness(95%);
+  text-decoration: none;
+}
+
+.register-btn:hover {
+  color: $orange;
+  transition-delay: s150ms;
+  text-decoration: none;
+}
+
+.interest-btn {
+  font-size: 18px;
+  font-family: 'Exo 2', sans-serif;
+  background-color: transparent;
+  color: $dark-gray;
+  width: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  filter: brightness(95%);
+  text-decoration: none;
+}
+
+.interest-btn:hover {
+  color: $orange;
+  transition-delay: s150ms;
+  text-decoration: none;
+}
+
+.interest-btn-selected {
+  font-size: 18px;
+  font-family: 'Exo 2', sans-serif;
+  background-color: transparent;
+  color: $orange;
+  width: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  filter: brightness(95%);
+  text-decoration: none;
+}
+
+.interest-btn-selected:hover {
+  color: $dark-gray;
+  transition-delay: s150ms;
+  text-decoration: none;
+}

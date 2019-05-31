@@ -7,9 +7,10 @@
 }
 
 #map {
-
   width: 70vh;
+  height: 100vh;
   object-fit: cover;
+  z-index: 0;
   position: sticky;
   top: 0;
 }
