@@ -2,7 +2,7 @@
   <%= link_to "CoolFit", root_path, class: "navbar-logo" %>
 
     <div class="navbar flex flex-horizontal-center">
-      <%= form_tag '#', method: :get, style:"width:100%" do %>
+      <%= form_tag activities_path, method: :get, style:"width:100%" do %>
         <ul>
           <li class="navitem">
             <%= text_field_tag :location_query,

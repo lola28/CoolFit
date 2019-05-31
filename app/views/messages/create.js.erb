@@ -8,10 +8,14 @@ function addMessage(messageHTML) {
   messages.insertAdjacentHTML('beforeend', messageHTML);
 }
 
-  <% if @message.errors.any? %>
-    refreshForm('<%= j render "messages/form", activity: @activity, message: @message %>');
-  <% else %>
-    const messages = document.getElementById('messages');
-    messages.innerHTML = '<%= j render "messages/show", message: @message %>'
-    refreshForm('<%= j render "messages/form", activity: @activity, message: Message.new %>');
-  <% end %>
+function addMessages() {
+  const messages = document.getElementById('messages');
+  messages.innerHTML = '<%= j render "messages/show", message: @message %>'
+}
+
+<% if @message.errors.any? %>
+  refreshForm('<%= j render "messages/form", activity: @activity, message: @message %>');
+<% else %>
+  addMessages();
+  refreshForm('<%= j render "messages/form", activity: @activity, message: Message.new %>');
+<% end %>

@@ -22,7 +22,6 @@ class ActivitiesController < ApplicationController
       }
     end
 
-
     if params[:activity_query].present?
       @activities = @activities.search_by_name(params[:activity_query])
     end
@@ -34,6 +33,7 @@ class ActivitiesController < ApplicationController
     if @activities.empty?
       flash[:notice] = "😥 There is nothing corresponding to your search, please try again!"
     end
+
   end
   # GET /activities/1
   # GET /activities/1.json
@@ -50,6 +50,9 @@ class ActivitiesController < ApplicationController
       }]
 
   end
+
+
+
 
   # GET /activities/new
   def new
@@ -97,6 +100,7 @@ class ActivitiesController < ApplicationController
   #end
 
   private
+
 
   def activity_params
     params.require(:activity).permit(:name, :location, :fitness_level, :time, :duration, :description, :photo_user, :photo_db)

@@ -21,6 +21,9 @@
               <p class="avatar-name">
                 <%= activity.owner.username %>
               </p>
+              <% if !current_user.nil? %>
+                <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %></p>
+              <% end %>
               <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
               <% end %>
             </div>
