@@ -1,5 +1,4 @@
 <p style= "font-size:20px"><strong>Conversation about <%= @activity.name %></strong></p>
-<hr size="6" width="100%" align="left" color="$gray">
 <% @activity.messages.each do |message| %>
 <p class= "content-chat"><strong><%= message.owner.username %>: </strong><%= message.content %></p>
 <hr size="6" width="100%" align="left">

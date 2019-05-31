@@ -1,13 +1,8 @@
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
 .navbar-coolfit {
   justify-content: space-between;
   background: $gray;
   height: 71px;
+  margin-bottom: 10px;
 }
 
 .navbar-coolfit .navbar-collapse {

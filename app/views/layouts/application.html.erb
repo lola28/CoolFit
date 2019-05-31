@@ -12,19 +12,19 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <% if params[:controller] == "devise/registrations" || params[:controller] == "devise/sessions" %>
-      <div class= "devise-background">
-    <% else %>
-      <%= render 'shared/navbar' %>
-      <div class="container mt-4 page-wrapper">
-    <% end %>
 
-      <%= yield %>
+    <%= render 'shared/navbar' unless in_authentication_page? %>
+
+    <div class="scroll-container">
+      <div class="<%= in_authentication_page? ? 'devise-background' : 'container mt-4 page-wrapper' %>">
+        <%= yield %>
+      </div>
+
+      <%= render 'shared/footer' %>
+
+      <p class="alert"><%= alert %></p>
     </div>
 
-    <%= render 'shared/footer' %>
-
-    <p class="alert"><%= alert %></p>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

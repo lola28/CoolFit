@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+.home-title {
+  color: $orange;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.scroll-container {
+  height: calc(100vh - 81px);
+  overflow: auto;
+}
