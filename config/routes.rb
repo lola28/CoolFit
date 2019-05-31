@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#show_profile'
   get 'profile/edit', to: 'pages#edit_profile'
   patch 'profile', to: 'pages#update_profile', as: 'profile_update'
+  get 'activities/search'
 
 
   resources :activities do
     # resources :bookings
     # resources :interests
+    get 'search', to: 'activities#search', as: 'search'
 
     resources :messages, only: :create
     post 'booking', to: 'bookings#create'
