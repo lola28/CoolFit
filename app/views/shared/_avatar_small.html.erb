@@ -1,5 +1,5 @@
 <% if activity.owner.avatarseed.nil? %>
-  <%= cl_image_tag activity.owner.avatar, class: "avatar avatar-small mr-4 mt-2" %>
+  <%= cl_image_tag activity.owner.avatar, class: "avatar avatar-small mr-4 " %>
 <% else %>
-  <%= cl_image_tag activity.owner.avatarseed, class: "avatar avatar-small mr-4 mt-2" %>
+  <%= cl_image_tag activity.owner.avatarseed, class: "avatar avatar-small mr-4 " %>
 <% end %>

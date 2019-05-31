@@ -1,7 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container mt-6 show-container">
+<div id = "capacity">
+  <h3>Number of spots available:</h3>
+    <% if @activity.max_capacity.nil? %>
+      <p>There is no limited number of participants!</p>
+    <% elsif @activity.bookings.size < @activity.max_capacity %>
+      <p>Hurry up, there are only <%= @activity.max_capacity - @activity.bookings.size %> spots left!</p>
+    <% else @activity.max_capacity = @activity.bookings.size %>
+      <p>Sorry the class is fully booked <% %></p>
+    <% end%>
+</div>
 
+<div class="container mt-4 show-container">
   <h3><strong><%= @activity.name %></strong></h3>
   <hr size="6" width="100%" align="left" color="$gray">
   <p>Event organized by <i><%= @activity.owner.username %></i></p>
@@ -67,5 +78,4 @@
     </div>
 
 </div>
-
 

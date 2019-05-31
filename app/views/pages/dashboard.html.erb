@@ -12,10 +12,13 @@
   <h3>Upcoming events</h3>
 
   <div class="future-bookings">
+
+
     <% @future_bookings.each do |activity| %>
       <%= render 'bookings/future_bookings', activity: activity %>
     <% end %>
   </div>
+
 </div>
 
 <br>
@@ -43,5 +46,6 @@
 
       <%#= simple_form_for (@activity, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
       <%#= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
+    </div>
   </div>
-</div>
+ </div>

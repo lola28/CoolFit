@@ -2,14 +2,19 @@ class BookingsController < ApplicationController
   def create
     @activity = Activity.find(params[:activity_id])
     @booking = Booking.new
-    authorize @booking
     @booking.activity = @activity
     @booking.user = current_user
-    @booking.save
+    authorize @booking
+    if @activity.bookings.size < @activity.max_capacity
+      @booking.save
+      interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
+      authorize interest
+      interest.destroy
+    else
+      flash[:alert] = "Sorry, the class is full!"
+      redirect_to request.referrer
+    end
 
-    interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
-    authorize interest
-    interest.destroy
   end
 
   def destroy
