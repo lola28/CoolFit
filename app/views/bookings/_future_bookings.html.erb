@@ -1,5 +1,5 @@
-<div data-future-bookings-id="<%= activity.id %>">
-
+<!-- <div data-future-bookings-id="<%= activity.id %>"> -->
+<div class="card-dashboard zoom d-flex">
   <%= render 'shared/card_index', activity: activity %>
 
 
@@ -7,4 +7,4 @@
     <%= link_to "Unregister", activity_bookings_path(activity), method: :delete, remote: true, class: 'btn admin-btn' %>
   </div>
 
-</div>
+ </div>
