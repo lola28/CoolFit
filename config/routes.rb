@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'dashboard', to: 'pages#dashboard'
-  get 'dashboard/owner', to: 'pages#dashboard_owner'
+  get 'dashboard/:id', to: 'pages#dashboard_owner', as: 'owner_dashboard'
 
   get 'profile', to: 'pages#show_profile'
   get 'profile/edit', to: 'pages#edit_profile'

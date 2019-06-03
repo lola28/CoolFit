@@ -27,17 +27,21 @@
 
             <div class="card-index-tags">
               <div class="interest-index" data-activity-id="<%= activity.id %>" data-interest-id="<%= @user_interests.select{ |interest| interest.activity == activity } %>">
-                <% if activity.owner != current_user %>
-                  <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                    <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
-                  <% else %>
-                    <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
+                <% if current_user.professional == false %>
+                  <% if activity.owner != current_user %>
+                    <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
+                      <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
+                    <% else %>
+                      <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
+                    <% end %>
                   <% end %>
-                <% end %>
+                <%end %>
               </div>
               <br>
               <div class="card-btn-index" data-future-bookings-id="<%= activity.id %>">
-                <%= link_to "Register", activity_bookings_path(activity.id), method: :post, remote: true, class: 'btn register-btn' %>
+                <% if current_user.professional == false %>
+                  <%= link_to "Register", activity_bookings_path(activity.id), method: :post, remote: true, class: 'btn register-btn' %>
+                <% end %>
               </div>
             </div>
 
