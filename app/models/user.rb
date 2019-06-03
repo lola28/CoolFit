@@ -47,7 +47,8 @@ class User < ApplicationRecord
   private
 
     def send_welcome_email
-      if User.professional? ? UserMailer.with(user: self).welcome_pro.deliver_now : UserMailer.with(user: self).welcome.deliver_now
+      @user = User.new
+      if @user.professional ? UserMailer.with(user: self).welcome_pro.deliver_now : UserMailer.with(user: self).welcome.deliver_now
       end
     end
 end
