@@ -2,9 +2,10 @@
 
 <div class="container mt-6 show-container">
 
+<div class="container mt-4 show-container">
   <h3><strong><%= @activity.name %></strong></h3>
-  <hr size="6" width="100%" align="left" color="$gray">
-  <p>Event organized by <i><%= @activity.owner.username %></i></p>
+  <hr size="6" width="100%" align="left" color="#C8C8C8">
+  <p>Event organized by <i><%= link_to @activity.owner.username, owner_dashboard_path(@activity.owner), style: "text-decoration: none; color: #FA9800" %></i></p>
   <div class="show-tags d-flex justify-content-between">
       <p><i class="far fa-clock" style="margin-right: 1vh;"></i><%= @activity.duration %> Minutes</p>
       <div class="d-flex justify-content-start">
@@ -25,7 +26,18 @@
       <div class="container-infos">
         <p class="darker-span"><strong>General Description</strong></p>
         <p><%= @activity.description %></p>
-        <hr size="6" width="100%" align="left" color="$gray">
+        <hr size="6" width="100%" align="left" color="#C8C8C8">
+        <div id = "capacity">
+          <p class="darker-span"><strong>Number of spots available:</strong></p>
+            <% if @activity.max_capacity.nil? %>
+              <p>There is no limited number of participants!</p>
+            <% elsif @activity.bookings.size < @activity.max_capacity %>
+              <p>Hurry up, there are only <%= @activity.max_capacity - @activity.bookings.size %> spots left!</p>
+            <% else @activity.max_capacity = @activity.bookings.size %>
+              <p>Sorry the class is fully booked <% %></p>
+            <% end%>
+        </div>
+        <hr size="6" width="100%" align="left" color="#C8C8C8">
         <p class="darker-span"><strong>Expected Health Benefits</strong></p>
         <p><% @activity.healths.each do |health| %>
           <ul style="padding: 0px">
@@ -34,7 +46,7 @@
           </ul>
           <% end %>
        </p>
-       <hr size="6" width="100%" align="left" color="$gray">
+       <hr size="6" width="100%" align="left" color="#C8C8C8">
         <p class="darker-span" ><strong>Where is it Happening?</strong></p>
       <div class="flex-container">
 
@@ -48,7 +60,7 @@
 
       </div>
       <br>
-      <hr size="6" width="100%" align="left" color="$gray">
+      <hr size="6" width="100%" align="left" color="#C8C8C8">
       <div id="messages">
         <% if @activity.messages.blank? %>
          <p style= "font-size:20px"><strong>Write a message to <%= @activity.name %></strong></p>
@@ -67,5 +79,4 @@
     </div>
 
 </div>
-
 

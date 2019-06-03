@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'dashboard', to: 'pages#dashboard'
-  get 'dashboard/owner', to: 'pages#dashboard_owner'
+  get 'dashboard/:id', to: 'pages#dashboard_owner', as: 'owner_dashboard'
 
   get 'profile', to: 'pages#show_profile'
   get 'profile/edit', to: 'pages#edit_profile'
@@ -18,9 +18,6 @@ Rails.application.routes.draw do
     get 'search', to: 'activities#search', as: 'search'
 
     resources :messages, only: :create
-    post 'booking', to: 'bookings#create'
-    patch 'booking', to: 'bookings#update'
-    delete 'booking', to: 'bookings#destroy'
     post 'interest', to: 'interests#create'
     delete 'interest', to: 'interests#destroy'
 

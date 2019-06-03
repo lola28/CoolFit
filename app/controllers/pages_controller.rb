@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   layout "homepage", only: [:home]
 
+
   def home
     categories_hash = {}
     Category.all.each do |category|
@@ -27,7 +28,7 @@ class PagesController < ApplicationController
     @past_bookings = []
     user_bookings.each do |booking|
       if booking.activity.time > Time.now
-        @future_bookings << booking.activity
+        @future_bookings << booking
       else
         @past_bookings << booking
       end
@@ -35,7 +36,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard_owner
-    @user_activities = policy_scope(Activity).where(owner: current_user)
+    @user = User.find(params[:id])
+    @user_activities = policy_scope(Activity).where(owner: @user)
 
     @future_activities = []
     @past_activities = []
@@ -46,12 +48,8 @@ class PagesController < ApplicationController
         @past_activities << activity
       end
     end
-
-    @specialty = []
-    @user_activities.each do |activity|
-      @specialty << activity.owner.physical_activity
-    end
   end
+
 
   def show_profile
   end
@@ -76,6 +74,7 @@ class PagesController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :email, :avatar, :age, :physical_activity, :description)
   end
+
 end
 
 # To add avatar of organiser

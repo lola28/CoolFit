@@ -1,8 +1,13 @@
-document.querySelector("[data-interests-id='<%= @activity.id %>']").remove();
-
-function addBooking(bookingHTML) {
-  const future_bookings = document.querySelector('.future-bookings');
-  future_bookings.insertAdjacentHTML('beforeend', bookingHTML);
+if (document.querySelector("[data-interests-id='<%= @activity.id %>']")) {
+  document.querySelector("[data-interests-id='<%= @activity.id %>']").remove();
+  function addBooking(bookingHTML) {
+    const future_bookings = document.querySelector('.future-bookings');
+    future_bookings.insertAdjacentHTML('beforeend', bookingHTML);
+  }
+  addBooking('<%= j render "bookings/future_bookings", activity: @activity, booking: @booking %>');
+} else {
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").innerHTML = "Unregister";
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('data-method', 'delete');
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('href', '<%= activity_booking_path(@activity, @booking)%>');
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('class', 'btn register-btn-selected');
 }
-
-addBooking('<%= j render "bookings/future_bookings", activity: @activity %>');

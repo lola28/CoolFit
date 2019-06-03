@@ -15,6 +15,10 @@
   margin-top: 10px;
   margin-right: 10px;
 
+  .card-index-tags {
+    margin-left: auto;
+  }
+
   &:first-child {
     margin-top: 0;
   }
@@ -26,6 +30,16 @@
 }
 
 .card-index-text h3:hover {
+  color: $orange;
+}
+
+.card-index-title a {
+  text-decoration: none;
+  color: $gray;
+}
+
+.card-index-title a:hover {
+  text-decoration: none;
   color: $orange;
 }
 
@@ -44,7 +58,6 @@
     font-size: 12px;
     margin-block-end: 5px;
   }
-
 }
 
 .card-index-benef {
@@ -53,15 +66,13 @@
 
 .card-index-tags {
   margin-right: 10px;
+  p {
+    margin-bottom: 0;
+    }
 }
 
 .avatar-name a {
   color: $gray;
-  text-decoration: none;
-}
-
-.avatar-name a:hover {
-  color: $orange;
 }
 
 .cards-index a {
@@ -78,15 +89,35 @@
   text-align: right;
 }
 
+.card-btn-index {
+  position: sticky;
+  bottom: 0;
+  top: 50px;
+}
+
 // DASHBOARD
 
 .card-dashboard {
   display: flex;
+  width: 120vh;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
+
+.card-dashboard-img {
+  width: 190px;
+  object-fit: cover;
+}
+
+
 
 .card-btns {
   display: flex;
-  margin-left: 30px;
+  margin-left: auto;
   margin-right: 30px;
   flex-direction: column;
   align-self: center;
@@ -101,7 +132,7 @@
 .category-logo {
   height: 50px;
   width: 50px;
-  margin-right: 10px
+  margin-right: 10px;
 }
 
 
@@ -128,4 +159,10 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+}
+
+// Capacity classes
+
+.full-capacity {
+  opacity: 0.5;
 }

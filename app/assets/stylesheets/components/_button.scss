@@ -100,6 +100,27 @@
   text-decoration: none;
 }
 
+.register-btn-selected {
+  font-size: 14px;
+  background-color: white;
+  color: $light-gray;
+  width: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  filter: brightness(95%);
+  text-decoration: none;
+}
+
+.register-btn-selected:hover {
+  color: $orange;
+  transition-delay: s150ms;
+  text-decoration: none;
+}
+
+.full-capacity-btn:hover {
+  color: $dark-gray;
+}
+
 .interest-btn {
   font-size: 20px;
   font-weight: 1000;

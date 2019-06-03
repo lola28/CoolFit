@@ -2,14 +2,17 @@ class BookingsController < ApplicationController
   def create
     @activity = Activity.find(params[:activity_id])
     @booking = Booking.new
-    authorize @booking
     @booking.activity = @activity
     @booking.user = current_user
+    authorize @booking
     @booking.save
-
-    interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
-    authorize interest
-    interest.destroy
+    mail = BookingMailer.with(user: current_user ,booking: @booking).create_confirmation
+    mail.deliver_now
+    interest = policy_scope(Interest).find_by(activity: @activity, user: current_user)
+    if interest.present?
+      authorize interest
+      interest.destroy
+    end
   end
 
   def destroy
