@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     @booking.save
+    mail = BookingMailer.with(user: current_user ,booking: @booking).create_confirmation
+    mail.deliver_now
     interest = policy_scope(Interest).find_by(activity: @activity, user: current_user)
     if interest.present?
       authorize interest

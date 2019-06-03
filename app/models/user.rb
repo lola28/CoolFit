@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :encrypted_password, presence: true
 
-  mount_uploader :avatar, AvatarUploader
+  after_create :send_welcome_email
 
   def average_owner_rating
     ratings = activities.map(&:bookings).flatten.map(&:rating)
@@ -36,4 +36,12 @@ class User < ApplicationRecord
       return first_name + last_name
     end
   end
+
+  private
+
+    def send_welcome_email
+      @user = User.new
+      if @user.professional ? UserMailer.with(user: self).welcome_pro.deliver_now : UserMailer.with(user: self).welcome.deliver_now
+      end
+    end
 end

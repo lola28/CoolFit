@@ -15,16 +15,17 @@
   margin-top: 10px;
   margin-right: 10px;
 
+  .card-index-tags {
+    margin-left: auto;
+  }
+
   &:first-child {
     margin-top: 0;
   }
 
   &:last-child {
     margin-bottom: 0;
-  .card-index-tags {
-    margin-left: auto;
   }
-}
 }
 
 .card-index-title a {
@@ -152,4 +153,10 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+}
+
+// Capacity classes
+
+.full-capacity {
+  opacity: 0.5;
 }

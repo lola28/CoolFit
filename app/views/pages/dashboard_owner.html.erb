@@ -1,11 +1,15 @@
 <div class="d-flex justify-content-between">
-  <h1>See below the events you are organizing <span class="banner-logo"><%= current_user.username %></span>!</h1>
-  <%= render 'shared/avatar_large' %>
+  <% if current_user == @user %>
+  <h1>See below the events you are organizing <span class="banner-logo"><%= @user.username %></span>!</h1>
+    <%= render 'shared/avatar_large' %>
+  <% else %>
+  <h1>See below the events <span class="banner-logo"><%= @user.username %></span> is organizing</h1>
+  <% end %>
 </div>
 
 <br>
 
-<h5>Description: <%= current_user.description %></h5>
+<h5>Description: <%= @user.description %></h5>
 
 <%#= binding.pry %>
 
@@ -18,10 +22,10 @@
 </h5>
 
 <h5>Average rating:
-  <% if current_user.average_owner_rating.zero? %>
+  <% if @user.average_owner_rating.zero? %>
     <em style="filter: brightness(150%);">no rating yet</em>
   <% else %>
-  <% current_user.average_owner_rating.times do %>
+  <% @user.average_owner_rating.times do %>
     <i class="fas fa-star"></i>
   <% end %>
   <% end %>
@@ -29,13 +33,14 @@
 
 <br>
 
-<h5>Create your own events and bring people together around your favorite activities! <%= link_to "Create", new_activity_path, class:"btn admin-btn", style:"font-size: 20px"%></h5>
-
+<% if current_user == @user %>
+  <h5>Create your own events and bring people together around your favorite activities! <%= link_to "Create", new_activity_path, class:"btn admin-btn", style:"font-size: 20px"%></h5>
+<% end %>
 <br>
 
 <% if !@future_activities.empty? %>
   <div>
-    <h3>My upcoming events</h3>
+    <h3> upcoming events</h3>
 
     <div class="future-activities">
       <% @future_activities.each do |activity| %>
@@ -49,7 +54,11 @@
 
 <% if !@past_activities.empty? %>
   <div>
-    <h3>My past events</h3>
+    <% if current_user == @user %>
+        <h3>My past events</h3>
+    <% else %>
+      <h3>past events</h3>
+    <% end %>
 
     <div class="future-activities">
       <% @past_activities.each do |activity| %>

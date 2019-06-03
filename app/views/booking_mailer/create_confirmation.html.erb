@@ -1,0 +1,9 @@
+<!-- create_confirmation.html.erb -->
+<h1>Booking#create_confirmation</h1>
+
+<p> Your <%= @user.bookings.last.activity.name %>
+  was just booked.
+
+</p>
+
+<%= link_to "Check it on your dashboard", dashboard_url %>
