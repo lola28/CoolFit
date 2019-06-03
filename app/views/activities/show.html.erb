@@ -5,7 +5,7 @@
 <div class="container mt-4 show-container">
   <h3><strong><%= @activity.name %></strong></h3>
   <hr size="6" width="100%" align="left" color="#C8C8C8">
-  <p>Event organized by <i><%= @activity.owner.username %></i></p>
+  <p>Event organized by <i><%= link_to @activity.owner.username, owner_dashboard_path(@activity.owner), style: "text-decoration: none; color: #FA9800" %></i></p>
   <div class="show-tags d-flex justify-content-between">
       <p><i class="far fa-clock" style="margin-right: 1vh;"></i><%= @activity.duration %> Minutes</p>
       <div class="d-flex justify-content-start">
