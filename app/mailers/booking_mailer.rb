@@ -7,7 +7,7 @@ class BookingMailer < ApplicationMailer
 
       mail(
         to:       @user.email,
-        subject:  "Your booking for #{@user.bookings.last.activity.name} was created!"
+        subject:  "Booking: #{@booking.activity.name}"
       )
   end
 end

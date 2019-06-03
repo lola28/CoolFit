@@ -4,6 +4,8 @@ class Booking < ApplicationRecord
 
   validates :ratings, default: nil
 
+  after_create :send_confirmation_email
+
 private
 
   def send_confirmation_email

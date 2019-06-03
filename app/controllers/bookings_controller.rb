@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
       interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
       authorize interest
       interest.destroy
-      mail = BookingMailer.with(booking: @booking).create_confirmation
+      mail = BookingMailer.with(user: current_user ,booking: @booking).create_confirmation
       mail.deliver_now
     else
       flash[:alert] = "Sorry, the class is full!"

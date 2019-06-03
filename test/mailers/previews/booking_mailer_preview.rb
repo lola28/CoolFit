@@ -6,7 +6,7 @@ class BookingMailerPreview < ActionMailer::Preview
     user = User.first
     booking = Booking.last
 
-    BookingMailer.with(user: user).create_confirmation
+    BookingMailer.with(user: user, booking: booking).create_confirmation
     # UserMailer.welcome.with(user: User.first) #=>
     # UserMailer.with(user: User.first).welcome #=>
   end
