@@ -1,7 +1,7 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
-  def self.default_avatar
+  def default_url
     "assets/default-avatar.jpg"
   end
 end
