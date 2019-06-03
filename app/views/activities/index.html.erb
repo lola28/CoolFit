@@ -4,45 +4,44 @@
 
   <div class="cards-index">
     <% @activities.each do |activity| %>
-
-      <%= link_to activity do %>
-        <div class="card-index zoom d-flex justify-content-between">
-          <div class="card-index-img">
-            <% if activity.photo_db.nil? %>
-              <%= cl_image_tag activity.photo_user, class: "card-index-img" %>
-            <% else %>
-              <%= image_tag activity.photo_db, class: "card-index-img" %>
-            <% end %>
-          </div>
-
-          <div class="card-index-infos">
-            <div class="card-index-text">
-              <h3><%= activity.name %></h3>
-              <p class="avatar-name">
-                <%= activity.owner.username %>
-              </p>
-              <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %></p>
-              <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
+      <% unless activity.time.to_date.past? %>
+          <div class="card-index zoom d-flex justify-content-between">
+            <div class="card-index-img">
+              <% if activity.photo_db.nil? %>
+                <%= cl_image_tag activity.photo_user, class: "card-index-img" %>
+              <% else %>
+                <%= image_tag activity.photo_db, class: "card-index-img" %>
               <% end %>
             </div>
-          </div>
 
-          <div class="card-index-tags">
-              <div class="interest-index">
-                <% if activity.owner != current_user %>
-                  <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                    <%= link_to "♡", activity_interests_path(activity), method: :post,  class: "interest-btn" %>
-                  <% else %>
-                    <%= link_to "♥", activity_interest_path(activity), method: :delete,  class: "interest-btn-selected" %>
-                  <% end %>
+            <div class="card-index-infos d-flex justify-content-between">
+              <div class="card-index-text">
+                <%= link_to activity do %>
+                  <h3><strong><%= activity.name %></strong></h3>
                 <% end %>
+                <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %>
+                  <%= activity.owner.username %></p>
+                <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
               </div>
-              <br>
-              <div class="card-btn-index">
-                <%= link_to "Register", activity_booking_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
+
+              <div class="card-index-tags">
+                <div class="interest-index">
+                  <% if activity.owner != current_user %>
+                    <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
+                      <%= link_to "♡", activity_interests_path(activity), method: :post,  class: "interest-btn" %>
+                    <% else %>
+                      <%= link_to "♥", activity_interest_path(activity), method: :delete,  class: "interest-btn-selected" %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <br>
+                <div class="card-btn-index">
+                  <%= link_to "Register", activity_booking_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
+                </div>
               </div>
             </div>
-        </div>
+          </div>
+      <% end %>
     <% end %>
   </div>
 

@@ -11,18 +11,18 @@
       <%= f.input :username,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "username", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: #C8C8C8;" } %>
+                  input_html: { autocomplete: "username", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: #C8C8C8;" } %>
+                  input_html: { autocomplete: "email", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: #C8C8C8;"} %>
+                  input_html: { autocomplete: "new-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;"} %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: #C8C8C8;" } %>
+                  input_html: { autocomplete: "new-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
     </div>
 
     <div class="form-actions text-central">

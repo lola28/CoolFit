@@ -22,18 +22,27 @@
   &:last-child {
     margin-bottom: 0;
   }
+
+}
+
+.card-index-text h3:hover {
+  color: $orange;
 }
 
 .card-index-infos {
-  padding: 16px;
+  padding: 8px;
+  align-items: left;
+  width: 500px;
 
   h3 {
     font-size: 18px;
     color: $gray;
+    margin-block-end: 5px;
   }
 
    p {
     font-size: 12px;
+    margin-block-end: 5px;
   }
 
 }
@@ -46,8 +55,13 @@
   margin-right: 10px;
 }
 
-.avatar-name {
+.avatar-name a {
   color: $gray;
+  text-decoration: none;
+}
+
+.avatar-name a:hover {
+  color: $orange;
 }
 
 .cards-index a {

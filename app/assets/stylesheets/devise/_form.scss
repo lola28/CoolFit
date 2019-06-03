@@ -1,6 +1,6 @@
 .form-title{
   font-family:$headers-font;
-  color: $light-gray;
+  color: white;
   text-align: center;
   padding-top: 5vh;
 }
@@ -10,9 +10,13 @@
 }
 
 .form-inputs {
-  color: $light-gray;
+  color: white;
   font-family: $body-font;
 
+}
+
+.text-muted {
+  color: white !important;
 }
 
 .container-sign{
@@ -21,7 +25,7 @@
 
 .or-text{
   text-align: center;
-  color: $light-gray;
+  color: white;
   font-family: $body-font;
 }
 

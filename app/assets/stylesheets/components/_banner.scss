@@ -6,14 +6,12 @@
 
 .banner h1 {
   margin-bottom: 15px;
-  color: $background-gray;
+  color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-weight: light;
 }
 
 .banner h3 {
-  color: $background-gray;
-  opacity: .7;
+  color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-weight: lighter;
 }
@@ -25,7 +23,7 @@
 }
 
 .banner-item{
-  color: $light-gray;
+  color: white;
   text-decoration: none;
   font: $body-font;
   float: right;
