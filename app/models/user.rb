@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :encrypted_password, presence: true
 
-  after_create :set_default_url!
+  after_create :set_default_url!, :send_welcome_email
 
   def set_default_url!
     avatar = PhotoUploader.default_avatar
@@ -43,4 +43,10 @@ class User < ApplicationRecord
       return first_name + last_name
     end
   end
+
+  private
+
+    def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+    end
 end
