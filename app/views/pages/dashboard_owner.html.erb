@@ -7,11 +7,13 @@
 
 <h5>Description: <%= current_user.description %></h5>
 
-<h5>Specialty:
-  <% if @specialty.empty? %>
+<%#= binding.pry %>
+
+<h5>Physical activity level:
+  <% if current_user.physical_activity.nil? %>
     <em style="filter: brightness(150%);">no specialty yet</em>
   <% else %>
-    <%= @specialty.group_by(&:to_s).values.max_by(&:size).try(:first).capitalize %> exercises
+    <%= current_user.physical_activity.capitalize %> exercises
   <% end %>
 </h5>
 

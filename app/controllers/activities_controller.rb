@@ -14,6 +14,12 @@ class ActivitiesController < ApplicationController
       @user_interests << interests.first if !interests.first.nil?
     end
 
+    @user_registrations = []
+    @activities.each do |activity|
+      registrations = policy_scope(Booking).where({ activity: activity, user: current_user })
+      @user_registrations << registrations.first if !registrations.first.nil?
+    end
+
     @markers = @activities.map do |activity|
       {
         lat: activity.latitude,

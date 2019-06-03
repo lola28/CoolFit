@@ -21,7 +21,6 @@ class Activity < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   mount_uploader :photo_user, PhotoUploader
-  # mount_uploader :photo_db, PhotoUploader
 
   include PgSearch
   pg_search_scope :search_by_name,

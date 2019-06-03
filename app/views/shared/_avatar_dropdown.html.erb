@@ -1,5 +1,5 @@
 <% if current_user.avatarseed.nil? %>
-  <%= cl_image_tag current_user.avatar, class: "avatar-medium dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <%= image_tag current_user.avatar_url, class: "avatar-medium dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 <% else %>
   <%= cl_image_tag current_user.avatarseed, class: "avatar-medium dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 <% end %>
