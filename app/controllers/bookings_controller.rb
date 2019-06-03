@@ -5,18 +5,14 @@ class BookingsController < ApplicationController
     @booking.activity = @activity
     @booking.user = current_user
     authorize @booking
-    if @activity.bookings.size < @activity.max_capacity
-      @booking.save
-      interest = policy_scope(Interest).where({ activity: @activity, user: current_user }).first
+    @booking.save
+    mail = BookingMailer.with(user: current_user ,booking: @booking).create_confirmation
+    mail.deliver_now
+    interest = policy_scope(Interest).find_by(activity: @activity, user: current_user)
+    if interest.present?
       authorize interest
       interest.destroy
-      mail = BookingMailer.with(user: current_user ,booking: @booking).create_confirmation
-      mail.deliver_now
-    else
-      flash[:alert] = "Sorry, the class is full!"
-      redirect_to request.referrer
     end
-
   end
 
   def destroy

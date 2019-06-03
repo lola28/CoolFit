@@ -1,5 +1,5 @@
 <% if current_user.avatarseed.nil? %>
-  <%= cl_image_tag current_user.avatar, class: "avatar avatar-large mr-4 mt-2" %>
+  <%= image_tag current_user.avatar_url, class: "avatar avatar-large mr-4 mt-2" %>
 <% else %>
   <%= cl_image_tag current_user.avatarseed, class: "avatar avatar-large mr-4 mt-2" %>
 <% end %>

@@ -1,0 +1,5 @@
+<% if activity.photo_db.blank? %>
+  <%= image_tag activity.photo_user_url, class: "card-index-img" %>
+<% else %>
+  <%= image_tag activity.photo_db, class: "card-index-img" %>
+<% end %>

@@ -48,11 +48,6 @@ class PagesController < ApplicationController
         @past_activities << activity
       end
     end
-
-    @specialty = []
-    @user_activities.each do |activity|
-      @specialty << activity.owner.physical_activity
-    end
   end
 
 
