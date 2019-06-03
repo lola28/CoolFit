@@ -97,6 +97,11 @@
   text-decoration: none;
 }
 
+// If class full
+.full-capacity-btn:hover {
+  color: $dark-gray;
+}
+
 .interest-btn {
   font-size: 18px;
   background-color: transparent;
