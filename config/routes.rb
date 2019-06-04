@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'dashboard/:id', to: 'pages#dashboard_owner', as: 'owner_dashboard'
   get 'thankyou', to: 'pages#thankyou', as: 'thankyou'
+  get 'moreinfo/cardiovascular', to: 'pages#cardiovascular', as: 'cardiovascular'
 
   get 'profile', to: 'pages#show_profile'
   get 'profile/edit', to: 'pages#edit_profile'
