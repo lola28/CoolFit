@@ -4,13 +4,11 @@
 
   <div class="cards-index">
     <% @activities.each do |activity| %>
+
+
       <div class="card-index zoom d-flex <%= (activity.max_capacity.nil?) || (activity.bookings.size < activity.max_capacity) ? 'available-capacity' : 'full-capacity'%>">
         <div class="card-index-img">
-          <% if activity.photo_db.nil? %>
-            <%= cl_image_tag activity.photo_user, class: "card-index-img" %>
-          <% else %>
-            <%= image_tag activity.photo_db, class: "card-index-img" %>
-          <% end %>
+          <%= render 'shared/activity_photo', activity: activity %>
         </div>
 
 
@@ -25,7 +23,8 @@
         </div>
 
         <div class="card-index-tags">
-          <div class="interest-index" data-activity-id="<%= activity.id %>" data-interest-id="<%= @user_interests.select{ |interest| interest.activity == activity } %>">
+
+          <div class="interest-index" data-activity-id="<%= activity.id %>" >
             <% if !current_user.professional %>
               <% if activity.owner != current_user %>
                 <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
@@ -36,18 +35,20 @@
               <% end %>
             <%end %>
           </div>
-
           <br>
-
-          <div class="card-btn-index" data-future-bookings-id="<%= activity.id %>">
+          <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
             <% if !current_user.professional %>
-              <%= link_to "Register", activity_bookings_path(activity.id), method: :post, remote: true, class: 'btn register-btn' %>
+              <% if activity.owner != current_user %>
+                <% booking = @user_registrations.select{ |booking| booking.activity == activity } %>
+                <% if booking == [] %>
+                  <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: "btn register-btn" %>
+                <% else %>
+                  <%= link_to "Unregister", activity_booking_path(activity.id, booking.flatten), method: :delete, remote: true, class: "btn register-btn-selected" %>
+                <% end %>
+              <% end %>
             <% end %>
           </div>
-
-          </div>
-
-      </div>
+        </div>
     <% end %>
   </div>
 

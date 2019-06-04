@@ -4,7 +4,10 @@ if (document.querySelector("[data-interests-id='<%= @activity.id %>']")) {
     const future_bookings = document.querySelector('.future-bookings');
     future_bookings.insertAdjacentHTML('beforeend', bookingHTML);
   }
-  addBooking('<%= j render "bookings/future_bookings", activity: @activity %>');
+  addBooking('<%= j render "bookings/future_bookings", activity: @activity, booking: @booking %>');
 } else {
-  document.querySelector("[data-future-bookings-id='<%= @activity.id %>'] > a").innerHTML = "Registered"
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").innerHTML = "Unregister";
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('data-method', 'delete');
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('href', '<%= activity_booking_path(@activity, @booking)%>');
+  document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('class', 'btn register-btn-selected');
 }

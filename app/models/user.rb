@@ -12,21 +12,14 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :encrypted_password, presence: true
 
-  after_create :set_default_url!, :send_welcome_email
-
-  def set_default_url!
-    avatar = PhotoUploader.default_avatar
-    update!(avatar: avatar)
-  end
-
-  mount_uploader :avatar, PhotoUploader
+  after_create :send_welcome_email
 
   def average_owner_rating
     ratings = activities.map(&:bookings).flatten.map(&:rating)
     if ratings.empty?
       0
     else
-      ratings.sum / ratings.size
+      ratings.compact.sum / ratings.compact.size
     end
   end
 
