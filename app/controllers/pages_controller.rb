@@ -55,6 +55,8 @@ class PagesController < ApplicationController
     end
   end
 
+  def thankyou
+  end
 
   def show_profile
   end
