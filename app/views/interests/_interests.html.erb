@@ -1,9 +1,9 @@
-<div class="card-dashboard zoom d-flex" data-interests-id="<%= activity.id %>">
+<div class="card-dashboard d-flex" data-interests-id="<%= activity.id %>">
 
   <%= render 'shared/card_index', activity: activity %>
 
   <div class="card-btns">
-    <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: 'btn admin-btn' %>
-    <%= link_to "Unlike", activity_interest_path(activity), method: :delete, remote: true, class: 'btn admin-btn' %>
+    <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
+    <%= link_to "Unlike", activity_interest_path(activity), method: :delete, remote: true, class: 'btn register-btn' %>
   </div>
 </div>

@@ -21,7 +21,7 @@
 
 .navbar-search {
   width: 40vh;
-  height: 4vh;
+  height: 5vh;
   text-align: start;
   padding-left: 15px;
   background-color: $dark-gray;
@@ -29,11 +29,11 @@
   border: none;
   border-radius: 25px;
   font-size: 16px;
-  margin-top: 20px;
   outline: none;
 
   &::placeholder {
     color:$light-gray;
+    font-size: 16px;
   }
 
 }
