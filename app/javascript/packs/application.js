@@ -16,3 +16,4 @@ initStarRating();
 import 'bootstrap-slider';
 
 var mySlider = $("input.slider").slider();
+
