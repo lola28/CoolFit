@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
+  mount_uploader :avatar, AvatarUploader
+
   def average_owner_rating
     ratings = activities.map(&:bookings).flatten.map(&:rating)
     if ratings.empty?
