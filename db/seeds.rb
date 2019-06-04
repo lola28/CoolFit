@@ -86,7 +86,7 @@ flexibility = Category.create!(
   )
 team_sport = Category.create!(
   description: "Team Sport",
-  logo: "https://static.thenounproject.com/png/1468417-200.png"
+  logo: "https://cdn2.iconfinder.com/data/icons/basketball-7/49/40-512.png"
   )
 booty_shake = Category.create!(
   description: "Booty shake",
@@ -140,8 +140,10 @@ surf = Activity.create(
   surf.health_relations.create(health: stress_relief)
   booking = Booking.new
   booking.activity = surf
-  booking.user = kaka
   booking.user = alice
+  booking2 = Booking.new
+  booking2.activity = surf
+  booking2.user = kaka
 
   activity = Activity.create(
   name: "Yoga and relaxation class",
@@ -175,11 +177,13 @@ activity = Activity.create(
   max_capacity: nil,
   )
   activity.health_relations.create(health: cognitive)
-activity.health_relations.create(health: stress_relief)
-booking = Booking.new
+  activity.health_relations.create(health: stress_relief)
+  booking = Booking.new
   booking.activity = activity
-  booking.user = kaka
   booking.user = vlad
+  booking2 = Booking.new
+  booking2.activity = activity
+  booking2.user = kaka
 
 activity = Activity.create(
   name: "Zumba class @Le Wagon",
