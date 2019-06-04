@@ -4,9 +4,8 @@
   <div class="arrow bounce">
   <a class="fa fa-arrow-down fa-2x" href="#"></a>
 </div>
-
     <div class="card card-form-thanks">
-      <%= form_for :anything do |f| %>
+      <%= form_for(Recommender.new, url: recomendation_path) do |f| %>
 
         <h2>Activity Status Questionnaire</h2>
           <p>This Questionnaire is based on the International Physical Activity Questionnaire (IPAQ) to help us better understand your current physical activity level in order to be able to give you a customized recommendation. These Questions will try and assess all the physical activities that you did in the last 7 days solely for recreation, sport, exercise or leisure.</p>
@@ -15,31 +14,32 @@
         <ol>
 
             <%= f.label "1. During the last 7 days, on how many days did you walk for at least 10 minutes at a time in your leisure time?" %>
-            <input type="text" name="somename" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["1", "2", "3", "4", "5", "6", "7"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
+            <input type="text" name="walking" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["1", "2", "3", "4", "5", "6", "7"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
         </ol>
         <br>
         <ol>
             <%= f.label "2. During the last 7 days, on how many days did you do vigorous physical activities like aerobics, running, fast bicycling, or fast swimming in your leisure time?" %>
-            <input type="text" name="somename" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["1", "2", "3", "4", "5", "6", "7"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
+            <input type="text" name="vigorous_days" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["1", "2", "3", "4", "5", "6", "7"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
         </ol>
         <br>
         <ol>
           <%= f.label "3. How much time did you usually spend on one of those days doing vigorous physical activities in your leisure time?" %>
-            <input type="text" name="somename" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["<30min", "30 min", "30-60min", "1 hour", "1-2 hours", "2-3 hours", "3-4 hours"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
+            <input type="text" name="vigorous_hours" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["<30min", "30 min", "30-60min", "1 hour", "1-2 hours", "2-3 hours", "3-4 hours"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
         </ol>
         <br>
         <ol>
           <%= f.label "4. During the last 7 days, on how many days did you do moderate physical activities like bicycling at a regular pace, swimming at a regular pace, and doubles tennis in your leisure time?" %>
-          <input type="text" name="somename" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["1", "2", "3", "4", "5", "6", "7"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
+          <input type="text" name="moderate_days" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["1", "2", "3", "4", "5", "6", "7"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
         </ol>
         <br>
         <ol>
           <%= f.label "5.How much time did you usually spend on one of those days doing moderate physical activities in your leisure time?" %>
-          <input type="text" name="somename" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["<30min", "30 min", "30-60min", "1 hour", "1-2 hours", "2-3 hours", "3-4 hours"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
+          <input type="text" name="moderate_hours" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5, 6, 7]" data-slider-ticks-labels='["<30min", "30 min", "30-60min", "1 hour", "1-2 hours", "2-3 hours", "3-4 hours"]' data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10" data-slider-tooltip="show" class="slider" />
         </ol>
         <br>
         <div class="form-actions-question">
-          <%= link_to "Submit", root_path, class: "btn btn-question-user", style: "width: 145px; margin-left: 55vh; margin-right: auto; display: block !important;"  %>
+          <%= submit_tag "Submit", class: "btn-question-user" %>
+          <%#= link_to "Submit", root_path, class: "btn btn-question-user", style: "width: 145px; margin-left: 55vh; margin-right: auto; display: block !important;"  %>
         </div>
       <% end %>
       </div>

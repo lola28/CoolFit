@@ -4,6 +4,10 @@ class PagesController < ApplicationController
 
 
   def home
+    if params[:result].present?
+      @advice = params[:result]
+    end
+
     categories_hash = {}
     Category.all.each do |category|
       categories_hash[category] = category.activities.count

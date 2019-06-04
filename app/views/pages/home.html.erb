@@ -15,6 +15,16 @@
 <br>
 <br>
 
+
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong><%= @advice %></strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
 <div class="d-flex justify-content-start" style= "margin-bottom:10px">
  <%= image_tag @top_category1.logo, class: 'category-logo'%>
  <h3><%= @top_category1.description %></h3>
