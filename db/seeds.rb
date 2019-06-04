@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
+Message.destroy_all
 Booking.destroy_all
 Interest.destroy_all
 Activity.destroy_all
@@ -13,7 +14,6 @@ User.destroy_all
 Category.destroy_all
 Health.destroy_all
 HealthRelation.destroy_all
-#Message.destroy_all
 puts 'Creating users...'
 
 kaka = User.create!(
@@ -50,7 +50,7 @@ vlad = User.create!(
   physical_activity: :vigorous,
   description: "Looking for good-looking ladies to go surfing with me 😎 ",
   professional: false,
-  avatarseed: "Coolfit/brad-pitt-in-wrangler-long-sleeve-with-belted-jeans-all-people-photo-u1_ujszop.jpg"
+  avatarseed: "Coolfit/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw_._V1_UX214_CR0_0_214_317_AL__khwfa6.jpg"
   )
 
 frankie = User.create!(
@@ -144,7 +144,7 @@ surf = Activity.create(
   booking.user = alice
 
   activity = Activity.create(
-  name: "Yoga Bikram @Ministry of Yoga",
+  name: "Yoga and relaxation class",
   location: "R. das Portas de Santo Antão 27 Floor 1, 1150-264 Lisboa",
   latitude: 38.7277216,
   longitude: -9.1431199,
@@ -176,6 +176,10 @@ activity = Activity.create(
   )
   activity.health_relations.create(health: cognitive)
 activity.health_relations.create(health: stress_relief)
+booking = Booking.new
+  booking.activity = activity
+  booking.user = kaka
+  booking.user = vlad
 
 activity = Activity.create(
   name: "Zumba class @Le Wagon",
@@ -231,7 +235,7 @@ activity = Activity.create(
   activity.health_relations.create(health: aphrodisiac)
 
 activity = Activity.create(
-  name: "Bodybuilding at Praia da Rainha",
+  name: "Fitness at Praia da Rainha",
   location: "Largo da Praia da Rainha 121, 2750-642 Cascais",
   latitude: 38.6968919,
   longitude: -9.4204495,
@@ -259,7 +263,7 @@ activity = Activity.create(
   photo_db: "https://www.pgvb.fr/media/uploaded/sites/8841/actualite/59042ff349574_untournoitresreussidebeachvolleyaportandro3037090.jpg",
   category: team_sport,
   owner: vlad,
-  max_capacity: 10,
+  max_capacity: 2,
   )
   health_relation = HealthRelation.create
   activity.health_relations.create(health: energy_boost)
@@ -283,7 +287,7 @@ activity = Activity.create(
   activity.health_relations.create(health: cardiovascular)
 
 activity = Activity.create(
-  name: "Synchronized swimming",
+  name: "Synchronized swimming (Men only)",
   location: "Portugal, Campo de Santa Clara 33, Lisboa",
   latitude: 38.6968919,
   longitude: -9.4204495,
@@ -300,14 +304,14 @@ activity = Activity.create(
   activity.health_relations.create(health: cardiovascular)
 
 activity = Activity.create(
-  name: "Hip Hop in Principe Real",
+  name: "Salsa in Principe Real",
   location: "R. da Escola Politécnica 56/58, 1250-102 Lisboa",
   latitude: 38.7521753,
   longitude: -9.1971941,
   time: ('2019-6-13-18-0-0'),
   duration: 60,
   fitness_level: 2,
-  description: "Want to improve your street cred? Let's dance! Meeting at botanical garden entrance.",
+  description: "Want to improve your dance move with your partner? Let's dance! Meeting at botanical garden entrance.",
   photo_db: "https://i.ytimg.com/vi/bOMRQFtqDK4/maxresdefault.jpg",
   category: booty_shake,
   owner: frankie,
@@ -318,15 +322,15 @@ activity = Activity.create(
   activity.health_relations.create(health: aphrodisiac)
 
 activity = Activity.create(
-  name: "Himalaya dynamo cycling",
+  name: "Aquafitness",
   location: "R. de Campolide 237, 1070-030 Lisboa",
   latitude: 38.73674,
   longitude: -9.1540528212584,
   time: ('2019-6-20-11-0-0'),
   duration: 40,
   fitness_level: 3,
-  description: "Let's climb the world's highest mountain together! Meeting at UVP - Federação Portuguesa Ciclismo and don't bring sport shoes!",
-  photo_db: "http://www.allaroundthegirl.com/wp-content/uploads/2017/01/dynamo-cycling-paris-avis.jpg",
+  description: "Let's do some cardio together! Meeting in the swimming pool and bring your swimsuit!",
+  photo_db: "http://www.mode-beaute.info/wp-content/uploads/2017/02/avoir-de-beaux-abdos-avec-laquafitness.jpg",
   category: endurance,
   owner: frankie,
   max_capacity: 25,
