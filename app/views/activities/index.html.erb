@@ -38,6 +38,7 @@
                   <% if booking == [] %>
                     <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: "btn register-btn" %>
                   <% else %>
+                  <p class="registered">Already registered!</p>
                     <%= link_to "Unregister", activity_booking_path(activity.id, booking.flatten), method: :delete, remote: true, class: "btn register-btn-selected" %>
                   <% end %>
                 <% end %>

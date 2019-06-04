@@ -95,6 +95,12 @@
   top: 50px;
 }
 
+.registered {
+  color: $green;
+  font-size: 8px;
+  font-style: italic;
+}
+
 // DASHBOARD
 
 .card-dashboard {
@@ -159,6 +165,12 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+}
+
+// Confirmation emails
+
+.confirmation {
+  width: 50px;
 }
 
 // Capacity classes
