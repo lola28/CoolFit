@@ -12,8 +12,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :encrypted_password, presence: true
 
-  after_create :send_welcome_email
-
   mount_uploader :avatar, AvatarUploader
 
   def average_owner_rating
@@ -38,12 +36,4 @@ class User < ApplicationRecord
       return first_name + last_name
     end
   end
-
-  private
-
-    def send_welcome_email
-      @user = User.new
-      if @user.professional ? UserMailer.with(user: self).welcome_pro.deliver_now : UserMailer.with(user: self).welcome.deliver_now
-      end
-    end
 end
