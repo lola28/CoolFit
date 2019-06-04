@@ -23,8 +23,10 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
+
+      <%= f.input :professional %>
     </div>
-    <%= f.check_box :professional, {:class => "myclass", :style => "mystyle"}, "checked-value", "unchecked-value" %> <%= f.label :professional %>
+    <%#= f.check_box :professional, {:class => "myclass", :style => "mystyle"}, "checked-value", "unchecked-value" %> <%#= f.label :professional %>
     <div class="form-actions text-central">
       <%= f.button :submit, "Sign up", class: "btn btn-edit-user" %>
     </div>
