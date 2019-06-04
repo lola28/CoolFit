@@ -335,7 +335,7 @@ activity = Activity.create(
   activity.health_relations.create(health: cardiovascular)
 
   Activity.all.each do |a|
-    15.times do
+    2.times do
       booking = Booking.new
       booking.user = User.all.sample
       booking.activity = a

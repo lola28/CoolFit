@@ -4,47 +4,48 @@
 
   <div class="cards-index">
     <% @activities.each do |activity| %>
-
-      <div class="card-index zoom d-flex <%= (activity.max_capacity.nil?) || (activity.bookings.size < activity.max_capacity) ? 'available-capacity' : 'full-capacity'%>">
-        <div class="card-index-img">
-          <%= render 'shared/activity_photo', activity: activity %>
-        </div>
-
-
-        <div class="card-index-infos">
-          <div class="card-index-text">
-            <h3 class="card-index-title"><%= link_to activity.name, activity_path(activity) %></h3>
-            <p class="avatar-name">
-              <%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %><%= activity.owner.username %>
-            </p>
-            <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
+      <% unless activity.time.to_date.past? %>
+        <div class="card-index zoom d-flex justify-content-between <%= (activity.max_capacity.nil?) || (activity.bookings.size < activity.max_capacity) ? 'available-capacity' : 'full-capacity'%> ">
+          <div class="card-index-img">
+            <%= render 'shared/activity_photo', activity: activity %>
           </div>
-        </div>
 
-        <div class="card-index-tags">
 
-          <div class="interest-index" data-activity-id="<%= activity.id %>" >
-            <% if activity.owner != current_user %>
-              <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
-              <% else %>
-                <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
+          <div class="card-index-infos d-flex justify-content-between">
+            <div class="card-index-text">
+              <%= link_to activity do %>
+                <h3><strong><%= activity.name %></strong></h3>
               <% end %>
-            <% end %>
-          </div>
-          <br>
-          <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
-            <% if activity.owner != current_user %>
-              <% booking = @user_registrations.select{ |booking| booking.activity == activity } %>
-              <% if booking == [] %>
-                <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: "btn register-btn" %>
-              <% else %>
-                <%= link_to "Unregister", activity_booking_path(activity.id, booking.flatten), method: :delete, remote: true, class: "btn register-btn-selected" %>
-              <% end %>
-            <% end %>
+              <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %>
+                <%= activity.owner.username %></p>
+              <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
+            </div>
+
+            <div class="card-index-tags">
+              <div class="interest-index" data-activity-id="<%= activity.id %>" >
+                <% if activity.owner != current_user %>
+                  <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
+                    <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
+                  <% else %>
+                    <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
+                  <% end %>
+                <% end %>
+              </div>
+              <br>
+              <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
+                <% if activity.owner != current_user %>
+                  <% booking = @user_registrations.select{ |booking| booking.activity == activity } %>
+                  <% if booking == [] %>
+                    <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: "btn register-btn" %>
+                  <% else %>
+                    <%= link_to "Unregister", activity_booking_path(activity.id, booking.flatten), method: :delete, remote: true, class: "btn register-btn-selected" %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 

@@ -1,9 +1,9 @@
 .footer {
   background: $background-gray;
   text-align: center;
-  height: 100px;
+  height: 80px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: $dark-gray;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -11,14 +11,14 @@
 }
 
 .footer-links a {
-  color: black;
-  opacity: 0.15;
+  color: $dark-gray;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
   opacity: 1;
+  color: $orange;
 }
 .footer .fa-running {
   color: $orange;

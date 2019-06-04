@@ -1,27 +1,27 @@
 <div>
-<h2 class ="form-title">Log in</h2>
+  <h2 class ="form-title">Log in</h2>
 </div>
 <div class="container mt-4 container-sign">
 
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: #C8C8C8;" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: #C8C8C8;" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
 
-  <div class="form-actions text-central">
-    <%= f.button :submit, "Log in", class: "btn btn-edit-user" %>
-  </div>
-<% end %>
+    <div class="form-actions text-central">
+      <%= f.button :submit, "Log in", class: "btn btn-edit-user" %>
+    </div>
+  <% end %>
 
-<div class="hr"></div>
-<%= render "devise/shared/links" %>
-<br>
+  <div class="hr"></div>
+  <%= render "devise/shared/links" %>
+  <br />
 </div>

@@ -1,7 +1,7 @@
 .btn-search {
   font-size: 20px;
   background-color: $orange;
-  color: $background-gray;
+  color: white;
   border-radius: 10px;
   margin: 10px;
 }
@@ -13,7 +13,7 @@
 .btn-search-navbar {
   font-size: 16px;
   background-color: $orange;
-  color: $background-gray;
+  color: white;
   border-radius: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -26,8 +26,8 @@
 
 .admin-btn {
   font-size: 14px;
-  background-color: white;
-  color: $dark-gray;
+  background-color: $gray;
+  color: white;
   width: 100px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -36,7 +36,8 @@
 }
 
 .admin-btn:hover {
-  color: $orange;
+  color: white;
+  background-color: $orange;
   transition-delay: s150ms;
   text-decoration: none;
 }
@@ -69,7 +70,7 @@
 .btn-edit-user {
   font-size: 16px;
   background-color: white;
-  color: $gray;
+  color: $dark-gray;
   border-radius: 10px;
   text-decoration: none;
   margin-top: 10px;
@@ -77,7 +78,9 @@
 }
 
 .btn-edit-user:hover {
-  color: $orange;
+  background-color: $orange;
+  color: white;
+  transition-delay: s150ms;
 }
 
 .register-btn {
@@ -86,13 +89,13 @@
   color: $dark-gray;
   width: 100px;
   border-radius: 10px;
-  margin-bottom: 10px;
   filter: brightness(95%);
   text-decoration: none;
 }
 
 .register-btn:hover {
-  color: $orange;
+  background-color: $orange;
+  color: white;
   transition-delay: s150ms;
   text-decoration: none;
 }
@@ -119,12 +122,13 @@
 }
 
 .interest-btn {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 1000;
   background-color: transparent;
   color: $dark-gray;
   width: 100px;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   filter: brightness(95%);
   text-decoration: none;
 }
@@ -141,7 +145,7 @@
   color: $orange;
   width: 100px;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   filter: brightness(95%);
   text-decoration: none;
 }
