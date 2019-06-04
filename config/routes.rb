@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'thankyou', to: 'pages#thankyou', as: 'thankyou'
   get 'moreinfo/cardiovascular', to: 'pages#cardiovascular', as: 'cardiovascular'
 
+  post 'recomendation', to: 'recomendations#create'
+
   get 'profile', to: 'pages#show_profile'
   get 'profile/edit', to: 'pages#edit_profile'
   patch 'profile', to: 'pages#update_profile', as: 'profile_update'
