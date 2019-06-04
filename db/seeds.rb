@@ -86,7 +86,7 @@ flexibility = Category.create!(
   )
 team_sport = Category.create!(
   description: "Team Sport",
-  logo: "https://static.thenounproject.com/png/1468417-200.png"
+  logo: "https://cdn2.iconfinder.com/data/icons/basketball-7/49/40-512.png"
   )
 booty_shake = Category.create!(
   description: "Booty shake",
@@ -140,8 +140,10 @@ surf = Activity.create(
   surf.health_relations.create(health: stress_relief)
   booking = Booking.new
   booking.activity = surf
-  booking.user = kaka
   booking.user = alice
+  booking2 = Booking.new
+  booking2.activity = surf
+  booking2.user = kaka
 
   activity = Activity.create(
   name: "Yoga and relaxation class",
@@ -151,8 +153,8 @@ surf = Activity.create(
   time: ('2019-6-8-18-0-0'),
   duration: 90,
   fitness_level: 3,
-  description: "Yoga Bikram is made for you if you want to sweat in a relaxing environment. Meeting at Ministry of yoga",
-  photo_db: "https://img.grouponcdn.com/deal/KnjLRN3aByLDyNaZRYmzXucTo2r/Kn-1500x900/v1/c700x420.jpg",
+  description: "Yoga Bikram is made for you if you want to sweat in a relaxing environment. Meeting at Ministry of yoga, 15€ per person to enjoy this amazingly soothing setting",
+  photo_db: "https://www.rayyogastudio.ca/wp-content/uploads/2017/07/Senior-Yoga-650x360.jpg",
   category: flexibility,
   owner: frankie,
   max_capacity: 10,
@@ -175,11 +177,13 @@ activity = Activity.create(
   max_capacity: nil,
   )
   activity.health_relations.create(health: cognitive)
-activity.health_relations.create(health: stress_relief)
-booking = Booking.new
+  activity.health_relations.create(health: stress_relief)
+  booking = Booking.new
   booking.activity = activity
-  booking.user = kaka
   booking.user = vlad
+  booking2 = Booking.new
+  booking2.activity = activity
+  booking2.user = kaka
 
 activity = Activity.create(
   name: "Zumba class @Le Wagon",
@@ -189,8 +193,8 @@ activity = Activity.create(
   time: ('2019-6-11-11-11-0'),
   duration: 60,
   fitness_level: 2,
-  description: "This is a perfect activity to pratice with fun music!",
-  photo_db: "https://previews.123rf.com/images/kzenon/kzenon1410/kzenon141000291/32939198-groupe-d-hommes-et-de-femmes-qui-dansent-zumba-fitness-chor%C3%A9graphie-%C3%A0-l-%C3%A9cole-de-danse.jpg",
+  description: "The perfect activity to pratice with fun music. 10€ per person, beginners welcome!",
+  photo_db: "https://www.verywellhealth.com/thmb/Y4d_LondfASYl4QrQoOsVU1YZ4Y=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-186851752-57290ef95f9b589e34f1374f.jpg",
   category: booty_shake,
   owner: frankie,
   max_capacity: 10,
@@ -199,15 +203,15 @@ activity = Activity.create(
   activity.health_relations.create(health: aphrodisiac)
 
 activity = Activity.create(
-  name: "Surf class at Carcavelos",
+  name: "Surf session at Carcavelos",
   location: "Av. Marginal 6, 2775-604 Carcavelos",
   latitude: 38.6266783,
   longitude: -9.2183177,
   time: ('2019-6-12-9-0-0'),
   duration: 120,
   fitness_level: 3,
-  description: "Wanna try surfing? Come to this session and enjoy the beach! Surf planks to be rent prior to the session. Meeting point at the surf stop",
-  photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg",
+  description: "Join my buddy and I for surfing! We are passionate but not pros so don't feel intimidated:) Surf planks to be rent prior to the session. Meeting point at the surf stop",
+  photo_db: "https://www.rush.edu/sites/default/files/styles/hw_670x475/public/truth-behind-age-old-myths.jpg?itok=OAkI4PUL",
   category: endurance,
   owner: vlad,
   max_capacity: 12,
@@ -224,7 +228,7 @@ activity = Activity.create(
   time: ('2019-6-12-11-0-0'),
   duration: 60,
   fitness_level: 2,
-  description: "Initiation to African dance. Next theme: Mozambic dance!",
+  description: "Initiation to African dance. Next theme: Mozambic dance! 10€ per person",
   photo_db: "http://nebula.wsimg.com/c85183f1044cd015bc48718585dc823a?AccessKeyId=88507A2F19ED52F3C364&disposition=0&alloworigin=1",
   category: booty_shake,
   owner: frankie,
@@ -242,10 +246,10 @@ activity = Activity.create(
   time: ('2019-6-13-9-0-0'),
   duration: 45,
   fitness_level: 2,
-  description: "Do you want to get your summer body ready? Let's try this easy bodysculpting session!",
+  description: "Do you want to get your summer body ready? Try this easy bodysculpting session! 5€ per person",
   photo_db: "http://northrustico.com/wp-content/uploads/2018/05/healthy-lifestyle-lounge-beach-workout-port-melbou21.jpg",
   category: strength,
-  owner: vlad,
+  owner: frankie,
   max_capacity: 15,
   )
   activity.health_relations.create(health: energy_boost)
@@ -260,7 +264,7 @@ activity = Activity.create(
   duration: 60,
   fitness_level: 1,
   description: "Want to impress your friends during your next vacations? Let's learn beach volley all together! Meeting point at Cascais train station ",
-  photo_db: "https://www.pgvb.fr/media/uploaded/sites/8841/actualite/59042ff349574_untournoitresreussidebeachvolleyaportandro3037090.jpg",
+  photo_db: "https://t3.ftcdn.net/jpg/02/11/60/86/240_F_211608648_66cBwuEDhCfdDNnED8hI2UpOkUqWuz4q.jpg",
   category: team_sport,
   owner: vlad,
   max_capacity: 2,
@@ -277,8 +281,8 @@ activity = Activity.create(
   time: ('2019-6-17-11-0-0'),
   duration: 60,
   fitness_level: 1,
-  description: "A fun initiation to football. Bring your sports shoes!",
-  photo_db: "https://cdn-s3.si.com/s3fs-public/styles/marquee_large_2x/public/2018/07/15/france-wins-world-cup-straus.jpg?itok=pANlO3iM",
+  description: "Committed players wanted! You can also start out as a beginner, you will learn and improve with the team:)",
+  photo_db: "http://assets-news-bcdn-ll.dailyhunt.in/cmd/resize/400x400_60/fetchdata13/images/1d/2b/c2/1d2bc2032497a75be20a6a406e0c57e3.jpg",
   category: team_sport,
   owner: vlad,
   max_capacity: 22,
@@ -311,10 +315,10 @@ activity = Activity.create(
   time: ('2019-6-13-18-0-0'),
   duration: 60,
   fitness_level: 2,
-  description: "Want to improve your dance move with your partner? Let's dance! Meeting at botanical garden entrance.",
-  photo_db: "https://i.ytimg.com/vi/bOMRQFtqDK4/maxresdefault.jpg",
+  description: "Want to improve your dance move with your partner? Join me at this salsa event and let's dance! Meeting at botanical garden entrance.",
+  photo_db: "https://www.ageukmobility.co.uk/media/cache/default_530/upload/1b/a6/1ba6dc33c20503917c2cb3b8a96f301dd358c044.jpeg",
   category: booty_shake,
-  owner: frankie,
+  owner: alice,
   max_capacity: 20,
   )
   activity.health_relations.create(health: energy_boost)

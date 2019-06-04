@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'health/cardiovascular' %>
+
 <div class="index-container">
 
   <div class="cards-index">
@@ -18,7 +20,7 @@
               <% end %>
               <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %>
                 <%= activity.owner.username %></p>
-              <p class="card-index-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
+                <p><a href="#" class="card-index-benef" data-toggle="modal" data-target=".bd-example-modal-lg"><%=activity.healths.map(&:description).join(' / ') %></a></p>
             </div>
 
             <div class="card-index-tags">

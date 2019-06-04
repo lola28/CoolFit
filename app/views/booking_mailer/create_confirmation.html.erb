@@ -3,21 +3,22 @@
 <style>
   body {
     font-family: 'Lato', sans-serif;
-    background-color: #E5E5E5;
+    background-color: white;
     color: #636363;
   }
 </style>
 
 <h1> Your <%= @booking.activity.name %>
-  was just booked.
-
+  was just booked. </h1>
 <h3>
   <%= link_to "Check it on your dashboard", dashboard_url, style: "text-decoration: none;" %>
 </h3>
 
-</h1>
 
-<div class="container" style= "border: 2px solid white; box-shadow: 0 0 2px; padding: 5px 5px;>
+<%= image_tag @booking.activity.photo_db, gravity: :face, style: "width: 30%;"%>
+
+
+<div class="confirmation-container">
 <div class= "container mt-6 show-container" >
     <h3>Event organized by <i><%= link_to @booking.activity.owner.username, owner_dashboard_url(@booking.activity.owner), style: "text-decoration: none; color: #FA9800" %></i></h3>
       <div class="show-tags d-flex justify-content-between">
@@ -40,26 +41,21 @@
         <div class="container-infos">
           <p class="darker-span"><strong>General Description</strong></p>
           <p><%= @booking.activity.description %></p>
-          <hr size="1" width="50%" align="left" color="#C8C8C8">
+          <hr size="1" width="100%" align="left" color="#C8C8C8">
           <p class="darker-span"><strong>Expected Health Benefits</strong></p>
           <p><% @booking.activity.healths.each do |health| %>
             <ul style="padding: 0px">
-              <%= image_tag health.logo, class: "show-logo" %>
+              <%= image_tag health.logo, class: "show-logo", style: "width: 25px;" %>
             <%= health.description %>
             </ul>
             <% end %>
          </p>
-         <hr size="1" width="50%" align="left" color="#C8C8C8">
+         <hr size="1" width="100%" align="left" color="#C8C8C8">
           <p class="darker-span" ><strong>Where is it Happening?</strong></p>
         <div class="flex-container">
 
             <p><%= @booking.activity.location %></p>
           </div>
-              <div  class="container-map" id="map"
-              style="height: 160px; width: 100vh;"
-              data-markers="<%= @markers.to_json %>"
-              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-              ></div>
         </div>
     </div>
 </div>

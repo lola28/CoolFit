@@ -24,7 +24,8 @@ class ActivitiesController < ApplicationController
       {
         lat: activity.latitude,
         lng: activity.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity })
+        infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity }),
+        image_url: helpers.asset_url('running-circle.png')
       }
     end
 
