@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'dashboard/:id', to: 'pages#dashboard_owner', as: 'owner_dashboard'
   get 'thankyou', to: 'pages#thankyou', as: 'thankyou'
 
+  post 'recomendation', to: 'recomendations#create'
+
   get 'profile', to: 'pages#show_profile'
   get 'profile/edit', to: 'pages#edit_profile'
   patch 'profile', to: 'pages#update_profile', as: 'profile_update'
