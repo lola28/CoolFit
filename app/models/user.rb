@@ -19,7 +19,7 @@ class User < ApplicationRecord
     if ratings.empty?
       0
     else
-      ratings.sum / ratings.size
+      ratings.compact.sum / ratings.compact.size
     end
   end
 
