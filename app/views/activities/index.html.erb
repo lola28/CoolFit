@@ -5,6 +5,7 @@
   <div class="cards-index">
     <% @activities.each do |activity| %>
 
+
       <div class="card-index zoom d-flex <%= (activity.max_capacity.nil?) || (activity.bookings.size < activity.max_capacity) ? 'available-capacity' : 'full-capacity'%>">
         <div class="card-index-img">
           <%= render 'shared/activity_photo', activity: activity %>
@@ -22,8 +23,9 @@
         </div>
 
         <div class="card-index-tags">
+
           <div class="interest-index" data-activity-id="<%= activity.id %>" >
-            <% if current_user.professional == false %>
+            <% if !current_user.professional %>
               <% if activity.owner != current_user %>
                 <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
                   <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
@@ -35,7 +37,7 @@
           </div>
           <br>
           <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
-            <% if current_user.professional == false %>
+            <% if !current_user.professional %>
               <% if activity.owner != current_user %>
                 <% booking = @user_registrations.select{ |booking| booking.activity == activity } %>
                 <% if booking == [] %>
@@ -52,14 +54,13 @@
 
   <div class="map-container" style="position: sticky; top: 50px;">
     <div
-    id="map"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    class="map"
-  >
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      class="map"
+    >
+    </div>
   </div>
-  </div>
-
 
 </div>
 

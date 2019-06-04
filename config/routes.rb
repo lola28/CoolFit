@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+        registrations: 'users/registrations'
+      }
 
   root to: 'pages#home'
 
   get 'dashboard', to: 'pages#dashboard'
   get 'dashboard/:id', to: 'pages#dashboard_owner', as: 'owner_dashboard'
+  get 'thankyou', to: 'pages#thankyou', as: 'thankyou'
 
   get 'profile', to: 'pages#show_profile'
   get 'profile/edit', to: 'pages#edit_profile'
