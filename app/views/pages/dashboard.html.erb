@@ -1,3 +1,5 @@
+<div class="container mt-6 show-container">
+
 <div class="d-flex justify-content-between">
   <h1>Welcome <span class="banner-logo"><%= current_user.username %></span>!</h1>
   <%= render 'shared/avatar_large' %>
@@ -5,45 +7,47 @@
 
 <h5><strong>My fitness level: </strong><%= current_user.physical_activity %></h5>
 <h5><strong>My description: </strong><%= current_user.description %></h5>
-
-<br>
-
-<div>
-  <h3>Upcoming events</h3>
-
-  <div class="future-bookings">
-    <% @future_bookings.each do |booking| %>
-      <%= render 'bookings/future_bookings', activity: booking.activity, booking: booking %>
-    <% end %>
-  </div>
-
-</div>
-
-<br>
+<hr size="6" width="100%" align="left" color="#C8C8C8">
 
 <div>
-  <h3>My <i class="fa fa-heart"></i> events</h3>
-
-  <div class="interests">
-    <% @interests.each do |activity| %>
-      <%= render 'interests/interests', activity: activity %>
-    <% end %>
-  </div>
-</div>
-
-<br>
-
-<div>
-  <h3>Past events</h3>
-
-   <div class="past-bookings">
-    <% @past_bookings.each do |booking| %>
-      <%= render 'bookings/past_bookings', booking: booking %>
-      <%#= render 'bookings/rating', activity: activity %>
-    <% end %>
-
-      <%#= simple_form_for (@activity, html: {class: "booking_form"}, :url => activity_booking_path, method: :patch) %>
-      <%#= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
+  <h3>My upcoming events<a data-toggle="collapse" href="#future_bookings" role="button" aria-expanded="false" aria-controls="future_bookings"><i class="fas fa-plus-circle dashboard-plus"></i>
+  </a></h3>
+  <div class="collapse" id="future_bookings">
+    <div class="future-bookings">
+      <% @future_bookings.each do |booking| %>
+        <%= render 'bookings/future_bookings', activity: booking.activity, booking: booking %>
+      <% end %>
     </div>
   </div>
- </div>
+
+</div>
+
+<br>
+
+<div>
+  <h3>My <i class="fa fa-heart"></i> events<a data-toggle="collapse" href="#interests" role="button" aria-expanded="false" aria-controls="interests"><i class="fas fa-plus-circle dashboard-plus"></i>
+  </a></h3>
+  <div class="collapse" id="interests">
+    <div class="interests" id="interests">
+      <% @interests.each do |activity| %>
+        <%= render 'interests/interests', activity: activity %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+
+<div>
+  <h3>Past events<a data-toggle="collapse" href="#past-bookings" role="button" aria-expanded="false" aria-controls="past-bookings"><i class="fas fa-plus-circle dashboard-plus"></i>
+  </a></h3>
+  <div class="collapse" id="past-bookings">
+    <div class="past-bookings" style="display:none;" id="past_bookings">
+      <% @past_bookings.each do |booking| %>
+        <%= render 'bookings/past_bookings', booking: booking %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+

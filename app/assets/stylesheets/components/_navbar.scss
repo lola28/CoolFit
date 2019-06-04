@@ -1,5 +1,16 @@
+.navbar-logo {
+  margin-top: 5px;
+}
+
+a.navbar-logo:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.navitem {
+  margin-top: 5px;
+}
 .navbar-coolfit {
-  justify-content: space-between;
   background: $gray;
   height: 71px;
   margin-bottom: 10px;
@@ -9,14 +20,9 @@
   flex-grow: 0;
 }
 
-a.navbar-logo:hover {
-  text-decoration: none;
-  color: white;
-}
-
-
 .navbar ul {
   display: inline-block;
+  margin-bottom: 3px;
 }
 
 .navbar li {
@@ -25,8 +31,4 @@ a.navbar-logo:hover {
 
 .navbar li + li {
   margin-left: 20px;
-}
-
-.navitem {
-  margin-top: 15px;
 }
