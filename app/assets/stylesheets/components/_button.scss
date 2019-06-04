@@ -156,3 +156,19 @@
   transition-delay: s150ms;
   text-decoration: none;
 }
+
+.btn-question-user {
+  font-size: 16px;
+  background-color: $light-gray;
+  color: $dark-gray;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  filter: brightness(97%);
+}
+
+.btn-question-user:hover {
+  background-color: $orange;
+  color: white;
+  transition-delay: s150ms;
+}
