@@ -27,7 +27,7 @@
               <% if activity.owner != current_user %>
                 <% booking = @user_registrations.select{ |booking| booking.activity == activity } %>
                 <% if booking == [] %>
-                  <% if (activity.bookings.size < activity.max_capacity) %>
+                  <% if (activity.max_capacity.nil? || activity.bookings.size < activity.max_capacity) %>
                     <%= render 'interests/heart_button', activity: activity, user_interests: @user_interests %>
                     <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
                       <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: "btn register-btn" %>
