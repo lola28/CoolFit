@@ -1,5 +1,5 @@
 
 <%= form_for [booking.activity, booking], remote: true, method: :patch, html: {class: "booking_form" } do |f| %>
   <%= f.select :rating, collection: (1..5).to_a, label: "Rate your experience", id: "booking_rating" %>
-  <%= f.button :submit, class: "btn admin-btn", style: "width: 100%; float: center; margin-top: 6px;" %>
+  <%= f.submit "Submit", class: "btn submit-rating-btn", style: "float: center; margin-top: 6px;" %>
 <% end %>

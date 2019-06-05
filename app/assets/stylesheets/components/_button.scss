@@ -202,3 +202,14 @@
   color: white;
   transition-delay: s150ms;
 }
+
+.submit-rating-btn {
+  font-size: 14px;
+  background-color: white;
+  color: $gray;
+  width: 120px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  filter: brightness(95%);
+  text-decoration: none;
+}

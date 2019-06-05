@@ -8,18 +8,19 @@
 <% end %>
 <div class="container mt-6 show-container">
 
-<div class="d-flex justify-content-between">
-  <h1>Welcome <span class="banner-logo"><%= current_user.username %></span>!</h1>
-  <%= render 'shared/avatar_large' %>
-</div>
-<br>
+  <div class="d-flex justify-content-between">
+    <h1>Welcome <span class="banner-logo"><%= current_user.username %></span>!</h1>
+    <%= render 'shared/avatar_large' %>
+  </div>
 
-<% unless current_user.physical_activity.nil? %>
-  <h5><strong>My fitness level: </strong><%= current_user.physical_activity %></h5>
-<% end %>
-<% unless current_user.physical_activity.nil? %>
-  <h5><strong>My description: </strong><%= current_user.description %></h5>
-<% end %>
+  <br>
+
+  <% unless current_user.physical_activity.nil? %>
+    <h5><strong>My fitness level: </strong><%= current_user.physical_activity %></h5>
+  <% end %>
+  <% unless current_user.physical_activity.nil? %>
+    <h5><strong>My description: </strong><%= current_user.description %></h5>
+  <% end %>
 
   <hr size="6" width="100%" align="left" color="#C8C8C8">
 
@@ -37,9 +38,9 @@
     </div>
   </div>
 
-<br>
-<hr size="6" width="100%" align="left" color="#C8C8C8">
-<br>
+  <br>
+  <hr size="6" width="100%" align="left" color="#C8C8C8">
+  <br>
 
   <div>
     <h3>My <i class="fa fa-heart"></i> events<a data-toggle="collapse" href="#interests" role="button" aria-expanded="false" aria-controls="interests" style="float:right;"><i class="fas fa-plus-circle dashboard-plus"></i>
@@ -63,15 +64,15 @@
     </div>
   </div>
 
-<br>
-<hr size="6" width="100%" align="left" color="#C8C8C8">
-<br>
+  <br>
+  <hr size="6" width="100%" align="left" color="#C8C8C8">
+  <br>
 
   <div>
     <h3>Past events<a data-toggle="collapse" href="#past-bookings" role="button" aria-expanded="false" aria-controls="past-bookings" style="float:right;"><i class="fas fa-plus-circle dashboard-plus"></i>
     </a></h3>
     <div class="collapse" id="past-bookings">
-      <div class="past-bookings" id="past_bookings">
+      <div class="past-bookings" id="past-bookings">
         <% if @past_bookings %>
           <% @past_bookings.each do |booking| %>
             <%= render 'bookings/past_bookings', booking: booking %>
@@ -81,8 +82,8 @@
     </div>
   </div>
 
-<br>
-<hr size="6" width="100%" align="left" color="#C8C8C8">
-
+  <br>
+  <hr size="6" width="100%" align="left" color="#C8C8C8">
+  
 </div>
 
