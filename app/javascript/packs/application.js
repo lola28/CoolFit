@@ -17,3 +17,4 @@ import 'bootstrap-slider';
 
 var mySlider = $("input.slider").slider();
 
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';

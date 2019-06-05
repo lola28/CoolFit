@@ -5,11 +5,21 @@ class RecomendationsController < ApplicationController
   end
 
   def create
-    @recomendation = Recommender.new(recomendation_params)
-    authorize @recomendation
-    @result = @recomendation.calculate
+    recommender = Recommender.new(recomendation_params)
 
-    redirect_to root_path(result: @result)
+    authorize recommender
+
+    @recommendations = recommender.calculate
+
+    @recommendations.map do |recommendation|
+      interest = Interest.new
+      authorize interest
+      interest.user = current_user
+      interest.activity = recommendation
+      interest.save
+    end
+
+    render 'pages/dashboard'
   end
 
   private
@@ -19,3 +29,5 @@ class RecomendationsController < ApplicationController
   end
 
 end
+
+

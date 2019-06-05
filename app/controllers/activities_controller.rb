@@ -31,15 +31,31 @@ class ActivitiesController < ApplicationController
 
     if params[:activity_query].present?
       @activities = @activities.search_by_name(params[:activity_query])
+      @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity }),
+        image_url: helpers.asset_url('running-circle.png')
+      }
+      end
     end
 
     if params[:location_query].present?
       @activities = @activities.search_by_location(params[:location_query])
+      @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity }),
+        image_url: helpers.asset_url('running-circle.png')
+      }
+      end
     end
 
-    if @activities.empty?
-      flash[:notice] = "😥 There is nothing corresponding to your search, please try again!"
-    end
+    # if @activities.empty?
+    #   flash[:notice] = "😥 There is nothing corresponding to your search, please try again!"
+    # end
   end
 
   # GET /activities/1
