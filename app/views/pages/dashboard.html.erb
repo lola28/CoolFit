@@ -1,10 +1,11 @@
+<% if !@recommendations.nil? %>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <p>You can find our recommendations for you in your <i class="fa fa-heart"></i> events</p>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
+<% end %>
 <div class="container mt-6 show-container">
 
 <div class="d-flex justify-content-between">
@@ -45,16 +46,19 @@
     </a></h3>
     <div class="collapse show" id="interests">
       <div class="interests" id="interests">
-        <% if @interests %>
-          <% @interests.each do |activity| %>
-            <%= render 'interests/interests', activity: activity %>
+        <% if @recommendations.nil? %>
+          <% if @interests %>
+            <% @interests.each do |activity| %>
+              <%= render 'interests/interests', activity: activity %>
+            <% end %>
           <% end %>
-        <% end %>
+        <% else %>
         <% if @recommendations %>
           <%  @recommendations.each do |recommended_activity| %>
           <%= render 'interests/interests', activity: recommended_activity %>
+          <% end %>
         <% end %>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>
