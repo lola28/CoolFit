@@ -123,29 +123,33 @@ aphrodisiac = Health.create!(
 puts 'Creating activities...'
 
 surf = Activity.create(
-  name: "Surf class at Carcavelos",
+  name: "Surf session at Carcavelos",
   location: "Av. Marginal 6, 2775-604 Carcavelos",
   latitude: 38.6266783,
   longitude: -9.2183177,
   time: ('2019-5-15-9-0-0'),
   duration: 120,
   fitness_level: 3,
-  description: "Wanna try surfing? Come to this session and enjoy the beach! Surf planks to be rent prior to the session. Meeting point at the surf stop",
-  photo_db: "https://theperfectwave.itravelsoftware.com/fotografije_itravel/2129/4692_635568970057304036_520_345.jpg",
+  description: "Join my buddy and I for surfing! We are passionate but not pros so don't feel intimidated:) Surf planks to be rent prior to the session. Meeting point at the surf stop",
+  photo_db: "https://www.rush.edu/sites/default/files/styles/hw_670x475/public/truth-behind-age-old-myths.jpg?itok=OAkI4PUL",
   category: endurance,
   owner: vlad,
-  max_capacity: 15,
+  max_capacity: 5,
   )
   surf.health_relations.create(health: cardiovascular)
   surf.health_relations.create(health: stress_relief)
   booking = Booking.new
   booking.activity = surf
   booking.user = alice
+  booking.rating = rand(1..5)
+  booking.save!
   booking2 = Booking.new
   booking2.activity = surf
   booking2.user = kaka
+  booking2.rating = rand(1..5)
+  booking2.save!
 
-  activity = Activity.create(
+activity = Activity.create(
   name: "Yoga and relaxation class",
   location: "R. das Portas de Santo Antão 27 Floor 1, 1150-264 Lisboa",
   latitude: 38.7277216,
@@ -161,6 +165,12 @@ surf = Activity.create(
   )
   activity.health_relations.create(health: aphrodisiac)
   activity.health_relations.create(health: stress_relief)
+
+  booking = Booking.new
+  booking.activity = activity
+  booking.user = alice
+  booking.rating = rand(1..5)
+  booking.save!
 
 activity = Activity.create(
   name: "Meditation walk in Gulbenkian Park",
@@ -181,9 +191,13 @@ activity = Activity.create(
   booking = Booking.new
   booking.activity = activity
   booking.user = vlad
+  booking.rating = rand(1..5)
+  booking.save!
   booking2 = Booking.new
   booking2.activity = activity
   booking2.user = kaka
+  booking2.rating = rand(1..5)
+  booking2.save!
 
 activity = Activity.create(
   name: "Zumba class @Le Wagon",
@@ -202,6 +216,17 @@ activity = Activity.create(
   activity.health_relations.create(health: cardiovascular)
   activity.health_relations.create(health: aphrodisiac)
 
+  booking = Booking.new
+  booking.activity = activity
+  booking.user = alice
+  booking.rating = rand(1..5)
+  booking.save!
+  booking2 = Booking.new
+  booking2.activity = activity
+  booking2.user = kaka
+  booking2.rating = rand(1..5)
+  booking2.save!
+
 activity = Activity.create(
   name: "Surf session at Carcavelos",
   location: "Av. Marginal 6, 2775-604 Carcavelos",
@@ -214,11 +239,15 @@ activity = Activity.create(
   photo_db: "https://www.rush.edu/sites/default/files/styles/hw_670x475/public/truth-behind-age-old-myths.jpg?itok=OAkI4PUL",
   category: endurance,
   owner: vlad,
-  max_capacity: 12,
-)
-activity.health_relations.create(health: cardiovascular)
-activity.health_relations.create(health: stress_relief)
-
+  max_capacity: 1,
+  )
+  activity.health_relations.create(health: cardiovascular)
+  activity.health_relations.create(health: stress_relief)
+  booking2 = Booking.new
+  booking2.activity = activity
+  booking2.user = kaka
+  booking2.rating = rand(1..5)
+  booking2.save!
 
 activity = Activity.create(
   name: "Afro Dance at Fit Place Benfica",
@@ -232,7 +261,7 @@ activity = Activity.create(
   photo_db: "http://nebula.wsimg.com/c85183f1044cd015bc48718585dc823a?AccessKeyId=88507A2F19ED52F3C364&disposition=0&alloworigin=1",
   category: booty_shake,
   owner: frankie,
-  max_capacity: 20,
+  max_capacity: 10,
   )
   activity.health_relations.create(health: cardiovascular)
   activity.health_relations.create(health: energy_boost)
@@ -250,10 +279,16 @@ activity = Activity.create(
   photo_db: "http://northrustico.com/wp-content/uploads/2018/05/healthy-lifestyle-lounge-beach-workout-port-melbou21.jpg",
   category: strength,
   owner: frankie,
-  max_capacity: 15,
+  max_capacity: 10,
   )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
+
+  booking = Booking.new
+  booking.activity = activity
+  booking.user = vlad
+  booking.rating = rand(1..5)
+  booking.save!
 
 activity = Activity.create(
   name: "Beach volley initiation",
@@ -267,7 +302,7 @@ activity = Activity.create(
   photo_db: "https://t3.ftcdn.net/jpg/02/11/60/86/240_F_211608648_66cBwuEDhCfdDNnED8hI2UpOkUqWuz4q.jpg",
   category: team_sport,
   owner: vlad,
-  max_capacity: 2,
+  max_capacity: 5,
   )
   health_relation = HealthRelation.create
   activity.health_relations.create(health: energy_boost)
@@ -285,7 +320,7 @@ activity = Activity.create(
   photo_db: "http://assets-news-bcdn-ll.dailyhunt.in/cmd/resize/400x400_60/fetchdata13/images/1d/2b/c2/1d2bc2032497a75be20a6a406e0c57e3.jpg",
   category: team_sport,
   owner: vlad,
-  max_capacity: 22,
+  max_capacity: 15,
   )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
@@ -302,7 +337,7 @@ activity = Activity.create(
   photo_db: "https://images.radio-canada.ca/q_auto,w_1600/v1/ici-regions/16x9/le_grand_bain_homme_slip.jpg",
   category: team_sport,
   owner: vlad,
-  max_capacity: 15,
+  max_capacity: 10,
   )
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
@@ -325,6 +360,12 @@ activity = Activity.create(
   activity.health_relations.create(health: cardiovascular)
   activity.health_relations.create(health: aphrodisiac)
 
+  booking = Booking.new
+  booking.activity = activity
+  booking.user = vlad
+  booking.rating = rand(1..5)
+  booking.save!
+
 activity = Activity.create(
   name: "Aquafitness",
   location: "R. de Campolide 237, 1070-030 Lisboa",
@@ -342,14 +383,15 @@ activity = Activity.create(
   activity.health_relations.create(health: energy_boost)
   activity.health_relations.create(health: cardiovascular)
 
-  Activity.all.each do |a|
-    2.times do
-      booking = Booking.new
-      booking.user = User.all.sample
-      booking.activity = a
-      booking.rating = rand(1..5)
-      booking.save!
-    end
-  end
+  booking = Booking.new
+  booking.activity = activity
+  booking.user = alice
+  booking.rating = rand(1..5)
+  booking.save!
+  booking2 = Booking.new
+  booking2.activity = activity
+  booking2.user = kaka
+  booking2.rating = rand(1..5)
+  booking2.save!
 
 puts 'Finished!'
