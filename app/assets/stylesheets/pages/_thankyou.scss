@@ -1,6 +1,5 @@
 .card-form-thanks {
   padding: 10vh;
-  padding-left: 20vh;
 }
 
 .card-form-thanks h2 {
@@ -15,10 +14,24 @@
 
 .form-inputs-thanks {
   width: 120vh;
+
+}
+
+.form-inputs-thanks ol{
+  padding: 3vh;
+}
+
+.col-form-label{
+  padding: 3vh;
+}
+
+.custom-control-label {
+  padding: 0.5vh;
 }
 
 .form-inputs-thanks p{
   margin-left: 7vh;
+  margin-right: 7vh;
 }
 
 .arrow {
