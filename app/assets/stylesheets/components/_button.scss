@@ -106,7 +106,7 @@
 .register-btn-selected {
   font-size: 14px;
   background-color: white;
-  color: $light-gray;
+  color: $dark-gray;
   width: 100px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -120,8 +120,35 @@
   text-decoration: none;
 }
 
-.full-capacity-btn:hover {
+.fully-booked {
+  font-size: 14px;
+  color: $light-gray;
+
+  .bookedtext {
+    width: 120px;
+    bottom: -5%;
+    left: 50%;
+    margin-left: -60px;
+  }
+}
+
+.fully-booked:hover {
+  color: $light-gray;
+
+  .bookedtext {
+  visibility: visible;
+}
+}
+
+.bookedtext {
+  visibility: hidden;
+  background-color: white;
   color: $dark-gray;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
 }
 
 .interest-btn {
