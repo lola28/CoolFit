@@ -1,23 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-coolfit d-flex justify-content-between">
   <div class="navbar-left">
-    <div class="navbar d-flex justify-content-between">
-      <div><%= link_to "CoolFit", root_path, class: "navbar-logo" %> </div>
-      <div><%= form_tag activities_path, method: :get, style:"width:100%" do %>
-        <ul>
-          <li class="navitem">
-            <%= text_field_tag :location_query,
-              params[:location_query], class: "form-control",
-              placeholder: "Type in your address...", class: "navbar-search" %>
-          </li>
-          <li class="navitem">
-            <%= text_field_tag :activity_query,
-              params[:activity_query], class: "form-control",
-              placeholder: "Type in the type of activity...", class: "navbar-search" %>
-          </li>
-          <%= submit_tag 'Search!', class: "btn btn-search-navbar" %>
-        </ul>
+    <div class="navbar-search">
+      <%= link_to "CoolFit", root_path, class: "navbar-logo" %>
+
+      <%= form_tag activities_path, method: :get, class: 'form-inline my-2 my-lg-0 navbar-search-form' do %>
+        <%= text_field_tag :location_query,
+          params[:location_query], placeholder: "Address...", class: 'form-control mr-sm-2 navbar-search-field' %>
+
+        <%= text_field_tag :activity_query,
+          params[:activity_query], placeholder: "Type of activity...", class: "form-control mr-sm-2 navbar-search-field" %>
+
+        <%= submit_tag 'Search!', class: "btn btn-search-navbar my-2 my-sm-0" %>
       <% end %>
-      </div>
     </div>
   </div>
 

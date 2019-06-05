@@ -3,7 +3,13 @@
   <%= render 'shared/card_index', activity: activity %>
 
   <div class="card-btns">
-    <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
     <%= link_to "Unlike", activity_interest_path(activity), method: :delete, remote: true, class: 'btn register-btn' %>
+    <% if (activity.max_capacity.nil? || activity.bookings.size < activity.max_capacity) %>
+      <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: 'btn register-btn' %>
+    <% else %>
+      <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
+        <div class="btn register-btn-selected fully-booked">Register<span class="bookedtext">Sorry, this class is fully booked!</span></div>
+      </div>
+    <% end %>
   </div>
 </div>

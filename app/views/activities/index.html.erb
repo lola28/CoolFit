@@ -7,7 +7,7 @@
   <div class="cards-index">
     <% @activities.each do |activity| %>
       <% unless activity.time.to_date.past? %>
-        <div class="card-index d-flex justify-content-between <%= (activity.max_capacity.nil?) || (activity.bookings.size < activity.max_capacity) ? 'available-capacity' : 'full-capacity'%> ">
+        <div class="card-index d-flex justify-content-between">
           <div class="card-index-img">
             <%= render 'shared/activity_photo', activity: activity %>
           </div>
@@ -25,26 +25,22 @@
                 <p><a href="#" class="card-index-benef" data-toggle="modal" data-target=".bd-example-modal-lg"><%=activity.healths.map(&:description).join(' / ') %></a></p>
             </div>
 
-            <div class="card-index-tags">
+            <div class="card-index-tags" data-tag-id="<%= activity.id %>">
               <% if activity.owner != current_user %>
                 <% booking = @user_registrations.select{ |booking| booking.activity == activity } %>
                 <% if booking == [] %>
-                  <div class="interest-index" data-activity-id="<%= activity.id %>" >
-                    <% if @user_interests.select{ |interest| interest.activity == activity } == [] %>
-                      <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
-                    <% else %>
-                      <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
-                    <% end %>
-                  </div>
-                  <br>
-                  <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
-                    <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: "btn register-btn" %>
-                  </div>
+                  <%= render 'interests/heart_button', activity: activity, user_interests: @user_interests %>
+                  <% if (activity.max_capacity.nil? || activity.bookings.size < activity.max_capacity) %>
+                    <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
+                      <%= link_to "Register", activity_bookings_path(activity), method: :post, remote: true, class: "btn register-btn" %>
+                    </div>
+                  <% else %>
+                    <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
+                      <div class="btn register-btn-selected fully-booked">Register<span class="bookedtext">Sorry, this class is fully booked!</span></div>
+                    </div>
+                  <% end %>
                 <% else %>
-                  <div class="interest-index" data-activity-id="<%= activity.id %>" >
-                    <p class="registered">✔ already registered!</p>
-                  </div>
-                  <br>
+                  <%= render 'bookings/registered', activity: activity %>
                   <div class="card-btn-index" data-bookings-id="<%= activity.id %>">
                     <%= link_to "Unregister", activity_booking_path(activity.id, booking.flatten), method: :delete, remote: true, class: "btn register-btn-selected" %>
                   </div>
