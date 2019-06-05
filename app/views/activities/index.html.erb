@@ -18,8 +18,10 @@
               <%= link_to activity do %>
                 <h3><strong><%= activity.name %></strong></h3>
               <% end %>
-              <p class="avatar-name"><%= render 'shared/avatar_small', activity: activity %>
-                <%= activity.owner.username %></p>
+              <div class="avatar-name d-flex align-items-center">
+                <p><%= render 'shared/avatar_small', activity: activity %></p>
+                <p style="margin-top:5px"><%= activity.owner.username %></p>
+              </div>
                 <p><a href="#" class="card-index-benef" data-toggle="modal" data-target=".bd-example-modal-lg"><%=activity.healths.map(&:description).join(' / ') %></a></p>
             </div>
 
@@ -53,17 +55,24 @@
         </div>
       <% end %>
     <% end %>
+    <% if @activities.empty? %>
+      <div class="empty-search-img">
+        <%= image_tag ("undraw_running.png")%>
+        <h3>Sorry, there is no activities matching your search...</h3>
+      </div>
+    <% end %>
   </div>
 
-  <div class="map-container" style="position: sticky; top: 50px;">
-    <div
-      id="map"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      class="map"
-    >
+  <% if !@activities.empty? %>
+    <div class="map-container" style="position: sticky; top: 50px;">
+      <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        class="map"
+      >
+      </div>
     </div>
-  </div>
-
+  <% end %>
 </div>
 
