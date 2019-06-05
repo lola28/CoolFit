@@ -12,4 +12,10 @@ if (document.querySelector("[data-interests-id='<%= @activity.id %>']")) {
   document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('data-method', 'delete');
   document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('href', '<%= activity_booking_path(@activity, @booking)%>');
   document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('class', 'btn register-btn-selected');
+  document.querySelector("[data-activity-id='<%= @activity.id %>']").remove();
+  function addRegistration(regHTML) {
+    const card = document.querySelector("[data-tag-id='<%= @activity.id %>']");
+    card.insertAdjacentHTML('afterbegin', regHTML);
+  }
+  addRegistration('<%= j render "bookings/registered", activity: @activity %>');
 }

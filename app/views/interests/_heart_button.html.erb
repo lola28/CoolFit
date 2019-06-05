@@ -1,0 +1,9 @@
+<div class="interest-index" data-activity-id="<%= activity.id %>" >
+  <% if user_interests.select{ |interest| interest.activity == activity } == [] %>
+    <%= link_to "♡", activity_interest_path(activity), method: :post, remote: true, class: "interest-btn" %>
+  <% else %>
+    <%= link_to "♥", activity_interest_path(activity), method: :delete, remote: true, class: "interest-btn-selected" %>
+  <% end %>
+</div>
+<br>
+

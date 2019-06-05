@@ -5,4 +5,10 @@ if (document.querySelector("[data-future-bookings-id='<%= @activity.id %>']")) {
   document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('data-method', 'post');
   document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('href', '<%= activity_bookings_path(@activity)%>');
   document.querySelector("[data-bookings-id='<%= @activity.id %>'] > a").setAttribute('class', 'btn register-btn');
+  document.querySelector("[data-registered-id='<%= @activity.id %>']").remove();
+  function addHeart(heartHTML) {
+    const card = document.querySelector("[data-tag-id='<%= @activity.id %>']");
+    card.insertAdjacentHTML('afterbegin', heartHTML);
+  }
+  addHeart('<%= j render "interests/heart_button", activity: @activity, user_interests: [] %>');
 };
