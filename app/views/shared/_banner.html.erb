@@ -4,7 +4,6 @@
 
     <div class="d-flex banner-item">
       <%= link_to "Browse", activities_path, class: "banner-item", style: "text-decoration: none;" %>
-      <%= link_to "Locations", "#", class: "banner-item", style: "text-decoration: none;" %>
       <% if current_user.nil? %>
             <%= link_to "Sign up", new_user_registration_path, class: "banner-item" %>
       <% else %>

@@ -3,9 +3,10 @@
 </div>
 <div class="card-dashboard-infos">
     <h3 class="card-dashboard-title"><strong><%= link_to activity.name, activity_path(activity) %></strong></h3>
-    <p class="avatar-name-dashboard" style="font-size: 16px;">
-        <%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %><%= activity.owner.username %>
-    </p>
+    <div class="avatar-name-dashboard d-flex align-items-center" style="font-size: 16px;">
+        <p><%= render 'shared/avatar_small', activity: activity, img_html: {style:"margin-bottom: 5vh;"} %></p>
+        <p style="margin-top:6px"><%= activity.owner.username %></p>
+    </div>
     <p class="card-dashboard-benef"><%=activity.healths.map(&:description).join(' / ') %></p>
 </div>
 
