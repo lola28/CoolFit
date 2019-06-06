@@ -1,77 +1,78 @@
-<div class="d-flex justify-content-between">
-  <% if current_user == @user %>
-  <h1>See below the events you are organizing <span class="banner-logo"><%= @user.username %></span>!</h1>
-    <%= render 'shared/avatar_large' %>
-  <% else %>
-  <h1>See below the events <span class="banner-logo"><%= @user.username %></span> is organizing</h1>
-  <% end %>
-</div>
+<div class="container mt-6 show-container">
+  <div class="d-flex justify-content-between">
+    <% if current_user == @user %>
+    <h1>Here are your own events, <span class="banner-logo"><%= @user.username %></span>!</h1>
+      <%= render 'shared/avatar_large' %>
+    <% else %>
+    <h1>See below the events <span class="banner-logo"><%= @user.username %></span> is organizing</h1>
+    <% end %>
+  </div>
 
-<br>
+  <br>
 
-<h5><strong>Description:</strong> <%= @user.description %></h5>
-<br>
+  <h5><strong>Description:</strong> <%= @user.description %></h5>
+  <br>
 
-<%#= binding.pry %>
+  <h5><strong>Physical activity level:</strong>
+    <% if current_user.physical_activity.nil? %>
+      <em style="filter: brightness(150%);">no specialty yet</em>
+    <% else %>
+      <%= current_user.physical_activity.capitalize %> exercises
+    <% end %>
+  </h5>
+  <br>
 
-<h5><strong>Physical activity level:</strong>
-  <% if current_user.physical_activity.nil? %>
-    <em style="filter: brightness(150%);">no specialty yet</em>
-  <% else %>
-    <%= current_user.physical_activity.capitalize %> exercises
-  <% end %>
-</h5>
-<br>
-
-<h5><strong>Average rating:</strong>
-  <% if @user.average_owner_rating.zero? %>
-    <em style="filter: brightness(150%);">no rating yet</em>
-  <% else %>
-    <div class="d-flex justify-content-start">
-      <% @user.average_owner_rating.times.each do |rate| %>
+  <div class="d-flex">
+    <h5><strong>Average rating:</strong>
+    <% if @user.average_owner_rating.zero? %>
+      <em style="filter: brightness(150%);">no rating yet</em>
+    <% else %>
+      <div class="d-flex justify-content-start">
+        <% @user.average_owner_rating.times.each do |rate| %>
         <i class="fas fa-star" style="color:#FA9800;"></i>
         <% end %>
         <% @user.star_to_5.times.each do |rate| %>
         <i class="fas fa-star" style="color:#C8C8C8;"></i>
         <% end %>
+      </div>
+    <% end %>
+    </h5>
+  </div>
+
+  <% if current_user == @user %>
+    <h5>Create your own events and bring people together around your favorite activities! <%= link_to "Create", new_activity_path, class:"btn admin-btn", style:"font-size: 20px"%></h5>
+  <% end %>
+  <br>
+
+  <% if !@future_activities.empty? %>
+    <div>
+      <hr size="6" width="100%" align="left" color="#C8C8C8">
+      <h3>My upcoming events</h3>
+      <br>
+
+      <div class="future-activities">
+        <% @future_activities.each do |activity| %>
+          <%= render 'activities/future_activities', activity: activity %>
+        <% end %>
+      </div>
     </div>
   <% end %>
-</h5>
 
-<% if current_user == @user %>
-  <h5>Create your own events and bring people together around your favorite activities! <%= link_to "Create", new_activity_path, class:"btn admin-btn", style:"font-size: 20px"%></h5>
-<% end %>
-<br>
+  <br>
 
-<% if !@future_activities.empty? %>
-  <div>
-    <hr size="6" width="100%" align="left" color="#C8C8C8">
-    <h3> Upcoming events</h3>
-    <br>
-
-    <div class="future-activities">
-      <% @future_activities.each do |activity| %>
-        <%= render 'activities/future_activities', activity: activity %>
+  <% if !@past_activities.empty? %>
+    <div>
+      <% if current_user == @user %>
+          <h3>My past events</h3>
+      <% else %>
+        <h3>past events</h3>
       <% end %>
+
+      <div class="future-activities">
+        <% @past_activities.each do |activity| %>
+          <%= render 'activities/past_activities', activity: activity %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
-
-<br>
-
-<% if !@past_activities.empty? %>
-  <div>
-    <% if current_user == @user %>
-        <h3>My past events</h3>
-    <% else %>
-      <h3>past events</h3>
-    <% end %>
-
-    <div class="future-activities">
-      <% @past_activities.each do |activity| %>
-        <%= render 'activities/past_activities', activity: activity %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
