@@ -39,5 +39,8 @@ end
 gem 'letter_opener', group: :development
 gem 'postmark-rails'
 
+# MetaTags
+gem 'meta-tags'
+
 # Passwords
 # gem 'dotenv-rails', groups: [:development, :test]
