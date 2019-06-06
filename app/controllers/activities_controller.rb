@@ -53,9 +53,6 @@ class ActivitiesController < ApplicationController
       end
     end
 
-    # if @activities.empty?
-    #   flash[:notice] = "😥 There is nothing corresponding to your search, please try again!"
-    # end
   end
 
   # GET /activities/1
@@ -90,12 +87,21 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(activity_params)
-    # @activity.category = Category.find(params[:activity][:category])
     @activity.owner = current_user
     authorize @activity
 
+    health_ids = params[:activity][:health_ids]
+    health_ids.each do |id|
+      if !id.blank?
+        health_relation = HealthRelation.new
+        health_relation.health = Health.find(id)
+        health_relation.activity = @activity
+        health_relation.save
+      end
+    end
+
     if @activity.save
-      redirect_to dashboard_owner_path
+      redirect_to owner_dashboard_path(current_user)
     else
       render :new
     end
@@ -105,7 +111,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
     if @activity.update(activity_params)
-      redirect_to dashboard_owner_path, notice: "You just updated your event"
+      redirect_to owner_dashboard_path(current_user), notice: "You just updated your event"
     else
       render :edit
     end
