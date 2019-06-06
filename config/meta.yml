@@ -1,0 +1,7 @@
+# metal.yml
+meta_product_name: "Coolfit"
+meta_title: "Coolfit - Get back to sports with people you like, around you"
+meta_description: "Coolfit is a health-driven website facilitating middle-age individuals to get back into sports, at their own pace, with like-minded partners"
+meta_image: "old-sports-mosaic.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
+
