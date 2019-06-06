@@ -5,7 +5,9 @@
 
   <%= render 'form', activity: @activity %>
 
-  <div style="text-align:right;">
-    <%= link_to 'Cancel', dashboard_owner_path, class: "password-btn" %>
+  <div style="text-align:right; margin-top: 10px;">
+    <%= link_to 'Cancel', owner_dashboard_path(current_user), class: "password-btn" %>
   </div>
 </div>
+
+<br>
