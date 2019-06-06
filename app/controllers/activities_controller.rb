@@ -52,6 +52,10 @@ class ActivitiesController < ApplicationController
       }
       end
     end
+    
+        set_meta_tags title: 'Activities',
+      description: 'See activities around you',
+      keywords: 'Activities, Index, Around'
 
   end
 
@@ -69,6 +73,22 @@ class ActivitiesController < ApplicationController
         lng: @activity.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { activity: @activity })
       }]
+
+# set_meta_tags og: {
+#   title:    'Two structured image properties',
+#   type:     'website',
+#   url:      'view-source:http://examples.opengraphprotocol.us/image-array.html',
+#   image:    [{
+#     _: 'http://examples.opengraphprotocol.us/media/images/75.png',
+#     width: 75,
+#     height: 75,
+#   },
+#   {
+#     _: 'http://examples.opengraphprotocol.us/media/images/50.png',
+#     width: 50,
+#     height: 50,
+#   }]
+# }
   end
 
   # GET /activities/new
