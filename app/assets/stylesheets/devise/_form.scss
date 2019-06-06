@@ -12,7 +12,10 @@
 .form-inputs.devise {
   color: white;
   font-family: $body-font;
-
+  background-color: $gray;
+  opacity: 0.85;
+  padding: 30px;
+  border-radius: 2px;
 }
 
 .text-muted {

@@ -14,11 +14,13 @@
                   required: false,
                   input_html: { autocomplete: "current-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
 
     <div class="form-actions text-central">
-      <%= f.button :submit, "Log in", class: "btn btn-edit-user" %>
+      <%= f.button :submit, "Log in", class: "btn btn-search" %>
     </div>
+
+    </div>
+
   <% end %>
 
   <div class="hr"></div>
