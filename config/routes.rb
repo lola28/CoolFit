@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'dashboard/:id', to: 'pages#dashboard_owner', as: 'owner_dashboard'
   get 'thankyou', to: 'pages#thankyou', as: 'thankyou'
   get 'moreinfo/cardiovascular', to: 'pages#cardiovascular', as: 'cardiovascular'
+  get "/404", to: "errors#not_found"
+  get "/422", to: "errors#unacceptable"
+  get "/500", to: "errors#internal_error"
 
   post 'recomendation', to: 'recomendations#create'
 
