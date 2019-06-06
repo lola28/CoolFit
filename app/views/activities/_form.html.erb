@@ -19,19 +19,21 @@
   </div>
 
   <div class="form-inputs">
-    <%= f.input :max_capacity, class: "form-control" %>
+    <%= f.input :max_capacity, label: "Maximum number of people", class: "form-control" %>
   </div>
 
   <div class="form-inputs">
-    <%= f.input :fitness_level, class: "form-control" %>
+    <%= f.input :fitness_level, collection: 1..3, label: "Fitness level (from 1-low, to 3-vigorous)", prompt: "Choose a fitness level", class: "form-control" %>
   </div>
 
   <div class="form-inputs">
-    <%= f.association :category, label_method: :description, prompt: "Choose a Category"%>
+    <%= f.association :category, label_method: :description, prompt: "Choose a category"%>
   </div>
+  <br>
 
   <div class="form-inputs">
-    <%= f.association :healths, label_method: :description, as: :check_boxes %>
+    <%= f.label :healths, label: "Expected health benefits (select as many as you want)" %>
+    <%= f.association :healths, label_method: :description, as: :check_boxes, label: "" %>
   </div>
 
   <br>
@@ -49,6 +51,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-edit-user", style: "width: 145px; float: right;"  %>
+    <%= f.submit "Create event", class: "btn btn-edit-user", style: "width: 130px; float: right; border: 1px solid rgba(39, 39, 39, 0.2);"  %>
   </div>
 <% end %>
