@@ -7,7 +7,7 @@
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
+    <div class="form-inputs devise">
       <%= f.input :username,
                   required: true,
                   autofocus: true,
@@ -25,10 +25,13 @@
                   input_html: { autocomplete: "new-password", style: "background-color: #4C4C4C; opacity: 0.7; border: none; outline: none; color: white;" } %>
 
       <%= f.input :professional %>
-    </div>
+
     <div class="form-actions text-central">
-      <%= f.button :submit, "Sign up", class: "btn btn-edit-user" %>
+      <%= f.button :submit, "Sign up", class: "btn btn-search" %>
     </div>
+
+    </div>
+
   <% end %>
   <div class="hr"></div>
   <%= render "devise/shared/links" %>

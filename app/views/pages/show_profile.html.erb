@@ -1,45 +1,21 @@
-<br>
+<div class="container mt-4 show-container">
 
-<div class="d-flex align-items-center justify-content-around">
+  <h3 class="profile-title">My profile</h3>
 
-  <table class="table">
-    <tr>
-      <th>My username:</th>
-      <td><span class="navbar-logo"><%= current_user.username %></span> </td>
-    </tr>
-    <tr>
-      <th>My name:</th>
-      <td><%= current_user.name %></td>
-    </tr>
-    <tr>
-      <th>My email:</th>
-      <td><%= current_user.email %></td>
-    </tr>
-    <tr>
-      <th>My profile picture: </th>
-      <td> <%= render 'shared/avatar_large' %></td>
-    </tr>
-    <tr>
-      <th>My age: </th>
-      <td><%= current_user.age %></td>
-    </tr>
-    <tr>
-      <th>My physical activity: </th>
-      <td><%= current_user.physical_activity %></td>
-    </tr>
-    <tr>
-      <th>My description: </th>
-      <td><%= current_user.description %></td>
-    </tr>
-  </table>
+  <br>
 
-  <div class="edit-btns">
-    <%= link_to "Update", profile_edit_path, class:"btn admin-btn", style:"font-size: 20px; height: 45px; width: 120px; margin: 0 auto;" %>
-    <p style="margin: 0;">or</p>
-    <%= link_to "Change your password", edit_user_registration_path, class:"password-btn" %>
+  <div>
+    <p><%= render 'shared/avatar_large' %><%= current_user.username %></p>
+    <p><%= current_user.name %></p>
+    <p><%= current_user.email %><p>
+    <p><%= current_user.age %> years</p>
+    <p><u><strong>My physical activity</strong></u>: <%= current_user.physical_activity.capitalize %></p>
+    <p><u><strong>Description</strong></u>: <%= current_user.description %><p>
   </div>
 
+  <div class="edit-btns">
+    <p><%= link_to "Update", profile_edit_path, class:"btn btn-search" %>or <%= link_to "Change your password", edit_user_registration_path, class:"password-btn" %></p>
+  </div>
 </div>
-
 
 

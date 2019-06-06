@@ -9,10 +9,13 @@
   background-image: linear-gradient( rgba(0,0,0,0.1),rgba(0,0,0,0.1) ),asset-url('old-sports-mosaic.png')
 }
 
-.form-inputs {
+.form-inputs.devise {
   color: white;
   font-family: $body-font;
-
+  background-color: $gray;
+  opacity: 0.85;
+  padding: 30px;
+  border-radius: 2px;
 }
 
 .text-muted {
